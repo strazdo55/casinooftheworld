@@ -75,7 +75,9 @@ const body = `
 </div>
 
 <main class="container">
-  <aside class="disclosure" style="margin-top:1.5rem">
+  <p class="page-updated"><time datetime="${new Date().toISOString().slice(0, 10)}">Updated ${new Date().toLocaleString("en-GB", { month: "long", year: "numeric" })}</time> — comparison table, reviews, and guides refreshed by our editorial team.</p>
+
+  <aside class="disclosure" style="margin-top:1rem">
     <strong>Affiliate Disclosure:</strong> We may earn a commission when you sign up via our links. Ratings are editorial—see <a href="/affiliate-disclosure/">how we make money</a>.
   </aside>
 

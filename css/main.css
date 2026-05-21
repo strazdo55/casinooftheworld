@@ -94,6 +94,17 @@ a:hover {
 .logo-text {
   white-space: nowrap;
   line-height: 1.2;
+  font-weight: 800;
+  letter-spacing: -0.03em;
+}
+
+.logo-accent {
+  color: var(--lime);
+  font-weight: 800;
+}
+
+.logo:hover .logo-accent {
+  color: #fff;
 }
 
 .logo img,
@@ -291,6 +302,17 @@ a:hover {
   color: var(--navy);
   margin: 0 0 0.75rem;
   font-weight: 800;
+}
+
+.page-updated {
+  margin: 1.25rem 0 0;
+  font-size: 0.88rem;
+  color: var(--text-muted);
+}
+
+.page-updated time {
+  font-weight: 700;
+  color: var(--navy);
 }
 
 .lead {

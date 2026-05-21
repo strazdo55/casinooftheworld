@@ -34,7 +34,7 @@ export function header(activePath = "") {
   <div class="container header-inner">
     <a href="/" class="logo" title="Casino of the World — Home">
       ${LOGO_SVG}
-      <span class="logo-text">Casino of the World</span>
+      <span class="logo-text">Casino of the <span class="logo-accent">World</span></span>
     </a>
     <button class="menu-toggle" aria-label="Open menu" type="button" aria-expanded="false" aria-controls="nav-main">☰</button>
     <div class="nav-scroll-wrap">
