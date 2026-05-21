@@ -1,6 +1,6 @@
 /** Curated internal + external links for core site pages */
 
-import { htmlHrefToClean } from "./paths.mjs";
+import { htmlHrefToClean, rewriteHtmlLinks } from "./paths.mjs";
 
 export const AUTHORITY = {
   ncpg: {
@@ -73,7 +73,8 @@ ${lis}
 }
 
 export function pageResources({ intro, related, external }) {
-  return `${intro || ""}
+  const cleanIntro = intro ? rewriteHtmlLinks(intro) : "";
+  return `${cleanIntro}
 ${related ? relatedList(related) : ""}
 ${external ? externalList(external) : ""}`;
 }
@@ -262,7 +263,7 @@ export function enrichBlogArticle(bodyHtml, enrichment, depth = 1) {
   const marker = 'class="article-related"';
   if (bodyHtml.includes(marker)) return bodyHtml;
 
-  const context = enrichment.context || "";
+  const context = enrichment.context ? rewriteHtmlLinks(enrichment.context) : "";
   const related = relatedList(enrichment.related || []);
   const external = externalList(enrichment.external || []);
 

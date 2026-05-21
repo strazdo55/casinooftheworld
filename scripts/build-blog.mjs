@@ -201,6 +201,12 @@ async function main() {
   }
 
   await writeServeConfig();
+  const { execSync } = await import("child_process");
+  try {
+    execSync("node scripts/generate-sitemap.mjs", { cwd: ROOT, stdio: "inherit" });
+  } catch {
+    console.warn("Sitemap generation skipped");
+  }
 }
 
 main().catch((e) => {

@@ -8,6 +8,8 @@
     "build": "node scripts/build-all.mjs",
     "build:operators": "node scripts/build-operators.mjs",
     "build:blog": "node scripts/build-blog.mjs",
+    "build:blog:batch": "node scripts/add-blog-batch.mjs && node scripts/build-blog.mjs",
+    "build:sitemap": "node scripts/generate-sitemap.mjs",
     "sync:routes": "node scripts/write-serve-config.mjs",
     "migrate:clean-urls": "node scripts/migrate-clean-urls.mjs",
     "fix:redirects": "node scripts/fix-redirect-stubs.mjs",

@@ -15,12 +15,9 @@ export async function removeBlogRedirectStubs() {
 }
 
 export async function writeServeConfig() {
+  // Only rewrite /blog/:slug — do NOT map /:slug to blog HTML (breaks relative links).
   const rewrites = [
     { source: "/blog/:slug", destination: "/blog/:slug/index.html" },
-    ...posts.map((p) => ({
-      source: `/${p.slug}`,
-      destination: `/blog/${p.slug}/index.html`,
-    })),
   ];
 
   const config = {

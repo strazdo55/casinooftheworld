@@ -25,6 +25,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/css/main.css">
   <link rel="icon" href="/assets/images/brand/favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="/assets/images/brand/logo.svg">
 </head>
 <body>
 <header class="site-header">
@@ -67,10 +68,10 @@
           <a href="/reviews/" class="">Reviews</a>
           <a href="/us-casinos/" class="">US Casinos</a>
           <a href="/casinos-by-country/" class="">By Country</a>
-          <a href="/" class="">Casino Blog</a>
+          <a href="/blog/" class="active">Casino Blog</a>
           <a href="/sports-betting/" class="">Sports Betting</a>
     </nav>
-    <a href="/" class="header-cta">Casino Blog</a>
+    <a href="/blog/" class="header-cta">Casino Blog</a>
     <button class="search-btn" type="button" aria-label="Search">🔍</button>
   </div>
 </header>
@@ -80,7 +81,7 @@
   <h1 class="section-title">Casino of the World Blog</h1>
   <p class="lead">Online casino news, slot reviews, live dealer guides, and bankroll tips—updated by our editorial team.</p>
   <section class="blog-hero-featured">
-    <a href="/blog/best-new-online-slots-2026/"><img src="/assets/images/blog/best-new-online-slots-2026.png" alt="Best New Online Slots to Play in 2026" onerror="this.src='../assets/images/hero/home-hero.webp'"></a>
+    <a href="/blog/best-new-online-slots-2026/"><img src="/assets/images/blog/best-new-online-slots-2026.png" alt="Best New Online Slots to Play in 2026" onerror="this.src='/assets/images/hero/home-hero.png'"></a>
     <div>
       <span class="tag">Slots</span>
       <h2 style="font-size:1.75rem;margin:0.5rem 0"><a href="/blog/best-new-online-slots-2026/">Best New Online Slots to Play in 2026</a></h2>
@@ -97,9 +98,12 @@
 <button type="button" class="cat-btn" data-category="casino-reviews">CASINO REVIEWS</button>
 <button type="button" class="cat-btn" data-category="live-casino">LIVE CASINO</button>
 <button type="button" class="cat-btn" data-category="casino-guides">CASINO GUIDES</button>
+<button type="button" class="cat-btn" data-category="casino-bonuses">CASINO BONUSES</button>
+<button type="button" class="cat-btn" data-category="banking">BANKING</button>
+<button type="button" class="cat-btn" data-category="us-casinos">US CASINOS</button>
   </div>
   <div class="post-grid"><article class="post-card" data-category="slots">
-  <a href="/blog/best-new-online-slots-2026/"><img src="/assets/images/blog/best-new-online-slots-2026.png" alt="" onerror="this.src='../assets/images/hero/home-hero.webp'"></a>
+  <a href="/blog/best-new-online-slots-2026/"><img src="/assets/images/blog/best-new-online-slots-2026.png" alt="" onerror="this.src='/assets/images/hero/home-hero.png'"></a>
   <div class="body">
     <span class="tag">Slots</span>
     <h3><a href="/blog/best-new-online-slots-2026/">Best New Online Slots to Play in 2026</a></h3>
@@ -108,7 +112,7 @@
   </div>
 </article>
 <article class="post-card" data-category="casino-news">
-  <a href="/blog/us-igaming-expansion-2026/"><img src="/assets/images/blog/us-igaming-expansion-2026.png" alt="" onerror="this.src='../assets/images/hero/home-hero.webp'"></a>
+  <a href="/blog/us-igaming-expansion-2026/"><img src="/assets/images/blog/us-igaming-expansion-2026.png" alt="" onerror="this.src='/assets/images/hero/home-hero.png'"></a>
   <div class="body">
     <span class="tag">Casino News</span>
     <h3><a href="/blog/us-igaming-expansion-2026/">US Online Casino Expansion: Which States Moved in 2026?</a></h3>
@@ -117,7 +121,7 @@
   </div>
 </article>
 <article class="post-card" data-category="casino-tips">
-  <a href="/blog/twenty-dollar-casino-method/"><img src="/assets/images/blog/twenty-dollar-casino-method.png" alt="" onerror="this.src='../assets/images/hero/home-hero.webp'"></a>
+  <a href="/blog/twenty-dollar-casino-method/"><img src="/assets/images/blog/twenty-dollar-casino-method.png" alt="" onerror="this.src='/assets/images/hero/home-hero.png'"></a>
   <div class="body">
     <span class="tag">Casino Tips</span>
     <h3><a href="/blog/twenty-dollar-casino-method/">What Is the $20 Method at the Casino? Strategy Explained</a></h3>
@@ -126,7 +130,7 @@
   </div>
 </article>
 <article class="post-card" data-category="casino-reviews">
-  <a href="/blog/fastest-payout-online-casinos/"><img src="/assets/images/blog/fastest-payout-online-casinos.png" alt="" onerror="this.src='../assets/images/hero/home-hero.webp'"></a>
+  <a href="/blog/fastest-payout-online-casinos/"><img src="/assets/images/blog/fastest-payout-online-casinos.png" alt="" onerror="this.src='/assets/images/hero/home-hero.png'"></a>
   <div class="body">
     <span class="tag">Casino Reviews</span>
     <h3><a href="/blog/fastest-payout-online-casinos/">Fastest Payout Online Casinos Compared (2026)</a></h3>
@@ -135,7 +139,7 @@
   </div>
 </article>
 <article class="post-card" data-category="live-casino">
-  <a href="/blog/best-live-dealer-casinos-2026/"><img src="/assets/images/blog/best-live-dealer-casinos-2026.png" alt="" onerror="this.src='../assets/images/hero/home-hero.webp'"></a>
+  <a href="/blog/best-live-dealer-casinos-2026/"><img src="/assets/images/blog/best-live-dealer-casinos-2026.png" alt="" onerror="this.src='/assets/images/hero/home-hero.png'"></a>
   <div class="body">
     <span class="tag">Live Casino</span>
     <h3><a href="/blog/best-live-dealer-casinos-2026/">Best Live Dealer Online Casinos in 2026</a></h3>
@@ -144,12 +148,192 @@
   </div>
 </article>
 <article class="post-card" data-category="casino-guides">
-  <a href="/blog/live-dealer-vs-rng-slots/"><img src="/assets/images/blog/live-dealer-vs-rng-slots.png" alt="" onerror="this.src='../assets/images/hero/home-hero.webp'"></a>
+  <a href="/blog/live-dealer-vs-rng-slots/"><img src="/assets/images/blog/live-dealer-vs-rng-slots.png" alt="" onerror="this.src='/assets/images/hero/home-hero.png'"></a>
   <div class="body">
     <span class="tag">Casino Guides</span>
     <h3><a href="/blog/live-dealer-vs-rng-slots/">Live Dealer vs RNG Slots: Which Fits Your Style?</a></h3>
     <p class="blog-meta">Chris Faria · 2 weeks ago</p>
     <p>Compare house edges, pacing, and mobile performance between studio streams and software-based games.</p>
+  </div>
+</article>
+<article class="post-card" data-category="casino-guides">
+  <a href="/blog/online-casino-kyc-verification-guide/"><img src="/assets/images/blog/online-casino-kyc-verification-guide.png" alt="" onerror="this.src='/assets/images/hero/home-hero.png'"></a>
+  <div class="body">
+    <span class="tag">Casino Guides</span>
+    <h3><a href="/blog/online-casino-kyc-verification-guide/">Online Casino KYC Verification: What Documents You Need (2026)</a></h3>
+    <p class="blog-meta">Maria Chen · 1 day ago</p>
+    <p>ID checks, address proof, and payout delays—how KYC works at licensed casinos and how to pass verification faster.</p>
+  </div>
+</article>
+<article class="post-card" data-category="casino-bonuses">
+  <a href="/blog/no-deposit-bonus-codes-2026/"><img src="/assets/images/blog/no-deposit-bonus-codes-2026.png" alt="" onerror="this.src='/assets/images/hero/home-hero.png'"></a>
+  <div class="body">
+    <span class="tag">Casino Bonuses</span>
+    <h3><a href="/blog/no-deposit-bonus-codes-2026/">No Deposit Bonus Codes 2026: How Free-Spin Offers Really Work</a></h3>
+    <p class="blog-meta">Taylor Smith · 2 days ago</p>
+    <p>No-deposit promos look risk-free until you read the fine print. We break down wagering caps, max cashouts, and eligible games.</p>
+  </div>
+</article>
+<article class="post-card" data-category="banking">
+  <a href="/blog/bitcoin-casino-withdrawals-guide/"><img src="/assets/images/blog/bitcoin-casino-withdrawals-guide.png" alt="" onerror="this.src='/assets/images/hero/home-hero.png'"></a>
+  <div class="body">
+    <span class="tag">Banking</span>
+    <h3><a href="/blog/bitcoin-casino-withdrawals-guide/">Bitcoin Casino Withdrawals: Speed, Fees, and Limits Explained</a></h3>
+    <p class="blog-meta">Chris Faria · 3 days ago</p>
+    <p>Crypto cashouts can be fast—or stuck in review. Compare BTC, Lightning, and stablecoin options at major casino brands.</p>
+  </div>
+</article>
+<article class="post-card" data-category="casino-news">
+  <a href="/blog/new-york-online-casino-legalization-2026/"><img src="/assets/images/blog/new-york-online-casino-legalization-2026.png" alt="" onerror="this.src='/assets/images/hero/home-hero.png'"></a>
+  <div class="body">
+    <span class="tag">Casino News</span>
+    <h3><a href="/blog/new-york-online-casino-legalization-2026/">New York Online Casino Bill: What 2026 Legislation Could Change</a></h3>
+    <p class="blog-meta">Taylor Smith · 4 days ago</p>
+    <p>Lawmakers are revisiting iGaming in Albany. Here is what prior bills proposed and what players should watch this session.</p>
+  </div>
+</article>
+<article class="post-card" data-category="casino-news">
+  <a href="/blog/ontario-igaming-regulated-sites-2026/"><img src="/assets/images/blog/ontario-igaming-regulated-sites-2026.png" alt="" onerror="this.src='/assets/images/hero/home-hero.png'"></a>
+  <div class="body">
+    <span class="tag">Casino News</span>
+    <h3><a href="/blog/ontario-igaming-regulated-sites-2026/">Ontario iGaming 2026: Regulated Sites, Game Libraries, and Player Rules</a></h3>
+    <p class="blog-meta">Maria Chen · 5 days ago</p>
+    <p>Ontario's regulated market continues to mature. We outline how AGCO licensing affects game choice, bonuses, and responsible play tools.</p>
+  </div>
+</article>
+<article class="post-card" data-category="slots">
+  <a href="/blog/slot-rtp-volatility-explained/"><img src="/assets/images/blog/slot-rtp-volatility-explained.png" alt="" onerror="this.src='/assets/images/hero/home-hero.png'"></a>
+  <div class="body">
+    <span class="tag">Slots</span>
+    <h3><a href="/blog/slot-rtp-volatility-explained/">Slot RTP and Volatility Explained for Real-Money Players</a></h3>
+    <p class="blog-meta">Chris Faria · 6 days ago</p>
+    <p>RTP is not a session guarantee and volatility shapes how swings feel. Learn how to read both before you pick a slot.</p>
+  </div>
+</article>
+<article class="post-card" data-category="casino-guides">
+  <a href="/blog/blackjack-basic-strategy-online/"><img src="/assets/images/blog/blackjack-basic-strategy-online.png" alt="" onerror="this.src='/assets/images/hero/home-hero.png'"></a>
+  <div class="body">
+    <span class="tag">Casino Guides</span>
+    <h3><a href="/blog/blackjack-basic-strategy-online/">Blackjack Basic Strategy for Online Tables (Chart & Rules)</a></h3>
+    <p class="blog-meta">Chris Faria · 1 week ago</p>
+    <p>Cut the house edge with correct hit/stand/double decisions. We cover RNG blackjack, live dealer rules, and common side-bet traps.</p>
+  </div>
+</article>
+<article class="post-card" data-category="casino-guides">
+  <a href="/blog/roulette-variants-online-casino/"><img src="/assets/images/blog/roulette-variants-online-casino.png" alt="" onerror="this.src='/assets/images/hero/home-hero.png'"></a>
+  <div class="body">
+    <span class="tag">Casino Guides</span>
+    <h3><a href="/blog/roulette-variants-online-casino/">European vs American Roulette Online: Odds and Table Layouts</a></h3>
+    <p class="blog-meta">Maria Chen · 1 week ago</p>
+    <p>Single-zero wheels, double-zero wheels, and game-show roulette—how each variant changes the math and pacing.</p>
+  </div>
+</article>
+<article class="post-card" data-category="casino-tips">
+  <a href="/blog/casino-responsible-gambling-tools/"><img src="/assets/images/blog/casino-responsible-gambling-tools.png" alt="" onerror="this.src='/assets/images/hero/home-hero.png'"></a>
+  <div class="body">
+    <span class="tag">Casino Tips</span>
+    <h3><a href="/blog/casino-responsible-gambling-tools/">Responsible Gambling Tools at Online Casinos: Limits, Time-Outs, and Self-Exclusion</a></h3>
+    <p class="blog-meta">Taylor Smith · 1 week ago</p>
+    <p>Licensed sites must offer player controls. We explain deposit limits, reality checks, and how to use national helplines.</p>
+  </div>
+</article>
+<article class="post-card" data-category="banking">
+  <a href="/blog/paypal-online-casinos-us/"><img src="/assets/images/blog/paypal-online-casinos-us.png" alt="" onerror="this.src='/assets/images/hero/home-hero.png'"></a>
+  <div class="body">
+    <span class="tag">Banking</span>
+    <h3><a href="/blog/paypal-online-casinos-us/">PayPal Online Casinos in the US: Where It Works and What to Expect</a></h3>
+    <p class="blog-meta">Maria Chen · 1 week ago</p>
+    <p>PayPal availability varies by state and brand. See which regulated operators support it for deposits and withdrawals.</p>
+  </div>
+</article>
+<article class="post-card" data-category="casino-guides">
+  <a href="/blog/mobile-casino-apps-vs-browser/"><img src="/assets/images/blog/mobile-casino-apps-vs-browser.png" alt="" onerror="this.src='/assets/images/hero/home-hero.png'"></a>
+  <div class="body">
+    <span class="tag">Casino Guides</span>
+    <h3><a href="/blog/mobile-casino-apps-vs-browser/">Mobile Casino Apps vs Browser Play: Performance and Bonuses Compared</a></h3>
+    <p class="blog-meta">Chris Faria · 2 weeks ago</p>
+    <p>Apps can streamline login and notifications, but browser play avoids downloads. We compare speed, game access, and promo eligibility.</p>
+  </div>
+</article>
+<article class="post-card" data-category="casino-bonuses">
+  <a href="/blog/casino-loyalty-vip-programs/"><img src="/assets/images/blog/casino-loyalty-vip-programs.png" alt="" onerror="this.src='/assets/images/hero/home-hero.png'"></a>
+  <div class="body">
+    <span class="tag">Casino Bonuses</span>
+    <h3><a href="/blog/casino-loyalty-vip-programs/">Casino Loyalty and VIP Programs: Are Comps Worth It?</a></h3>
+    <p class="blog-meta">Taylor Smith · 2 weeks ago</p>
+    <p>Tiered rewards, cashback, and host perks sound great—but the earn rate matters. We decode how programs actually pay back.</p>
+  </div>
+</article>
+<article class="post-card" data-category="slots">
+  <a href="/blog/megaways-slots-how-they-work/"><img src="/assets/images/blog/megaways-slots-how-they-work.png" alt="" onerror="this.src='/assets/images/hero/home-hero.png'"></a>
+  <div class="body">
+    <span class="tag">Slots</span>
+    <h3><a href="/blog/megaways-slots-how-they-work/">Megaways Slots: How They Work and What to Know Before You Spin</a></h3>
+    <p class="blog-meta">Chris Faria · 2 weeks ago</p>
+    <p>Changing reel ways and cascading wins drive Megaways hype. Learn mechanics, volatility, and licensing of the engine.</p>
+  </div>
+</article>
+<article class="post-card" data-category="casino-guides">
+  <a href="/blog/crash-games-online-casinos/"><img src="/assets/images/blog/crash-games-online-casinos.png" alt="" onerror="this.src='/assets/images/hero/home-hero.png'"></a>
+  <div class="body">
+    <span class="tag">Casino Guides</span>
+    <h3><a href="/blog/crash-games-online-casinos/">Crash Games at Online Casinos: Risk, RTP, and Bankroll Tips</a></h3>
+    <p class="blog-meta">Maria Chen · 2 weeks ago</p>
+    <p>Crash-style games are fast and social, but variance is brutal. Understand auto-cashout, provably fair claims, and session discipline.</p>
+  </div>
+</article>
+<article class="post-card" data-category="us-casinos">
+  <a href="/blog/pennsylvania-online-slots-2026/"><img src="/assets/images/blog/pennsylvania-online-slots-2026.png" alt="" onerror="this.src='/assets/images/hero/home-hero.png'"></a>
+  <div class="body">
+    <span class="tag">US Casinos</span>
+    <h3><a href="/blog/pennsylvania-online-slots-2026/">Pennsylvania Online Slots 2026: Regulated Sites and Jackpot Networks</a></h3>
+    <p class="blog-meta">Taylor Smith · 2 weeks ago</p>
+    <p>PA players have multiple licensed apps with shared progressive pools. We compare libraries, RTP disclosures, and bonus terms.</p>
+  </div>
+</article>
+<article class="post-card" data-category="us-casinos">
+  <a href="/blog/michigan-online-casino-market-2026/"><img src="/assets/images/blog/michigan-online-casino-market-2026.png" alt="" onerror="this.src='/assets/images/hero/home-hero.png'"></a>
+  <div class="body">
+    <span class="tag">US Casinos</span>
+    <h3><a href="/blog/michigan-online-casino-market-2026/">Michigan Online Casino Market 2026: Brands, Taxes, and Player Trends</a></h3>
+    <p class="blog-meta">Maria Chen · 2 weeks ago</p>
+    <p>Michigan's market is crowded and competitive. See how licensing shaped game catalogs, live dealer access, and promo wars.</p>
+  </div>
+</article>
+<article class="post-card" data-category="casino-bonuses">
+  <a href="/blog/new-jersey-online-casino-bonuses/"><img src="/assets/images/blog/new-jersey-online-casino-bonuses.png" alt="" onerror="this.src='/assets/images/hero/home-hero.png'"></a>
+  <div class="body">
+    <span class="tag">Casino Bonuses</span>
+    <h3><a href="/blog/new-jersey-online-casino-bonuses/">New Jersey Online Casino Bonuses: Welcome Offers Compared (2026)</a></h3>
+    <p class="blog-meta">Taylor Smith · 2 weeks ago</p>
+    <p>NJ's mature market means aggressive welcome packages—but wagering rules differ. We compare deposit matches and free-spin bundles.</p>
+  </div>
+</article>
+<article class="post-card" data-category="casino-bonuses">
+  <a href="/blog/wagering-requirements-explained/"><img src="/assets/images/blog/wagering-requirements-explained.png" alt="" onerror="this.src='/assets/images/hero/home-hero.png'"></a>
+  <div class="body">
+    <span class="tag">Casino Bonuses</span>
+    <h3><a href="/blog/wagering-requirements-explained/">Wagering Requirements Explained: Bonus Math Without the Jargon</a></h3>
+    <p class="blog-meta">Chris Faria · 3 weeks ago</p>
+    <p>Playthrough, game weighting, and max bet rules determine whether a bonus is beatable. Worked examples inside.</p>
+  </div>
+</article>
+<article class="post-card" data-category="casino-guides">
+  <a href="/blog/provably-fair-crypto-casino-games/"><img src="/assets/images/blog/provably-fair-crypto-casino-games.png" alt="" onerror="this.src='/assets/images/hero/home-hero.png'"></a>
+  <div class="body">
+    <span class="tag">Casino Guides</span>
+    <h3><a href="/blog/provably-fair-crypto-casino-games/">Provably Fair Games at Crypto Casinos: What Players Can Verify</a></h3>
+    <p class="blog-meta">Maria Chen · 3 weeks ago</p>
+    <p>Seed hashes and client seeds sound technical, but the idea is transparency. Learn what provably fair does—and does not—prove.</p>
+  </div>
+</article>
+<article class="post-card" data-category="live-casino">
+  <a href="/blog/ai-live-dealer-casino-future/"><img src="/assets/images/blog/ai-live-dealer-casino-future.png" alt="" onerror="this.src='/assets/images/hero/home-hero.png'"></a>
+  <div class="body">
+    <span class="tag">Live Casino</span>
+    <h3><a href="/blog/ai-live-dealer-casino-future/">AI Dealers and Live Casino Tech: What Changes for Players in 2026</a></h3>
+    <p class="blog-meta">Chris Faria · 3 weeks ago</p>
+    <p>Studios are experimenting with automation and hybrid tables. We separate marketing hype from shifts that affect stream quality and trust.</p>
   </div>
 </article></div>
 
@@ -193,7 +377,7 @@
       <div>
         <h4>Resources</h4>
         <ul>
-          <li><a href="/">Blog</a></li>
+          <li><a href="/blog/">Blog</a></li>
           <li><a href="/contact/">Contact</a></li>
           <li><a href="/about/">About Us</a></li>
         </ul>
