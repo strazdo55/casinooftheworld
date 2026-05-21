@@ -75,15 +75,19 @@
     rows.forEach((r) => tbody.appendChild(r));
   }
 
-  document.querySelectorAll(".cat-btn").forEach((btn) => {
-    btn.addEventListener("click", () => {
-      document.querySelectorAll(".cat-btn").forEach((b) => b.classList.remove("active"));
-      btn.classList.add("active");
-      const cat = btn.dataset.category || "all";
-      document.querySelectorAll("[data-category]").forEach((card) => {
-        const show = cat === "all" || card.dataset.category === cat;
-        card.style.display = show ? "" : "none";
+  const postGrid = document.querySelector(".post-grid");
+  if (postGrid) {
+    document.querySelectorAll(".cat-btn").forEach((btn) => {
+      btn.addEventListener("click", () => {
+        document.querySelectorAll(".cat-btn").forEach((b) => b.classList.remove("active"));
+        btn.classList.add("active");
+        const cat = btn.dataset.category || "all";
+        postGrid.querySelectorAll(".post-card").forEach((card) => {
+          const show = cat === "all" || card.dataset.category === cat;
+          card.classList.toggle("is-hidden", !show);
+        });
+        btn.scrollIntoView({ behavior: "smooth", inline: "center", block: "nearest" });
       });
     });
-  });
+  }
 })();

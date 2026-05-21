@@ -143,7 +143,13 @@ async function buildBlogIndex() {
   const cats = ["ALL", ...new Set(posts.map((p) => p.category.toUpperCase()))];
   const catBtns = cats
     .map((c, i) => {
-      const data = c === "ALL" ? "all" : c.toLowerCase().replace(/\s+/g, "-").replace("&", "");
+      const data =
+        c === "ALL"
+          ? "all"
+          : c
+              .toLowerCase()
+              .replace(/\s+/g, "-")
+              .replace(/&/g, "");
       return `<button type="button" class="cat-btn${i === 0 ? " active" : ""}" data-category="${data}">${c}</button>`;
     })
     .join("\n");
@@ -178,8 +184,10 @@ async function buildBlogIndex() {
     </div>
   </section>
   <div class="category-bar">
-    <span style="font-weight:700;margin-right:0.5rem">Blog Categories:</span>
-    ${catBtns}
+    <p class="category-bar-label">Blog Categories</p>
+    <div class="category-bar-scroll" role="tablist" aria-label="Filter blog posts by category">
+      ${catBtns}
+    </div>
   </div>
   <div class="post-grid">${cards}</div>
 </main>`,
