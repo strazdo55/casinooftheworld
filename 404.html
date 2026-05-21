@@ -7,17 +7,19 @@
   <script>
     (function () {
       var path = location.pathname.replace(/\/$/, "");
-      var m = path.match(/^\/(?:blog\/)?([a-z0-9-]+)$/);
+      var base = location.pathname.replace(/\/[^/]*$/, "").replace(/\/$/, "");
+      var root = base.endsWith("/blog") ? base.replace(/\/blog$/, "") : base;
+      var m = path.match(/\/([a-z0-9-]+)$/);
       if (m && m[1] !== "index" && m[1] !== "blog") {
-        location.replace("/blog/" + m[1]);
+        location.replace((root ? root + "/" : "") + "blog/" + m[1] + ".html");
         return;
       }
     })();
   </script>
-  <link rel="stylesheet" href="/css/main.css">
+  <link rel="stylesheet" href="css/main.css">
 </head>
 <body style="padding:3rem;text-align:center;font-family:system-ui,sans-serif">
   <h1>404 — Page not found</h1>
-  <p><a href="/index.html">Home</a> · <a href="/blog/index.html">Casino blog</a></p>
+  <p><a href="index.html">Home</a> · <a href="blog/index.html">Casino blog</a></p>
 </body>
 </html>

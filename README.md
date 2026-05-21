@@ -30,9 +30,11 @@ npm run dev            # http://localhost:8080
 
 ## GitHub Pages
 
-1. Push repo to GitHub
-2. Settings → Pages → Deploy from branch `main` / root
-3. Add `CNAME` with `casinooftheworld.com` when DNS is ready
+**Live site:** [https://strazdo55.github.io/casinooftheworld/](https://strazdo55.github.io/casinooftheworld/)
+
+Deploys automatically on push to `main` via GitHub Actions (`.github/workflows/deploy-pages.yml`).
+
+For a custom domain (`casinooftheworld.com`), point DNS A records to GitHub Pages and add a `CNAME` file with your domain in the repo root.
 
 ## Responsible gambling
 
