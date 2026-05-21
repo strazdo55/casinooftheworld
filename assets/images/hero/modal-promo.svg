@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 240" width="240" height="240" aria-hidden="true">
+  <defs>
+    <linearGradient id="mp-gold" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#fde047"/>
+      <stop offset="100%" stop-color="#ca8a04"/>
+    </linearGradient>
+    <linearGradient id="mp-lime" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#f0ff80"/>
+      <stop offset="100%" stop-color="#c8f000"/>
+    </linearGradient>
+  </defs>
+  <rect width="240" height="240" rx="18" fill="#f8f6f1"/>
+  <circle cx="120" cy="108" r="58" fill="none" stroke="#1a2b4b" stroke-width="2.2" opacity="0.35"/>
+  <ellipse cx="120" cy="108" rx="58" ry="22" fill="none" stroke="#1a2b4b" stroke-width="1.4" opacity="0.45"/>
+  <path d="M62 108h116M120 50v116" stroke="#1a2b4b" stroke-width="1.2" opacity="0.35"/>
+  <path d="M78 78c18-14 66-14 84 0M78 138c18 14 66 14 84 0" fill="none" stroke="#1a2b4b" stroke-width="1.2" opacity="0.35"/>
+  <circle cx="120" cy="108" r="58" fill="none" stroke="url(#mp-gold)" stroke-width="2.5"/>
+  <rect x="68" y="132" width="104" height="72" rx="10" fill="#fff" stroke="#1a2b4b" stroke-width="2"/>
+  <path d="M68 142l52 38 52-38" fill="none" stroke="#1a2b4b" stroke-width="2" stroke-linejoin="round"/>
+  <path d="M68 142h104" stroke="#1a2b4b" stroke-width="2"/>
+  <circle cx="168" cy="88" r="22" fill="url(#mp-lime)" stroke="#0b1219" stroke-width="1.5"/>
+  <path d="M160 88h16M168 80v16" stroke="#0b1219" stroke-width="2.5" stroke-linecap="round"/>
+  <circle cx="88" cy="72" r="6" fill="url(#mp-gold)"/>
+  <circle cx="152" cy="64" r="4" fill="url(#mp-gold)" opacity="0.7"/>
+</svg>

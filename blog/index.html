@@ -20,10 +20,11 @@
   <meta name="twitter:title" content="Casino Blog — News, Slots &amp; Live Dealer Guides | Casino of the World">
   <meta name="twitter:description" content="Expert casino blog: slot reviews, UK &amp; EU licensing news, live dealer guides, and bankroll tips for 2026.">
   <meta name="twitter:image" content="https://casinooftheworld.com/assets/images/blog/best-new-online-slots-2026.png">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="/css/main.css">
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700;800&display=swap" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700;800&display=swap"></noscript>
+  <link rel="stylesheet" href="/css/main.min.css">
   <link rel="icon" href="/assets/images/brand/favicon.svg" type="image/svg+xml">
   <link rel="apple-touch-icon" href="/assets/images/brand/logo.svg">
   <script type="application/ld+json">
@@ -84,36 +85,19 @@
   <defs>
     <linearGradient id="cotw-gold" x1="0%" y1="0%" x2="100%" y2="100%">
       <stop offset="0%" stop-color="#fde047"/>
-      <stop offset="45%" stop-color="#eab308"/>
-      <stop offset="100%" stop-color="#a16207"/>
+      <stop offset="100%" stop-color="#ca8a04"/>
     </linearGradient>
-    <linearGradient id="cotw-lime" x1="20%" y1="0%" x2="80%" y2="100%">
+    <linearGradient id="cotw-lime" x1="0%" y1="0%" x2="100%" y2="100%">
       <stop offset="0%" stop-color="#f0ff80"/>
       <stop offset="100%" stop-color="#c8f000"/>
     </linearGradient>
-    <radialGradient id="cotw-chip-face" cx="38%" cy="32%" r="68%">
-      <stop offset="0%" stop-color="#243b5c"/>
-      <stop offset="55%" stop-color="#152238"/>
-      <stop offset="100%" stop-color="#0b1219"/>
-    </radialGradient>
   </defs>
-  <polygon points="24,3 41.5,11.8 41.5,36.2 24,45 6.5,36.2 6.5,11.8" fill="url(#cotw-chip-face)" stroke="url(#cotw-gold)" stroke-width="2.4" stroke-linejoin="round"/>
-  <g stroke="url(#cotw-gold)" stroke-width="1.8" stroke-linecap="round" opacity="0.85">
-    <line x1="24" y1="1.2" x2="24" y2="5.2"/>
-    <line x1="42.8" y1="10.2" x2="39.6" y2="12.4"/>
-    <line x1="46.8" y1="24" x2="42.8" y2="24"/>
-    <line x1="42.8" y1="37.8" x2="39.6" y2="35.6"/>
-    <line x1="24" y1="46.8" x2="24" y2="42.8"/>
-    <line x1="5.2" y1="37.8" x2="8.4" y2="35.6"/>
-    <line x1="1.2" y1="24" x2="5.2" y2="24"/>
-    <line x1="5.2" y1="10.2" x2="8.4" y2="12.4"/>
-  </g>
-  <path d="M11 24c0-7.2 5.8-13 13-13s13 5.8 13 13" fill="none" stroke="#f8fafc" stroke-width="1.15" opacity="0.55"/>
-  <path d="M11 24c0 7.2 5.8 13 13 13s13-5.8 13-13" fill="none" stroke="#f8fafc" stroke-width="1.15" opacity="0.55"/>
-  <ellipse cx="24" cy="24" rx="10.5" ry="3.8" fill="none" stroke="#f8fafc" stroke-width="1" opacity="0.45"/>
-  <path d="M24 14.5l1.2 2.4 2.6.4-1.9 1.8.45 2.6L24 20.4l-2.35 1.3.45-2.6-1.9-1.8 2.6-.4z" fill="url(#cotw-gold)" opacity="0.95"/>
-  <path d="M24 17.5 28.8 24 24 30.5 19.2 24z" fill="url(#cotw-lime)" stroke="#0b1219" stroke-width="0.6" stroke-linejoin="round"/>
-  <path d="M24 17.5 28.8 24 24 30.5 19.2 24z" fill="none" stroke="url(#cotw-gold)" stroke-width="1.35" stroke-linejoin="round"/>
+  <circle cx="24" cy="24" r="21" fill="#152238" stroke="url(#cotw-gold)" stroke-width="2.2"/>
+  <ellipse cx="24" cy="24" rx="21" ry="8" fill="none" stroke="#f8fafc" stroke-width="1.1" opacity="0.55"/>
+  <path d="M3 24h42" stroke="#f8fafc" stroke-width="1" opacity="0.4"/>
+  <path d="M24 3c8 6 8 36 0 42M24 3c-8 6-8 36 0 42" fill="none" stroke="#f8fafc" stroke-width="1" opacity="0.4"/>
+  <path d="M24 14v20M17 24h14" stroke="url(#cotw-lime)" stroke-width="2.2" stroke-linecap="round"/>
+  <circle cx="34" cy="14" r="3.5" fill="url(#cotw-lime)"/>
 </svg>
       <span class="logo-text">Casino of the <span class="logo-accent">World</span></span>
     </a>
@@ -132,13 +116,17 @@
     </div>
   </div>
 </header>
-
+<div class="site-shell">
+  <div class="site-shell__content">
 <main class="container">
   <div class="breadcrumb"><a href="/">Home</a> » Blog</div>
   <h1 class="section-title">Casino of the World Blog</h1>
   <p class="lead">International casino news, slot reviews, live dealer guides, and bankroll tips for UK, EU, and regulated markets—updated by our editorial team.</p>
   <section class="blog-hero-featured">
-    <a href="/blog/best-new-online-slots-2026/"><img src="/assets/images/blog/best-new-online-slots-2026.png" alt="Best New Online Slots to Play in 2026" onerror="this.src='/assets/images/hero/home-hero.png'"></a>
+    <a href="/blog/best-new-online-slots-2026/"><picture>
+  <source type="image/webp" srcset="/assets/images/blog/best-new-online-slots-2026.webp" sizes="(max-width: 640px) 100vw, 400px">
+  <img src="/assets/images/blog/best-new-online-slots-2026.png" alt="Best New Online Slots to Play in 2026" width="400" height="225" loading="lazy" decoding="async">
+</picture></a>
     <div>
       <span class="tag">Slots</span>
       <h2 style="font-size:1.75rem;margin:0.5rem 0"><a href="/blog/best-new-online-slots-2026/">Best New Online Slots to Play in 2026</a></h2>
@@ -162,7 +150,10 @@
     </div>
   </div>
   <div class="post-grid"><article class="post-card" data-category="slots">
-  <a href="/blog/best-new-online-slots-2026/"><img src="/assets/images/blog/best-new-online-slots-2026.png" alt="" onerror="this.src='/assets/images/hero/home-hero.png'"></a>
+  <a href="/blog/best-new-online-slots-2026/"><picture>
+  <source type="image/webp" srcset="/assets/images/blog/best-new-online-slots-2026.webp" sizes="(max-width: 640px) 100vw, 400px">
+  <img src="/assets/images/blog/best-new-online-slots-2026.png" alt="Blog post" width="400" height="225" loading="lazy" decoding="async">
+</picture></a>
   <div class="body">
     <span class="tag">Slots</span>
     <h3><a href="/blog/best-new-online-slots-2026/">Best New Online Slots to Play in 2026</a></h3>
@@ -171,7 +162,10 @@
   </div>
 </article>
 <article class="post-card" data-category="casino-news">
-  <a href="/blog/us-igaming-expansion-2026/"><img src="/assets/images/blog/us-igaming-expansion-2026.png" alt="" onerror="this.src='/assets/images/hero/home-hero.png'"></a>
+  <a href="/blog/us-igaming-expansion-2026/"><picture>
+  <source type="image/webp" srcset="/assets/images/blog/us-igaming-expansion-2026.webp" sizes="(max-width: 640px) 100vw, 400px">
+  <img src="/assets/images/blog/us-igaming-expansion-2026.png" alt="Blog post" width="400" height="225" loading="lazy" decoding="async">
+</picture></a>
   <div class="body">
     <span class="tag">Casino News</span>
     <h3><a href="/blog/us-igaming-expansion-2026/">EU & UK Online Casino Regulation: What Changed in 2026</a></h3>
@@ -180,7 +174,10 @@
   </div>
 </article>
 <article class="post-card" data-category="casino-tips">
-  <a href="/blog/twenty-dollar-casino-method/"><img src="/assets/images/blog/twenty-dollar-casino-method.png" alt="" onerror="this.src='/assets/images/hero/home-hero.png'"></a>
+  <a href="/blog/twenty-dollar-casino-method/"><picture>
+  <source type="image/webp" srcset="/assets/images/blog/twenty-dollar-casino-method.webp" sizes="(max-width: 640px) 100vw, 400px">
+  <img src="/assets/images/blog/twenty-dollar-casino-method.png" alt="Blog post" width="400" height="225" loading="lazy" decoding="async">
+</picture></a>
   <div class="body">
     <span class="tag">Casino Tips</span>
     <h3><a href="/blog/twenty-dollar-casino-method/">What Is the $20 Method at the Casino? Strategy Explained</a></h3>
@@ -189,7 +186,10 @@
   </div>
 </article>
 <article class="post-card" data-category="casino-reviews">
-  <a href="/blog/fastest-payout-online-casinos/"><img src="/assets/images/blog/fastest-payout-online-casinos.png" alt="" onerror="this.src='/assets/images/hero/home-hero.png'"></a>
+  <a href="/blog/fastest-payout-online-casinos/"><picture>
+  <source type="image/webp" srcset="/assets/images/blog/fastest-payout-online-casinos.webp" sizes="(max-width: 640px) 100vw, 400px">
+  <img src="/assets/images/blog/fastest-payout-online-casinos.png" alt="Blog post" width="400" height="225" loading="lazy" decoding="async">
+</picture></a>
   <div class="body">
     <span class="tag">Casino Reviews</span>
     <h3><a href="/blog/fastest-payout-online-casinos/">Fastest Payout Online Casinos Compared (2026)</a></h3>
@@ -198,7 +198,10 @@
   </div>
 </article>
 <article class="post-card" data-category="live-casino">
-  <a href="/blog/best-live-dealer-casinos-2026/"><img src="/assets/images/blog/best-live-dealer-casinos-2026.png" alt="" onerror="this.src='/assets/images/hero/home-hero.png'"></a>
+  <a href="/blog/best-live-dealer-casinos-2026/"><picture>
+  <source type="image/webp" srcset="/assets/images/blog/best-live-dealer-casinos-2026.webp" sizes="(max-width: 640px) 100vw, 400px">
+  <img src="/assets/images/blog/best-live-dealer-casinos-2026.png" alt="Blog post" width="400" height="225" loading="lazy" decoding="async">
+</picture></a>
   <div class="body">
     <span class="tag">Live Casino</span>
     <h3><a href="/blog/best-live-dealer-casinos-2026/">Best Live Dealer Online Casinos in 2026</a></h3>
@@ -207,7 +210,10 @@
   </div>
 </article>
 <article class="post-card" data-category="casino-guides">
-  <a href="/blog/live-dealer-vs-rng-slots/"><img src="/assets/images/blog/live-dealer-vs-rng-slots.png" alt="" onerror="this.src='/assets/images/hero/home-hero.png'"></a>
+  <a href="/blog/live-dealer-vs-rng-slots/"><picture>
+  <source type="image/webp" srcset="/assets/images/blog/live-dealer-vs-rng-slots.webp" sizes="(max-width: 640px) 100vw, 400px">
+  <img src="/assets/images/blog/live-dealer-vs-rng-slots.png" alt="Blog post" width="400" height="225" loading="lazy" decoding="async">
+</picture></a>
   <div class="body">
     <span class="tag">Casino Guides</span>
     <h3><a href="/blog/live-dealer-vs-rng-slots/">Live Dealer vs RNG Slots: Which Fits Your Style?</a></h3>
@@ -216,7 +222,10 @@
   </div>
 </article>
 <article class="post-card" data-category="casino-guides">
-  <a href="/blog/online-casino-kyc-verification-guide/"><img src="/assets/images/blog/online-casino-kyc-verification-guide.png" alt="" onerror="this.src='/assets/images/hero/home-hero.png'"></a>
+  <a href="/blog/online-casino-kyc-verification-guide/"><picture>
+  <source type="image/webp" srcset="/assets/images/blog/online-casino-kyc-verification-guide.webp" sizes="(max-width: 640px) 100vw, 400px">
+  <img src="/assets/images/blog/online-casino-kyc-verification-guide.png" alt="Blog post" width="400" height="225" loading="lazy" decoding="async">
+</picture></a>
   <div class="body">
     <span class="tag">Casino Guides</span>
     <h3><a href="/blog/online-casino-kyc-verification-guide/">Online Casino KYC Verification: What Documents You Need (2026)</a></h3>
@@ -225,7 +234,10 @@
   </div>
 </article>
 <article class="post-card" data-category="casino-bonuses">
-  <a href="/blog/no-deposit-bonus-codes-2026/"><img src="/assets/images/blog/no-deposit-bonus-codes-2026.png" alt="" onerror="this.src='/assets/images/hero/home-hero.png'"></a>
+  <a href="/blog/no-deposit-bonus-codes-2026/"><picture>
+  <source type="image/webp" srcset="/assets/images/blog/no-deposit-bonus-codes-2026.webp" sizes="(max-width: 640px) 100vw, 400px">
+  <img src="/assets/images/blog/no-deposit-bonus-codes-2026.png" alt="Blog post" width="400" height="225" loading="lazy" decoding="async">
+</picture></a>
   <div class="body">
     <span class="tag">Casino Bonuses</span>
     <h3><a href="/blog/no-deposit-bonus-codes-2026/">No Deposit Bonus Codes 2026: How Free-Spin Offers Really Work</a></h3>
@@ -234,7 +246,10 @@
   </div>
 </article>
 <article class="post-card" data-category="banking">
-  <a href="/blog/bitcoin-casino-withdrawals-guide/"><img src="/assets/images/blog/bitcoin-casino-withdrawals-guide.png" alt="" onerror="this.src='/assets/images/hero/home-hero.png'"></a>
+  <a href="/blog/bitcoin-casino-withdrawals-guide/"><picture>
+  <source type="image/webp" srcset="/assets/images/blog/bitcoin-casino-withdrawals-guide.webp" sizes="(max-width: 640px) 100vw, 400px">
+  <img src="/assets/images/blog/bitcoin-casino-withdrawals-guide.png" alt="Blog post" width="400" height="225" loading="lazy" decoding="async">
+</picture></a>
   <div class="body">
     <span class="tag">Banking</span>
     <h3><a href="/blog/bitcoin-casino-withdrawals-guide/">Bitcoin Casino Withdrawals: Speed, Fees, and Limits Explained</a></h3>
@@ -243,7 +258,10 @@
   </div>
 </article>
 <article class="post-card" data-category="casino-news">
-  <a href="/blog/new-york-online-casino-legalization-2026/"><img src="/assets/images/blog/new-york-online-casino-legalization-2026.png" alt="" onerror="this.src='/assets/images/hero/home-hero.png'"></a>
+  <a href="/blog/new-york-online-casino-legalization-2026/"><picture>
+  <source type="image/webp" srcset="/assets/images/blog/new-york-online-casino-legalization-2026.webp" sizes="(max-width: 640px) 100vw, 400px">
+  <img src="/assets/images/blog/new-york-online-casino-legalization-2026.png" alt="Blog post" width="400" height="225" loading="lazy" decoding="async">
+</picture></a>
   <div class="body">
     <span class="tag">Casino News</span>
     <h3><a href="/blog/new-york-online-casino-legalization-2026/">UK Online Casino Licensing Explained for New Players (2026)</a></h3>
@@ -252,7 +270,10 @@
   </div>
 </article>
 <article class="post-card" data-category="casino-news">
-  <a href="/blog/ontario-igaming-regulated-sites-2026/"><img src="/assets/images/blog/ontario-igaming-regulated-sites-2026.png" alt="" onerror="this.src='/assets/images/hero/home-hero.png'"></a>
+  <a href="/blog/ontario-igaming-regulated-sites-2026/"><picture>
+  <source type="image/webp" srcset="/assets/images/blog/ontario-igaming-regulated-sites-2026.webp" sizes="(max-width: 640px) 100vw, 400px">
+  <img src="/assets/images/blog/ontario-igaming-regulated-sites-2026.png" alt="Blog post" width="400" height="225" loading="lazy" decoding="async">
+</picture></a>
   <div class="body">
     <span class="tag">Casino News</span>
     <h3><a href="/blog/ontario-igaming-regulated-sites-2026/">Ontario iGaming 2026: Regulated Sites, Game Libraries, and Player Rules</a></h3>
@@ -261,7 +282,10 @@
   </div>
 </article>
 <article class="post-card" data-category="slots">
-  <a href="/blog/slot-rtp-volatility-explained/"><img src="/assets/images/blog/slot-rtp-volatility-explained.png" alt="" onerror="this.src='/assets/images/hero/home-hero.png'"></a>
+  <a href="/blog/slot-rtp-volatility-explained/"><picture>
+  <source type="image/webp" srcset="/assets/images/blog/slot-rtp-volatility-explained.webp" sizes="(max-width: 640px) 100vw, 400px">
+  <img src="/assets/images/blog/slot-rtp-volatility-explained.png" alt="Blog post" width="400" height="225" loading="lazy" decoding="async">
+</picture></a>
   <div class="body">
     <span class="tag">Slots</span>
     <h3><a href="/blog/slot-rtp-volatility-explained/">Slot RTP and Volatility Explained for Real-Money Players</a></h3>
@@ -270,7 +294,10 @@
   </div>
 </article>
 <article class="post-card" data-category="casino-guides">
-  <a href="/blog/blackjack-basic-strategy-online/"><img src="/assets/images/blog/blackjack-basic-strategy-online.png" alt="" onerror="this.src='/assets/images/hero/home-hero.png'"></a>
+  <a href="/blog/blackjack-basic-strategy-online/"><picture>
+  <source type="image/webp" srcset="/assets/images/blog/blackjack-basic-strategy-online.webp" sizes="(max-width: 640px) 100vw, 400px">
+  <img src="/assets/images/blog/blackjack-basic-strategy-online.png" alt="Blog post" width="400" height="225" loading="lazy" decoding="async">
+</picture></a>
   <div class="body">
     <span class="tag">Casino Guides</span>
     <h3><a href="/blog/blackjack-basic-strategy-online/">Blackjack Basic Strategy for Online Tables (Chart & Rules)</a></h3>
@@ -279,7 +306,10 @@
   </div>
 </article>
 <article class="post-card" data-category="casino-guides">
-  <a href="/blog/roulette-variants-online-casino/"><img src="/assets/images/blog/roulette-variants-online-casino.png" alt="" onerror="this.src='/assets/images/hero/home-hero.png'"></a>
+  <a href="/blog/roulette-variants-online-casino/"><picture>
+  <source type="image/webp" srcset="/assets/images/blog/roulette-variants-online-casino.webp" sizes="(max-width: 640px) 100vw, 400px">
+  <img src="/assets/images/blog/roulette-variants-online-casino.png" alt="Blog post" width="400" height="225" loading="lazy" decoding="async">
+</picture></a>
   <div class="body">
     <span class="tag">Casino Guides</span>
     <h3><a href="/blog/roulette-variants-online-casino/">European vs American Roulette Online: Odds and Table Layouts</a></h3>
@@ -288,7 +318,10 @@
   </div>
 </article>
 <article class="post-card" data-category="casino-tips">
-  <a href="/blog/casino-responsible-gambling-tools/"><img src="/assets/images/blog/casino-responsible-gambling-tools.png" alt="" onerror="this.src='/assets/images/hero/home-hero.png'"></a>
+  <a href="/blog/casino-responsible-gambling-tools/"><picture>
+  <source type="image/webp" srcset="/assets/images/blog/casino-responsible-gambling-tools.webp" sizes="(max-width: 640px) 100vw, 400px">
+  <img src="/assets/images/blog/casino-responsible-gambling-tools.png" alt="Blog post" width="400" height="225" loading="lazy" decoding="async">
+</picture></a>
   <div class="body">
     <span class="tag">Casino Tips</span>
     <h3><a href="/blog/casino-responsible-gambling-tools/">Responsible Gambling Tools at Online Casinos: Limits, Time-Outs, and Self-Exclusion</a></h3>
@@ -297,7 +330,10 @@
   </div>
 </article>
 <article class="post-card" data-category="banking">
-  <a href="/blog/paypal-online-casinos-us/"><img src="/assets/images/blog/paypal-online-casinos-us.png" alt="" onerror="this.src='/assets/images/hero/home-hero.png'"></a>
+  <a href="/blog/paypal-online-casinos-us/"><picture>
+  <source type="image/webp" srcset="/assets/images/blog/paypal-online-casinos-us.webp" sizes="(max-width: 640px) 100vw, 400px">
+  <img src="/assets/images/blog/paypal-online-casinos-us.png" alt="Blog post" width="400" height="225" loading="lazy" decoding="async">
+</picture></a>
   <div class="body">
     <span class="tag">Banking</span>
     <h3><a href="/blog/paypal-online-casinos-us/">PayPal Online Casinos in Europe: Availability and Limits</a></h3>
@@ -306,7 +342,10 @@
   </div>
 </article>
 <article class="post-card" data-category="casino-guides">
-  <a href="/blog/mobile-casino-apps-vs-browser/"><img src="/assets/images/blog/mobile-casino-apps-vs-browser.png" alt="" onerror="this.src='/assets/images/hero/home-hero.png'"></a>
+  <a href="/blog/mobile-casino-apps-vs-browser/"><picture>
+  <source type="image/webp" srcset="/assets/images/blog/mobile-casino-apps-vs-browser.webp" sizes="(max-width: 640px) 100vw, 400px">
+  <img src="/assets/images/blog/mobile-casino-apps-vs-browser.png" alt="Blog post" width="400" height="225" loading="lazy" decoding="async">
+</picture></a>
   <div class="body">
     <span class="tag">Casino Guides</span>
     <h3><a href="/blog/mobile-casino-apps-vs-browser/">Mobile Casino Apps vs Browser Play: Performance and Bonuses Compared</a></h3>
@@ -315,7 +354,10 @@
   </div>
 </article>
 <article class="post-card" data-category="casino-bonuses">
-  <a href="/blog/casino-loyalty-vip-programs/"><img src="/assets/images/blog/casino-loyalty-vip-programs.png" alt="" onerror="this.src='/assets/images/hero/home-hero.png'"></a>
+  <a href="/blog/casino-loyalty-vip-programs/"><picture>
+  <source type="image/webp" srcset="/assets/images/blog/casino-loyalty-vip-programs.webp" sizes="(max-width: 640px) 100vw, 400px">
+  <img src="/assets/images/blog/casino-loyalty-vip-programs.png" alt="Blog post" width="400" height="225" loading="lazy" decoding="async">
+</picture></a>
   <div class="body">
     <span class="tag">Casino Bonuses</span>
     <h3><a href="/blog/casino-loyalty-vip-programs/">Casino Loyalty and VIP Programs: Are Comps Worth It?</a></h3>
@@ -324,7 +366,10 @@
   </div>
 </article>
 <article class="post-card" data-category="slots">
-  <a href="/blog/megaways-slots-how-they-work/"><img src="/assets/images/blog/megaways-slots-how-they-work.png" alt="" onerror="this.src='/assets/images/hero/home-hero.png'"></a>
+  <a href="/blog/megaways-slots-how-they-work/"><picture>
+  <source type="image/webp" srcset="/assets/images/blog/megaways-slots-how-they-work.webp" sizes="(max-width: 640px) 100vw, 400px">
+  <img src="/assets/images/blog/megaways-slots-how-they-work.png" alt="Blog post" width="400" height="225" loading="lazy" decoding="async">
+</picture></a>
   <div class="body">
     <span class="tag">Slots</span>
     <h3><a href="/blog/megaways-slots-how-they-work/">Megaways Slots: How They Work and What to Know Before You Spin</a></h3>
@@ -333,7 +378,10 @@
   </div>
 </article>
 <article class="post-card" data-category="casino-guides">
-  <a href="/blog/crash-games-online-casinos/"><img src="/assets/images/blog/crash-games-online-casinos.png" alt="" onerror="this.src='/assets/images/hero/home-hero.png'"></a>
+  <a href="/blog/crash-games-online-casinos/"><picture>
+  <source type="image/webp" srcset="/assets/images/blog/crash-games-online-casinos.webp" sizes="(max-width: 640px) 100vw, 400px">
+  <img src="/assets/images/blog/crash-games-online-casinos.png" alt="Blog post" width="400" height="225" loading="lazy" decoding="async">
+</picture></a>
   <div class="body">
     <span class="tag">Casino Guides</span>
     <h3><a href="/blog/crash-games-online-casinos/">Crash Games at Online Casinos: Risk, RTP, and Bankroll Tips</a></h3>
@@ -342,7 +390,10 @@
   </div>
 </article>
 <article class="post-card" data-category="europe-casinos">
-  <a href="/blog/pennsylvania-online-slots-2026/"><img src="/assets/images/blog/pennsylvania-online-slots-2026.png" alt="" onerror="this.src='/assets/images/hero/home-hero.png'"></a>
+  <a href="/blog/pennsylvania-online-slots-2026/"><picture>
+  <source type="image/webp" srcset="/assets/images/blog/pennsylvania-online-slots-2026.webp" sizes="(max-width: 640px) 100vw, 400px">
+  <img src="/assets/images/blog/pennsylvania-online-slots-2026.png" alt="Blog post" width="400" height="225" loading="lazy" decoding="async">
+</picture></a>
   <div class="body">
     <span class="tag">Europe Casinos</span>
     <h3><a href="/blog/pennsylvania-online-slots-2026/">Germany Online Slots 2026: Regulation, RTP Rules, and Game Choice</a></h3>
@@ -351,7 +402,10 @@
   </div>
 </article>
 <article class="post-card" data-category="europe-casinos">
-  <a href="/blog/michigan-online-casino-market-2026/"><img src="/assets/images/blog/michigan-online-casino-market-2026.png" alt="" onerror="this.src='/assets/images/hero/home-hero.png'"></a>
+  <a href="/blog/michigan-online-casino-market-2026/"><picture>
+  <source type="image/webp" srcset="/assets/images/blog/michigan-online-casino-market-2026.webp" sizes="(max-width: 640px) 100vw, 400px">
+  <img src="/assets/images/blog/michigan-online-casino-market-2026.png" alt="Blog post" width="400" height="225" loading="lazy" decoding="async">
+</picture></a>
   <div class="body">
     <span class="tag">Europe Casinos</span>
     <h3><a href="/blog/michigan-online-casino-market-2026/">Netherlands Online Casino Market 2026: KSA Rules and Operators</a></h3>
@@ -360,7 +414,10 @@
   </div>
 </article>
 <article class="post-card" data-category="casino-bonuses">
-  <a href="/blog/new-jersey-online-casino-bonuses/"><img src="/assets/images/blog/new-jersey-online-casino-bonuses.png" alt="" onerror="this.src='/assets/images/hero/home-hero.png'"></a>
+  <a href="/blog/new-jersey-online-casino-bonuses/"><picture>
+  <source type="image/webp" srcset="/assets/images/blog/new-jersey-online-casino-bonuses.webp" sizes="(max-width: 640px) 100vw, 400px">
+  <img src="/assets/images/blog/new-jersey-online-casino-bonuses.png" alt="Blog post" width="400" height="225" loading="lazy" decoding="async">
+</picture></a>
   <div class="body">
     <span class="tag">Casino Bonuses</span>
     <h3><a href="/blog/new-jersey-online-casino-bonuses/">Malta-Licensed Casino Bonuses Compared (2026)</a></h3>
@@ -369,7 +426,10 @@
   </div>
 </article>
 <article class="post-card" data-category="casino-bonuses">
-  <a href="/blog/wagering-requirements-explained/"><img src="/assets/images/blog/wagering-requirements-explained.png" alt="" onerror="this.src='/assets/images/hero/home-hero.png'"></a>
+  <a href="/blog/wagering-requirements-explained/"><picture>
+  <source type="image/webp" srcset="/assets/images/blog/wagering-requirements-explained.webp" sizes="(max-width: 640px) 100vw, 400px">
+  <img src="/assets/images/blog/wagering-requirements-explained.png" alt="Blog post" width="400" height="225" loading="lazy" decoding="async">
+</picture></a>
   <div class="body">
     <span class="tag">Casino Bonuses</span>
     <h3><a href="/blog/wagering-requirements-explained/">Wagering Requirements Explained: Bonus Math Without the Jargon</a></h3>
@@ -378,7 +438,10 @@
   </div>
 </article>
 <article class="post-card" data-category="casino-guides">
-  <a href="/blog/provably-fair-crypto-casino-games/"><img src="/assets/images/blog/provably-fair-crypto-casino-games.png" alt="" onerror="this.src='/assets/images/hero/home-hero.png'"></a>
+  <a href="/blog/provably-fair-crypto-casino-games/"><picture>
+  <source type="image/webp" srcset="/assets/images/blog/provably-fair-crypto-casino-games.webp" sizes="(max-width: 640px) 100vw, 400px">
+  <img src="/assets/images/blog/provably-fair-crypto-casino-games.png" alt="Blog post" width="400" height="225" loading="lazy" decoding="async">
+</picture></a>
   <div class="body">
     <span class="tag">Casino Guides</span>
     <h3><a href="/blog/provably-fair-crypto-casino-games/">Provably Fair Games at Crypto Casinos: What Players Can Verify</a></h3>
@@ -387,7 +450,10 @@
   </div>
 </article>
 <article class="post-card" data-category="live-casino">
-  <a href="/blog/ai-live-dealer-casino-future/"><img src="/assets/images/blog/ai-live-dealer-casino-future.png" alt="" onerror="this.src='/assets/images/hero/home-hero.png'"></a>
+  <a href="/blog/ai-live-dealer-casino-future/"><picture>
+  <source type="image/webp" srcset="/assets/images/blog/ai-live-dealer-casino-future.webp" sizes="(max-width: 640px) 100vw, 400px">
+  <img src="/assets/images/blog/ai-live-dealer-casino-future.png" alt="Blog post" width="400" height="225" loading="lazy" decoding="async">
+</picture></a>
   <div class="body">
     <span class="tag">Live Casino</span>
     <h3><a href="/blog/ai-live-dealer-casino-future/">AI Dealers and Live Casino Tech: What Changes for Players in 2026</a></h3>
@@ -420,6 +486,20 @@
 </details>
 </section>
 </main>
+  </div>
+  <aside class="side-rail side-rail--right" id="side-rail-right" aria-label="Quick actions">
+  <button type="button" class="side-rail__close" data-dismiss-rail aria-label="Dismiss">×</button>
+  <span class="side-rail__pulse" aria-hidden="true"></span>
+  <p class="side-rail__tag">Casino of the World</p>
+  <h3 class="side-rail__title">Tools &amp; top picks</h3>
+  <div class="side-rail__actions">
+    <a href="/online-casinos/" class="btn btn-lime side-rail__cta">Compare casinos</a>
+    <a href="/#wagering-calculator" class="btn btn-outline side-rail__cta side-rail__cta--light">Wagering calculator</a>
+    <a href="/reviews/" class="side-rail__link">All reviews →</a>
+    <a href="/bonuses/" class="side-rail__link">Bonus hub →</a>
+  </div>
+</aside>
+</div>
 <footer class="site-footer">
   <div class="container">
     <div class="rg-notice">
@@ -463,50 +543,11 @@
     </div>
   </div>
 </footer>
-<aside class="side-rail side-rail--left" id="side-rail-left" aria-label="Quick links">
-  <button type="button" class="side-rail__close" data-dismiss-rail aria-label="Dismiss">×</button>
-  <span class="side-rail__pulse" aria-hidden="true"></span>
-  <p class="side-rail__tag">Editor's choice</p>
-  <h3 class="side-rail__title">Compare 15 licensed casinos</h3>
-  <p class="side-rail__text">UKGC, MGA &amp; international brands—filters for payout speed &amp; crypto.</p>
-  <a href="/online-casinos/" class="btn btn-lime side-rail__cta">Compare casinos</a>
-  <a href="/reviews/" class="side-rail__link">Read reviews →</a>
-</aside>
-<aside class="side-rail side-rail--right" id="side-rail-right" aria-label="Tools">
-  <button type="button" class="side-rail__close" data-dismiss-rail aria-label="Dismiss">×</button>
-  <span class="side-rail__pulse side-rail__pulse--gold" aria-hidden="true"></span>
-  <p class="side-rail__tag">Free tool</p>
-  <h3 class="side-rail__title">Bonus wagering calculator</h3>
-  <p class="side-rail__text">See how much playthrough a welcome offer really requires.</p>
-  <a href="/#wagering-calculator" class="btn btn-outline side-rail__cta side-rail__cta--light">Calculate playthrough</a>
-  <a href="/bonuses/" class="side-rail__link">All bonuses →</a>
-</aside>
 <div class="modal-overlay" id="lead-modal" aria-hidden="true">
   <div class="modal" role="dialog" aria-labelledby="modal-title" aria-modal="true">
     <button class="modal-close" type="button" data-close-modal aria-label="Close">×</button>
     <div class="modal-art" aria-hidden="true">
-      <svg class="modal-art__svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="200" height="200" aria-hidden="true">
-  <defs>
-    <linearGradient id="modal-gold" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#fde047"/>
-      <stop offset="100%" stop-color="#ca8a04"/>
-    </linearGradient>
-    <linearGradient id="modal-lime" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#f0ff80"/>
-      <stop offset="100%" stop-color="#c8f000"/>
-    </linearGradient>
-  </defs>
-  <rect width="200" height="200" rx="16" fill="#152238"/>
-  <circle cx="100" cy="100" r="72" fill="none" stroke="url(#modal-gold)" stroke-width="3"/>
-  <circle cx="100" cy="100" r="52" fill="none" stroke="#f8fafc" stroke-width="1.5" opacity="0.5"/>
-  <path d="M55 100 Q100 55 145 100" fill="none" stroke="#f8fafc" stroke-width="1.2" opacity="0.45"/>
-  <path d="M55 100 Q100 145 145 100" fill="none" stroke="#f8fafc" stroke-width="1.2" opacity="0.45"/>
-  <rect x="62" y="72" width="76" height="56" rx="8" fill="none" stroke="url(#modal-lime)" stroke-width="2.5"/>
-  <text x="100" y="98" text-anchor="middle" fill="url(#modal-lime)" font-family="Outfit,system-ui,sans-serif" font-size="22" font-weight="800">777</text>
-  <circle cx="148" cy="52" r="14" fill="url(#modal-lime)" opacity="0.95"/>
-  <text x="148" y="57" text-anchor="middle" fill="#0b1219" font-family="Outfit,system-ui,sans-serif" font-size="11" font-weight="800">FS</text>
-  <path d="M40 140 L52 128 M160 140 L148 128" stroke="url(#modal-gold)" stroke-width="2" stroke-linecap="round"/>
-</svg>
+      <img src="/assets/images/hero/modal-promo.svg" alt="" width="200" height="200" class="modal-art__img" loading="lazy">
     </div>
     <div class="modal-body">
       <p class="modal-eyebrow">Free insider updates</p>
@@ -542,6 +583,6 @@
     </div>
   </div>
 </div>
-<script src="/js/main.js"></script>
+<script src="/js/main.js" defer></script>
 </body>
 </html>

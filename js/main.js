@@ -140,9 +140,8 @@
   });
 
   function initSideRails() {
-    const left = document.getElementById("side-rail-left");
     const right = document.getElementById("side-rail-right");
-    if (!left && !right) return;
+    if (!right) return;
 
     if (storageGet(SIDE_RAILS_KEY) === "1") {
       document.body.classList.add("side-rails-hidden");

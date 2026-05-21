@@ -1,88 +1,55 @@
-/** Inline header logo — octagonal chip + global meridians + lime diamond (site palette) */
+/** Site header logo — minimal globe ring + lime accent (navy / gold / lime palette) */
 export const LOGO_SVG = `<svg class="logo-mark" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" width="42" height="42" aria-hidden="true" focusable="false">
   <defs>
     <linearGradient id="cotw-gold" x1="0%" y1="0%" x2="100%" y2="100%">
       <stop offset="0%" stop-color="#fde047"/>
-      <stop offset="45%" stop-color="#eab308"/>
-      <stop offset="100%" stop-color="#a16207"/>
+      <stop offset="100%" stop-color="#ca8a04"/>
     </linearGradient>
-    <linearGradient id="cotw-lime" x1="20%" y1="0%" x2="80%" y2="100%">
+    <linearGradient id="cotw-lime" x1="0%" y1="0%" x2="100%" y2="100%">
       <stop offset="0%" stop-color="#f0ff80"/>
       <stop offset="100%" stop-color="#c8f000"/>
     </linearGradient>
-    <radialGradient id="cotw-chip-face" cx="38%" cy="32%" r="68%">
-      <stop offset="0%" stop-color="#243b5c"/>
-      <stop offset="55%" stop-color="#152238"/>
-      <stop offset="100%" stop-color="#0b1219"/>
-    </radialGradient>
   </defs>
-  <polygon points="24,3 41.5,11.8 41.5,36.2 24,45 6.5,36.2 6.5,11.8" fill="url(#cotw-chip-face)" stroke="url(#cotw-gold)" stroke-width="2.4" stroke-linejoin="round"/>
-  <g stroke="url(#cotw-gold)" stroke-width="1.8" stroke-linecap="round" opacity="0.85">
-    <line x1="24" y1="1.2" x2="24" y2="5.2"/>
-    <line x1="42.8" y1="10.2" x2="39.6" y2="12.4"/>
-    <line x1="46.8" y1="24" x2="42.8" y2="24"/>
-    <line x1="42.8" y1="37.8" x2="39.6" y2="35.6"/>
-    <line x1="24" y1="46.8" x2="24" y2="42.8"/>
-    <line x1="5.2" y1="37.8" x2="8.4" y2="35.6"/>
-    <line x1="1.2" y1="24" x2="5.2" y2="24"/>
-    <line x1="5.2" y1="10.2" x2="8.4" y2="12.4"/>
-  </g>
-  <path d="M11 24c0-7.2 5.8-13 13-13s13 5.8 13 13" fill="none" stroke="#f8fafc" stroke-width="1.15" opacity="0.55"/>
-  <path d="M11 24c0 7.2 5.8 13 13 13s13-5.8 13-13" fill="none" stroke="#f8fafc" stroke-width="1.15" opacity="0.55"/>
-  <ellipse cx="24" cy="24" rx="10.5" ry="3.8" fill="none" stroke="#f8fafc" stroke-width="1" opacity="0.45"/>
-  <path d="M24 14.5l1.2 2.4 2.6.4-1.9 1.8.45 2.6L24 20.4l-2.35 1.3.45-2.6-1.9-1.8 2.6-.4z" fill="url(#cotw-gold)" opacity="0.95"/>
-  <path d="M24 17.5 28.8 24 24 30.5 19.2 24z" fill="url(#cotw-lime)" stroke="#0b1219" stroke-width="0.6" stroke-linejoin="round"/>
-  <path d="M24 17.5 28.8 24 24 30.5 19.2 24z" fill="none" stroke="url(#cotw-gold)" stroke-width="1.35" stroke-linejoin="round"/>
+  <circle cx="24" cy="24" r="21" fill="#152238" stroke="url(#cotw-gold)" stroke-width="2.2"/>
+  <ellipse cx="24" cy="24" rx="21" ry="8" fill="none" stroke="#f8fafc" stroke-width="1.1" opacity="0.55"/>
+  <path d="M3 24h42" stroke="#f8fafc" stroke-width="1" opacity="0.4"/>
+  <path d="M24 3c8 6 8 36 0 42M24 3c-8 6-8 36 0 42" fill="none" stroke="#f8fafc" stroke-width="1" opacity="0.4"/>
+  <path d="M24 14v20M17 24h14" stroke="url(#cotw-lime)" stroke-width="2.2" stroke-linecap="round"/>
+  <circle cx="34" cy="14" r="3.5" fill="url(#cotw-lime)"/>
 </svg>`;
 
-/** Standalone brand files (favicon, OG, schema) — same mark, simplified for small sizes */
+/** Standalone brand files (favicon, OG, schema) */
 export const LOGO_FILE_SVG = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" width="48" height="48" role="img" aria-label="Casino of the World">
   <defs>
     <linearGradient id="gold" x1="0%" y1="0%" x2="100%" y2="100%">
       <stop offset="0%" stop-color="#fde047"/>
-      <stop offset="45%" stop-color="#eab308"/>
-      <stop offset="100%" stop-color="#a16207"/>
+      <stop offset="100%" stop-color="#ca8a04"/>
     </linearGradient>
-    <linearGradient id="lime" x1="20%" y1="0%" x2="80%" y2="100%">
+    <linearGradient id="lime" x1="0%" y1="0%" x2="100%" y2="100%">
       <stop offset="0%" stop-color="#f0ff80"/>
       <stop offset="100%" stop-color="#c8f000"/>
     </linearGradient>
-    <radialGradient id="chip-face" cx="38%" cy="32%" r="68%">
-      <stop offset="0%" stop-color="#243b5c"/>
-      <stop offset="55%" stop-color="#152238"/>
-      <stop offset="100%" stop-color="#0b1219"/>
-    </radialGradient>
   </defs>
-  <polygon points="24,3 41.5,11.8 41.5,36.2 24,45 6.5,36.2 6.5,11.8" fill="url(#chip-face)" stroke="url(#gold)" stroke-width="2.4" stroke-linejoin="round"/>
-  <g stroke="url(#gold)" stroke-width="1.8" stroke-linecap="round" opacity="0.85">
-    <line x1="24" y1="1.2" x2="24" y2="5.2"/>
-    <line x1="42.8" y1="10.2" x2="39.6" y2="12.4"/>
-    <line x1="46.8" y1="24" x2="42.8" y2="24"/>
-    <line x1="42.8" y1="37.8" x2="39.6" y2="35.6"/>
-    <line x1="24" y1="46.8" x2="24" y2="42.8"/>
-    <line x1="5.2" y1="37.8" x2="8.4" y2="35.6"/>
-    <line x1="1.2" y1="24" x2="5.2" y2="24"/>
-    <line x1="5.2" y1="10.2" x2="8.4" y2="12.4"/>
-  </g>
-  <path d="M11 24c0-7.2 5.8-13 13-13s13 5.8 13 13" fill="none" stroke="#f8fafc" stroke-width="1.15" opacity="0.55"/>
-  <path d="M11 24c0 7.2 5.8 13 13 13s13-5.8 13-13" fill="none" stroke="#f8fafc" stroke-width="1.15" opacity="0.55"/>
-  <ellipse cx="24" cy="24" rx="10.5" ry="3.8" fill="none" stroke="#f8fafc" stroke-width="1" opacity="0.45"/>
-  <path d="M24 14.5l1.2 2.4 2.6.4-1.9 1.8.45 2.6L24 20.4l-2.35 1.3.45-2.6-1.9-1.8 2.6-.4z" fill="url(#gold)" opacity="0.95"/>
-  <path d="M24 17.5 28.8 24 24 30.5 19.2 24z" fill="url(#lime)" stroke="#0b1219" stroke-width="0.6" stroke-linejoin="round"/>
-  <path d="M24 17.5 28.8 24 24 30.5 19.2 24z" fill="none" stroke="url(#gold)" stroke-width="1.35" stroke-linejoin="round"/>
+  <circle cx="24" cy="24" r="21" fill="#152238" stroke="url(#gold)" stroke-width="2.2"/>
+  <ellipse cx="24" cy="24" rx="21" ry="8" fill="none" stroke="#f8fafc" stroke-width="1.1" opacity="0.55"/>
+  <path d="M3 24h42" stroke="#f8fafc" stroke-width="1" opacity="0.4"/>
+  <path d="M24 3c8 6 8 36 0 42M24 3c-8 6-8 36 0 42" fill="none" stroke="#f8fafc" stroke-width="1" opacity="0.4"/>
+  <path d="M24 14v20M17 24h14" stroke="url(#lime)" stroke-width="2.2" stroke-linecap="round"/>
+  <circle cx="34" cy="14" r="3.5" fill="url(#lime)"/>
 </svg>`;
 
 export const FAVICON_SVG = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="32" height="32" role="img" aria-label="Casino of the World">
   <defs>
     <linearGradient id="g" x1="0%" y1="0%" x2="100%" y2="100%">
       <stop offset="0%" stop-color="#fde047"/>
-      <stop offset="100%" stop-color="#a16207"/>
+      <stop offset="100%" stop-color="#ca8a04"/>
     </linearGradient>
-    <linearGradient id="l" x1="20%" y1="0%" x2="80%" y2="100%">
+    <linearGradient id="l" x1="0%" y1="0%" x2="100%" y2="100%">
       <stop offset="0%" stop-color="#f0ff80"/>
       <stop offset="100%" stop-color="#c8f000"/>
     </linearGradient>
   </defs>
-  <polygon points="16,2 27.7,8 27.7,24 16,30 4.3,24 4.3,8" fill="#152238" stroke="url(#g)" stroke-width="2" stroke-linejoin="round"/>
-  <path d="M16 11.5 20.5 16 16 20.5 11.5 16z" fill="url(#l)" stroke="url(#g)" stroke-width="1.2" stroke-linejoin="round"/>
+  <circle cx="16" cy="16" r="14" fill="#152238" stroke="url(#g)" stroke-width="2"/>
+  <path d="M16 9v14M11 16h10" stroke="url(#l)" stroke-width="2" stroke-linecap="round"/>
+  <circle cx="22" cy="10" r="2.5" fill="url(#l)"/>
 </svg>`;

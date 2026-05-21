@@ -44,7 +44,7 @@ async function main() {
     }
     const before = html;
     html = stripOldPromo(html);
-    if (html.includes(PROMO_MARKER) && html.includes("side-rail--left")) continue;
+    if (html.includes(PROMO_MARKER) && html.includes("side-rail__actions")) continue;
     html = insertPromo(html);
     if (html === before) continue;
     await fs.writeFile(file, html);

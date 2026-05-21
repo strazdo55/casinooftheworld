@@ -166,6 +166,7 @@ const html = pageShell({
   keywords: meta.keywords,
   ogImage: meta.ogImage,
   includeWebSite: true,
+  preloadHero: true,
   body,
 });
 

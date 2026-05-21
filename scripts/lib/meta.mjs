@@ -1,5 +1,6 @@
 import { SITE_URL, GOOGLE_SITE_VERIFICATION } from "./env.mjs";
 import { jsonLdScript } from "./schema.mjs";
+import { fontLinks, cssLink, resourceHints } from "./perf.mjs";
 
 function esc(s) {
   return String(s)
@@ -32,6 +33,7 @@ export function buildHead({
   published = "",
   author = "Casino of the World",
   structuredData = null,
+  preloadHero = false,
 }) {
   const canonical = `${SITE_URL}${canonicalPath.startsWith("/") ? canonicalPath : `/${canonicalPath}`}`;
   const image = `${SITE_URL}/${ogImage.replace(/^\//, "")}`;
@@ -73,10 +75,8 @@ export function buildHead({
   <meta name="twitter:title" content="${esc(fullTitle)}">
   <meta name="twitter:description" content="${esc(description)}">
   <meta name="twitter:image" content="${esc(image)}">${articleMeta}
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="/css/main.css">
+${fontLinks()}
+${cssLink("/css/main.min.css")}${resourceHints({ preloadHero })}
   <link rel="icon" href="/assets/images/brand/favicon.svg" type="image/svg+xml">
   <link rel="apple-touch-icon" href="/assets/images/brand/logo.svg">${ldJson}`;
 }

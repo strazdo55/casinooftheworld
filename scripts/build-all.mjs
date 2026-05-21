@@ -16,6 +16,8 @@ function run(script) {
 
 await run("fetch-logos.mjs");
 await run("generate-images.mjs");
+await run("optimize-images.mjs");
+await run("minify-css.mjs");
 await run("build-blog.mjs");
 await run("enrich-site.mjs");
 console.log("Build complete.");

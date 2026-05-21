@@ -5,6 +5,8 @@ import { buildHead } from "./meta.mjs";
 import { buildSchemaGraph } from "./schema.mjs";
 import { LOGO_SVG } from "./brand.mjs";
 import { blogPostHref, htmlFileToDirIndex } from "./paths.mjs";
+import { cardPicture } from "./images.mjs";
+import { deferredScript } from "./perf.mjs";
 
 const NAV = [
   { href: "/online-casinos/", label: "Casinos", id: "online-casinos", title: "Online Casinos" },
@@ -119,6 +121,7 @@ export function pageShell({
   author = "Casino of the World",
   breadcrumbs = null,
   includeWebSite = false,
+  preloadHero = false,
 }) {
   const pathKey = canonicalPath || activePath || "/";
   const canonical = pathKey.startsWith("/") ? pathKey : `/${pathKey.replace(/^\//, "")}`;
@@ -145,6 +148,7 @@ export function pageShell({
     published,
     author,
     structuredData,
+    preloadHero,
   });
 
   return `<!DOCTYPE html>
@@ -154,12 +158,16 @@ ${head}
 </head>
 <body>
 ${header(activePath)}
+<div class="site-shell">
+  <div class="site-shell__content">
 ${body}
+  </div>
+  ${sideRails()}
+</div>
 ${footer()}
-${sideRails()}
 ${modal()}
 ${cookieConsent()}
-<script src="/js/main.js"></script>
+${deferredScript()}
 </body>
 </html>`;
 }
@@ -187,7 +195,7 @@ export function guideCard(post, opts = {}) {
       : post.excerpt || "";
   return `<article class="guide-card">
   <a href="${blogPostHref(post.slug)}" class="guide-card__media">
-    <img src="/${img}" alt="${post.title}" loading="lazy" width="400" height="225" onerror="this.src='/assets/images/hero/home-hero.png'">
+    ${cardPicture(img, post.title)}
   </a>
   <div class="guide-card__body">
     <span class="tag">${post.category}</span>
@@ -221,7 +229,7 @@ export function blogSidebar(posts) {
     .map(
       (p) => `<article class="sidebar-guide">
   <a href="${blogPostHref(p.slug)}" class="sidebar-guide__media">
-    <img src="/${p.image.replace(/^\//, "")}" alt="${p.title}" loading="lazy" onerror="this.src='/assets/images/hero/home-hero.png'">
+    ${cardPicture(p.image.replace(/^\//, ""), p.title)}
   </a>
   <div class="sidebar-guide__body">
     <span class="tag">${p.category}</span>

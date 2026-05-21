@@ -18,6 +18,7 @@ import {
 import { enrichBlogArticle } from "./lib/links.mjs";
 import { faqBlock } from "./lib/page-blocks.mjs";
 import { getFaqs } from "./lib/faqs.mjs";
+import { articlePicture, cardPicture } from "./lib/images.mjs";
 import { buildArticlePrompt, enrichBodyWithContext } from "./lib/blog-prompt.mjs";
 
 const posts = JSON.parse(
@@ -104,7 +105,7 @@ async function writeArticle(post, sources) {
       <h1>${post.title}</h1>
       <p class="article-meta">Author: <a href="/about/">${post.author}</a> · Published: ${post.date} · Last updated: ${post.date}</p>
     </header>
-    <img class="article-featured" src="/${post.image}" alt="${post.title}" onerror="this.src='/assets/images/hero/home-hero.png'">
+    ${articlePicture(post.image, post.title)}
     ${disclosure()}
     <div class="article-body">${bodyContent}</div>
   </article>
@@ -121,7 +122,7 @@ async function buildBlogIndex() {
   const cards = posts
     .map(
       (p) => `<article class="post-card" data-category="${p.category.toLowerCase().replace(/\s+/g, "-")}">
-  <a href="${blogPostHref(p.slug)}"><img src="/${p.image}" alt="" onerror="this.src='/assets/images/hero/home-hero.png'"></a>
+  <a href="${blogPostHref(p.slug)}">${cardPicture(p.image, p.title)}</a>
   <div class="body">
     <span class="tag">${p.category}</span>
     <h3><a href="${blogPostHref(p.slug)}">${p.title}</a></h3>
@@ -168,7 +169,7 @@ async function buildBlogIndex() {
   <h1 class="section-title">Casino of the World Blog</h1>
   <p class="lead">International casino news, slot reviews, live dealer guides, and bankroll tips for UK, EU, and regulated markets—updated by our editorial team.</p>
   <section class="blog-hero-featured">
-    <a href="${blogPostHref(featured.slug)}"><img src="/${featured.image}" alt="${featured.title}" onerror="this.src='/assets/images/hero/home-hero.png'"></a>
+    <a href="${blogPostHref(featured.slug)}">${cardPicture(featured.image, featured.title, { loading: "eager", fetchpriority: "high", sizes: "(max-width: 900px) 100vw, 600px" })}</a>
     <div>
       <span class="tag">${featured.category}</span>
       <h2 style="font-size:1.75rem;margin:0.5rem 0"><a href="${blogPostHref(featured.slug)}">${featured.title}</a></h2>
