@@ -17,7 +17,7 @@ const IMAGES = [
   {
     out: "assets/images/hero/home-hero.webp",
     prompt:
-      "Cinematic wide hero background for casino affiliate site: moody bokeh lights, floating 3D poker chips, dark navy atmosphere, person silhouette with glasses looking at screen (blurred), professional photography style, no text, 16:9",
+      "Cinematic 16:9 hero background for premium casino comparison site: deep navy (#0b1219) and teal atmosphere, golden bokeh, floating poker chips with lime (#d4ff00) rim light, blurred live dealer green felt table, subtle international globe light hints, film grain, dramatic side lighting, photorealistic editorial, no text, no logos, no faces",
   },
   {
     out: "assets/images/hero/modal-megaphone.png",

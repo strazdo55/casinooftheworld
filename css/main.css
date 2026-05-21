@@ -189,7 +189,8 @@ a:hover {
 .hero-bg {
   position: absolute;
   inset: 0;
-  background: linear-gradient(120deg, rgba(11, 18, 25, 0.92), rgba(26, 43, 75, 0.75)),
+  background:
+    linear-gradient(105deg, rgba(11, 18, 25, 0.88) 0%, rgba(11, 18, 25, 0.55) 42%, rgba(26, 43, 75, 0.35) 100%),
     image-set(
       url("/assets/images/hero/home-hero.webp") type("image/webp"),
       url("/assets/images/hero/home-hero.png") type("image/png")
