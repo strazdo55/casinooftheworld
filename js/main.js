@@ -10,12 +10,14 @@
     if (modal) {
       modal.classList.add("open");
       modal.setAttribute("aria-hidden", "false");
+      document.body.style.overflow = "hidden";
     }
   };
   const closeModal = () => {
     if (modal) {
       modal.classList.remove("open");
       modal.setAttribute("aria-hidden", "true");
+      document.body.style.overflow = "";
     }
   };
 
