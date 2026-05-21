@@ -7,6 +7,7 @@ import { LOGO_SVG } from "./brand.mjs";
 import { blogPostHref, htmlFileToDirIndex } from "./paths.mjs";
 import { cardPicture } from "./images.mjs";
 import { deferredScript } from "./perf.mjs";
+import { modal, quickToolsStrip } from "./promo.mjs";
 
 const NAV = [
   { href: "/online-casinos/", label: "Casinos", id: "online-casinos", title: "Online Casinos" },
@@ -94,7 +95,7 @@ export function footer() {
 </footer>`;
 }
 
-export { modal, sideRails } from "./promo.mjs";
+export { filterBarWithTools } from "./promo.mjs";
 
 export function cookieConsent() {
   return `<div class="cookie-consent" id="cookie-consent" aria-label="Cookie consent" aria-live="polite" hidden>
@@ -125,6 +126,7 @@ export function pageShell({
   itemList = null,
   pageType: pageTypeOpt = null,
   preloadHero = false,
+  skipQuickTools = false,
 }) {
   const pathKey = canonicalPath || activePath || "/";
   const canonical = pathKey.startsWith("/") ? pathKey : `/${pathKey.replace(/^\//, "")}`;
@@ -164,11 +166,11 @@ ${head}
 </head>
 <body>
 ${header(activePath)}
+${skipQuickTools ? "" : `${quickToolsStrip()}\n`}
 <div class="site-shell">
   <div class="site-shell__content">
 ${body}
   </div>
-  ${sideRails()}
 </div>
 ${footer()}
 ${modal()}

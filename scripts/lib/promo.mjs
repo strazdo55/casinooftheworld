@@ -1,4 +1,4 @@
-/** Lead modal + right-side promo widget (site palette: navy, lime, gold) */
+/** Lead modal + in-page quick tools (no floating sidebars) */
 
 export function modal() {
   return `<div class="modal-overlay" id="lead-modal" aria-hidden="true">
@@ -35,17 +35,40 @@ export function modal() {
 <div class="toast" id="toast" role="status"></div>`;
 }
 
-export function sideRails() {
-  return `<aside class="side-rail side-rail--right" id="side-rail-right" aria-label="Quick actions">
-  <button type="button" class="side-rail__close" data-dismiss-rail aria-label="Dismiss">×</button>
-  <span class="side-rail__pulse" aria-hidden="true"></span>
-  <p class="side-rail__tag">Casino of the World</p>
-  <h3 class="side-rail__title">Tools &amp; top picks</h3>
-  <div class="side-rail__actions">
-    <a href="/online-casinos/" class="btn btn-lime side-rail__cta">Compare casinos</a>
-    <a href="/#wagering-calculator" class="btn btn-outline side-rail__cta side-rail__cta--light">Wagering calculator</a>
-    <a href="/reviews/" class="side-rail__link">All reviews →</a>
-    <a href="/bonuses/" class="side-rail__link">Bonus hub →</a>
+/** Shared tool links (compare, calculator, reviews, bonuses) */
+export function quickToolsLinks() {
+  return `<div class="quick-tools__links">
+    <a href="/online-casinos/" class="quick-tools__chip quick-tools__chip--lime">Compare casinos</a>
+    <a href="/#wagering-calculator" class="quick-tools__chip">Wagering calculator</a>
+    <a href="/reviews/" class="quick-tools__chip">All reviews</a>
+    <a href="/bonuses/" class="quick-tools__chip">Bonus hub</a>
+  </div>`;
+}
+
+/** Slim strip below header on inner pages */
+export function quickToolsStrip() {
+  return `<nav class="quick-tools" aria-label="Quick tools">
+  <div class="container quick-tools__inner">
+    <span class="quick-tools__label">Quick tools</span>
+    ${quickToolsLinks()}
   </div>
-</aside>`;
+</nav>`;
+}
+
+/** Merged into homepage filter bar (topics + tools, one row) */
+export function filterBarWithTools(topicLinksHtml) {
+  return `<div class="filter-bar filter-bar--with-tools">
+  <div class="container filter-inner filter-inner--split">
+    <div class="filter-bar__topics">
+      <span>Find the best:</span>
+      <div class="filter-options">
+        ${topicLinksHtml}
+      </div>
+    </div>
+    <div class="quick-tools quick-tools--merged" aria-label="Quick tools">
+      <span class="quick-tools__label">Tools</span>
+      ${quickToolsLinks()}
+    </div>
+  </div>
+</div>`;
 }

@@ -2,7 +2,6 @@
   const COOKIE_CONSENT_KEY = "cotw_cookie_consent";
   const LEAD_MODAL_KEY = "cotw_lead_modal_dismissed";
   const LEAD_MODAL_SUBMITTED_KEY = "cotw_lead_modal_submitted";
-  const SIDE_RAILS_KEY = "cotw_side_rails_dismissed";
   const MODAL_COOLDOWN_MS = 14 * 24 * 60 * 60 * 1000;
   const MODAL_DELAY_MS = 12000;
 
@@ -138,27 +137,6 @@
       closeModal({ remember: true, permanent: true });
     });
   });
-
-  function initSideRails() {
-    const right = document.getElementById("side-rail-right");
-    if (!right) return;
-
-    if (storageGet(SIDE_RAILS_KEY) === "1") {
-      document.body.classList.add("side-rails-hidden");
-      return;
-    }
-
-    document.body.classList.add("has-side-rails");
-
-    document.querySelectorAll("[data-dismiss-rail]").forEach((btn) => {
-      btn.addEventListener("click", () => {
-        storageSet(SIDE_RAILS_KEY, "1");
-        document.body.classList.add("side-rails-hidden");
-      });
-    });
-  }
-
-  initSideRails();
 
   initCompareFilters();
   initWageringCalculator();

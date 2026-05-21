@@ -1,7 +1,13 @@
 import fs from "fs/promises";
 import path from "path";
 import { ROOT } from "./lib/env.mjs";
-import { pageShell, compareTable, guideCardGrid, uniquePosts } from "./lib/html.mjs";
+import {
+  pageShell,
+  compareTable,
+  guideCardGrid,
+  uniquePosts,
+  filterBarWithTools,
+} from "./lib/html.mjs";
 import {
   howWeRateBlock,
   faqBlock,
@@ -74,18 +80,13 @@ const body = `
   </div>
 </section>
 
-<div class="filter-bar">
-  <div class="container filter-inner">
-    <span>Find the best:</span>
-    <div class="filter-options">
+${filterBarWithTools(`
       <a href="/online-casinos/">Top Casinos</a>
       <a href="/bonuses/">Bonuses &amp; Free Spins</a>
       <a href="/games/">Slots &amp; Live Dealer</a>
       <a href="/banking/">Banking &amp; Payouts</a>
       <a href="/europe-casinos/">Europe &amp; Asia</a>
-    </div>
-  </div>
-</div>
+    `)}
 
 <main class="container">
   <p class="page-updated"><time datetime="${new Date().toISOString().slice(0, 10)}">Updated ${new Date().toLocaleString("en-GB", { month: "long", year: "numeric" })}</time> — comparison table, reviews, and guides refreshed by our editorial team.</p>
@@ -167,6 +168,7 @@ const html = pageShell({
   ogImage: meta.ogImage,
   faqs: getFaqs("home"),
   preloadHero: true,
+  skipQuickTools: true,
   body,
 });
 

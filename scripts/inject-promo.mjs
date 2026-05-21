@@ -1,10 +1,10 @@
 import fs from "fs/promises";
 import path from "path";
 import { ROOT } from "./lib/env.mjs";
-import { modal, sideRails } from "./lib/promo.mjs";
+import { modal } from "./lib/promo.mjs";
 
 const PROMO_MARKER = 'class="modal-eyebrow"';
-const SNIPPET = `${sideRails()}\n${modal()}`;
+const RAIL_RE = /<aside class="side-rail[\s\S]*?<\/aside>\s*/g;
 
 async function walk(dir, files = []) {
   for (const name of await fs.readdir(dir, { withFileTypes: true })) {
@@ -17,7 +17,7 @@ async function walk(dir, files = []) {
 }
 
 function stripOldPromo(html) {
-  let out = html.replace(/<aside class="side-rail[\s\S]*?<\/aside>\s*/g, "");
+  let out = html.replace(RAIL_RE, "");
   out = out.replace(
     /<div class="modal-overlay"[\s\S]*?<div class="toast"[^>]*>[\s\S]*?<\/div>\s*/i,
     ""
@@ -25,13 +25,13 @@ function stripOldPromo(html) {
   return out;
 }
 
-function insertPromo(html) {
+function insertModal(html) {
   if (html.includes('<div class="cookie-consent"')) {
-    return html.replace(/<div class="cookie-consent"/, `${SNIPPET}\n<div class="cookie-consent"`);
+    return html.replace(/<div class="cookie-consent"/, `${modal()}\n<div class="cookie-consent"`);
   }
   return html.replace(
     /<script src="\/js\/main\.js"><\/script>/,
-    `${SNIPPET}\n<script src="/js/main.js"></script>`
+    `${modal()}\n<script src="/js/main.js"></script>`
   );
 }
 
@@ -39,18 +39,18 @@ async function main() {
   let updated = 0;
   for (const file of await walk(ROOT)) {
     let html = await fs.readFile(file, "utf8");
-    if (!html.includes("site-footer") || !html.includes("<script src=\"/js/main.js\">")) {
+    if (!html.includes("site-footer") || !html.includes('<script src="/js/main.js">')) {
       continue;
     }
     const before = html;
     html = stripOldPromo(html);
-    if (html.includes(PROMO_MARKER) && html.includes("side-rail__actions")) continue;
-    html = insertPromo(html);
+    if (html.includes(PROMO_MARKER)) continue;
+    html = insertModal(html);
     if (html === before) continue;
     await fs.writeFile(file, html);
     updated++;
   }
-  console.log(`Promo modal + side rails injected on ${updated} page(s).`);
+  console.log(`Lead modal injected on ${updated} page(s). Use migrate-quick-tools for tools strip.`);
 }
 
 main().catch((e) => {
