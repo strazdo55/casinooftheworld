@@ -33,9 +33,9 @@ npm run dev            # http://localhost:8080
 | URL | Status |
 |-----|--------|
 | [strazdo55.github.io/casinooftheworld](https://strazdo55.github.io/casinooftheworld/) | Live |
-| [casinooftheworld.com](https://casinooftheworld.com/) | Needs Namecheap DNS → see [docs/DNS-SETUP.md](docs/DNS-SETUP.md) |
+| [casinooftheworld.com](https://casinooftheworld.com/) | Cloudflare DNS → see [docs/DNS-SETUP.md](docs/DNS-SETUP.md) |
 
-Deploys on push to `main` via GitHub Actions. Custom domain is **verified on GitHub**; point DNS A records to GitHub (not Namecheap parking/forward).
+Deploys on push to `main` via GitHub Actions. Domain is **verified on GitHub**; in Cloudflare set **CNAME `@` → `strazdo55.github.io`** (DNS only, grey cloud).
 
 ## Responsible gambling
 

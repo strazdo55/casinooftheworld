@@ -1,54 +1,73 @@
-# Map casinooftheworld.com to GitHub Pages
+# Cloudflare DNS → GitHub Pages
 
-GitHub shows the domain as **verified**. Traffic still goes to Namecheap until DNS is updated.
+Nameservers are on Cloudflare (`stephane.ns.cloudflare.com`, `ridge.ns.cloudflare.com`). GitHub has **verified** `casinooftheworld.com`.
 
-## Namecheap — remove forwarding first
+## Cloudflare DNS records (required)
 
-In Namecheap → Domain → **Redirect Domain** / **URL Redirect Record**: **delete** any forward to `www` or parking. That blocks GitHub Pages.
+In **Cloudflare** → **casinooftheworld.com** → **DNS** → **Records**:
 
-## DNS records (Advanced DNS)
+Delete any old **URL redirect**, **parking**, or **A** records pointing to Namecheap (`192.64.x`, `parkingpage.namecheap.com`).
 
-### Apex `@` (casinooftheworld.com)
+### Recommended (works best with GitHub Pages)
 
-Add **four A records** (Host `@`, TTL Automatic):
+| Type | Name | Content | Proxy status |
+|------|------|---------|--------------|
+| **CNAME** | `@` | `strazdo55.github.io` | **DNS only** (grey cloud) |
+| **CNAME** | `www` | `strazdo55.github.io` | **DNS only** (grey cloud) |
 
-| Type | Host | Value |
-|------|------|-------|
-| A | @ | `185.199.108.153` |
-| A | @ | `185.199.109.153` |
-| A | @ | `185.199.110.153` |
-| A | @ | `185.199.111.153` |
+Cloudflare supports CNAME on the apex (`@`) via CNAME flattening.
 
-### WWW (optional but recommended)
+> Start with **DNS only** (grey cloud). After the site loads, you can try **Proxied** (orange) with SSL mode **Full** if you want Cloudflare CDN.
 
-| Type | Host | Value |
-|------|------|-------|
-| CNAME | www | `strazdo55.github.io` |
+### Alternative (apex only) — four A records
 
-Then in GitHub → repo **Settings → Pages**, add `www.casinooftheworld.com` as a second domain if you want both.
+If you prefer A records on `@` instead of CNAME:
 
-## GitHub (already done)
+| Type | Name | Content | Proxy |
+|------|------|---------|-------|
+| A | `@` | `185.199.108.153` | DNS only |
+| A | `@` | `185.199.109.153` | DNS only |
+| A | `@` | `185.199.110.153` | DNS only |
+| A | `@` | `185.199.111.153` | DNS only |
+| CNAME | `www` | `strazdo55.github.io` | DNS only |
 
-- Repo: `strazdo55/casinooftheworld`
-- Pages: GitHub Actions deploy from `main`
+## Cloudflare SSL/TLS
+
+**SSL/TLS** → Overview → set to **Full** (not Flexible).
+
+- **Flexible** often breaks GitHub Pages (redirect loops / 403).
+- After DNS works, use **Full (strict)** once GitHub has issued the certificate.
+
+## GitHub (already configured)
+
+- Repo: [strazdo55/casinooftheworld](https://github.com/strazdo55/casinooftheworld)
+- Pages: GitHub Actions from `main`
 - Custom domain: `casinooftheworld.com` (verified)
-- `CNAME` file in repo root: `casinooftheworld.com`
+- Root file: `CNAME` contains `casinooftheworld.com`
 
-## After DNS propagates (5–60 minutes)
+In GitHub → **Settings → Pages**:
 
-1. Open **https://casinooftheworld.com** — should show the casino site.
-2. In GitHub → **Settings → Pages**, enable **Enforce HTTPS** when the checkbox becomes available.
+1. Custom domain: `casinooftheworld.com` (and optionally `www.casinooftheworld.com`)
+2. When available, enable **Enforce HTTPS**
 
-## Check status
+## Verify (use Cloudflare DNS)
 
 ```bash
-dig +short casinooftheworld.com A
-# Should list 185.199.108.x etc., NOT 192.64.119.222 (Namecheap parking)
+dig @1.1.1.1 casinooftheworld.com CNAME +short
+# Should show strazdo55.github.io (or GitHub A IPs if using A records)
 
-curl -sI https://casinooftheworld.com/ | head -5
-# Should show server: GitHub.com and HTTP 200
+curl -sI https://casinooftheworld.com/ | head -6
+# Should show: server: GitHub.com  and  HTTP/2 200
 ```
 
-## Fallback URL (works now)
+## Current issue (if site does not load)
+
+If you see **403** or timeout from Cloudflare:
+
+1. Proxy is **orange** but origin is not `strazdo55.github.io` → fix records above.
+2. SSL mode is **Flexible** → change to **Full**.
+3. Old Namecheap records still in Cloudflare → delete them.
+
+## Fallback (always works)
 
 https://strazdo55.github.io/casinooftheworld/
