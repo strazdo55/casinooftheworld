@@ -1,0 +1,34 @@
+{
+  "cleanUrls": true,
+  "trailingSlash": false,
+  "rewrites": [
+    {
+      "source": "/blog/:slug",
+      "destination": "/blog/:slug.html"
+    },
+    {
+      "source": "/best-new-online-slots-2026",
+      "destination": "/blog/best-new-online-slots-2026.html"
+    },
+    {
+      "source": "/us-igaming-expansion-2026",
+      "destination": "/blog/us-igaming-expansion-2026.html"
+    },
+    {
+      "source": "/twenty-dollar-casino-method",
+      "destination": "/blog/twenty-dollar-casino-method.html"
+    },
+    {
+      "source": "/fastest-payout-online-casinos",
+      "destination": "/blog/fastest-payout-online-casinos.html"
+    },
+    {
+      "source": "/best-live-dealer-casinos-2026",
+      "destination": "/blog/best-live-dealer-casinos-2026.html"
+    },
+    {
+      "source": "/live-dealer-vs-rng-slots",
+      "destination": "/blog/live-dealer-vs-rng-slots.html"
+    }
+  ]
+}

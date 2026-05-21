@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Page not found | Casino of the World</title>
+  <script>
+    (function () {
+      var path = location.pathname.replace(/\/$/, "");
+      var m = path.match(/^\/(?:blog\/)?([a-z0-9-]+)$/);
+      if (m && m[1] !== "index" && m[1] !== "blog") {
+        location.replace("/blog/" + m[1]);
+        return;
+      }
+    })();
+  </script>
+  <link rel="stylesheet" href="/css/main.css">
+</head>
+<body style="padding:3rem;text-align:center;font-family:system-ui,sans-serif">
+  <h1>404 — Page not found</h1>
+  <p><a href="/index.html">Home</a> · <a href="/blog/index.html">Casino blog</a></p>
+</body>
+</html>

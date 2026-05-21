@@ -1,0 +1,280 @@
+import fs from "fs/promises";
+import path from "path";
+import { ROOT } from "./lib/env.mjs";
+import { buildHead, replaceHead } from "./lib/meta.mjs";
+import {
+  PAGE_ENRICHMENT,
+  pageResources,
+  enrichBlogArticle,
+  relatedList,
+  externalList,
+} from "./lib/links.mjs";
+import { pageShell, writePage, disclosure, compareTable, blogSidebar } from "./lib/html.mjs";
+
+const posts = JSON.parse(
+  await fs.readFile(path.join(ROOT, "data/blog.json"), "utf8")
+);
+const enrichment = JSON.parse(
+  await fs.readFile(path.join(ROOT, "data/blog-enrichment.json"), "utf8")
+);
+const operators = JSON.parse(
+  await fs.readFile(path.join(ROOT, "data/operators.json"), "utf8")
+);
+
+function injectBeforeCloseMain(html, block) {
+  if (html.includes("page-resources") || html.includes("article-related")) {
+    return html;
+  }
+  const idx = html.lastIndexOf("</main>");
+  if (idx === -1) return html;
+  return html.slice(0, idx) + block + "\n" + html.slice(idx);
+}
+
+function patchArticleBody(html, slug) {
+  const data = enrichment[slug];
+  if (!data) return html;
+  if (html.includes('class="article-related"')) return html;
+
+  const match = html.match(
+    /(<div class="article-body">)([\s\S]*?)(<\/div>\s*<\/article>)/
+  );
+  if (!match) return html;
+
+  const enriched = enrichBlogArticle(match[2], data, 1);
+  return html.replace(match[0], `${match[1]}${enriched}${match[3]}`);
+}
+
+async function enrichBlogPost(post) {
+  const file = path.join(ROOT, "blog", `${post.slug}.html`);
+  let html = await fs.readFile(file, "utf8");
+  const data = enrichment[post.slug] || {};
+
+  const head = buildHead({
+    title: post.title,
+    description: post.excerpt,
+    canonicalPath: `/blog/${post.slug}`,
+    depth: 1,
+    ogImage: post.image,
+    type: "article",
+    keywords: data.keywords || "",
+    published: post.date,
+    author: post.author,
+  });
+
+  html = replaceHead(html, head);
+  html = patchArticleBody(html, post.slug);
+
+  html = html.replace(
+    /<p class="article-meta">Author: <a href="#">/g,
+    `<p class="article-meta">Author: <a href="../about.html">`
+  );
+  html = html.replace(
+    /<p class="blog-meta"><a href="#">/g,
+    `<p class="blog-meta"><a href="../about.html">`
+  );
+
+  await fs.writeFile(file, html);
+  console.log("Blog enriched:", post.slug);
+}
+
+async function enrichBlogIndex() {
+  const file = path.join(ROOT, "blog/index.html");
+  let html = await fs.readFile(file, "utf8");
+  const meta = PAGE_ENRICHMENT["blog/index.html"];
+
+  const head = buildHead({
+    title: "Casino Blog — News, Slots & Live Dealer Guides",
+    description:
+      "Expert casino blog: slot reviews, US iGaming news, live dealer guides, bankroll tips, and payout comparisons. Updated for 2026.",
+    canonicalPath: "/blog/",
+    depth: 1,
+    ogImage: posts[0].image,
+    keywords: meta.keywords,
+  });
+
+  html = replaceHead(html, head);
+  const block = pageResources({
+    related: meta.related.map((r) => ({
+      ...r,
+      href: r.href.startsWith("../") ? r.href : r.href,
+    })),
+    external: meta.external,
+  });
+  html = injectBeforeCloseMain(html, block);
+
+  await fs.writeFile(file, html);
+  console.log("Blog index enriched");
+}
+
+async function enrichStaticPage(relativePath, meta) {
+  const file = path.join(ROOT, relativePath);
+  let html = await fs.readFile(file, "utf8");
+  const depth = meta.depth || 0;
+
+  const head = buildHead({
+    title: meta.title,
+    description: meta.description,
+    canonicalPath:
+      meta.canonicalPath ||
+      `/${relativePath.replace(/index\.html$/, "").replace(/\.html$/, "")}`,
+    depth,
+    ogImage: meta.ogImage || "assets/images/brand/logo.png",
+    keywords: meta.keywords || "",
+    type: meta.type || "website",
+  });
+
+  html = replaceHead(html, head);
+  html = html.replace(
+    /<div class="page-resources-intro"><p class="page-resources-intro">/g,
+    '<p class="page-resources-intro">'
+  );
+  html = html.replace(/<\/p><\/div>\n(<section class="article-related")/g, "</p>\n$1");
+
+  if (meta.intro || meta.related || meta.external) {
+    const prefix = depth ? "../".repeat(depth) : "";
+    const related = (meta.related || []).map((r) => ({
+      href: r.href.startsWith("http") || r.href.startsWith("../") ? r.href : `${prefix}${r.href}`,
+      label: r.label,
+    }));
+    const block = pageResources({
+      intro: meta.intro,
+      related,
+      external: meta.external,
+    });
+    html = injectBeforeCloseMain(html, block);
+  }
+
+  await fs.writeFile(file, html);
+  console.log("Page enriched:", relativePath);
+}
+
+async function enrichReviews() {
+  for (const op of operators) {
+    const file = path.join(ROOT, "reviews", `${op.slug}.html`);
+    let html = await fs.readFile(file, "utf8");
+
+    const head = buildHead({
+      title: `${op.name} Casino Review`,
+      description: `${op.name} review (2026): ${op.bestFor}. Welcome bonus, ${op.payout} payouts, games, and banking — independent analysis.`,
+      canonicalPath: `/reviews/${op.slug}`,
+      depth: 1,
+      ogImage: op.logo,
+      keywords: `${op.name} review, ${op.name} casino bonus, ${op.name} payout, online casino review`,
+    });
+
+    html = replaceHead(html, head);
+
+    if (!html.includes("article-related")) {
+      const related = relatedList([
+        { href: "../online-casinos.html", label: "Compare all online casinos" },
+        { href: "../bonuses.html", label: "Casino bonuses explained" },
+        { href: "../banking.html", label: "Banking & withdrawal guide" },
+        {
+          href: `../blog/fastest-payout-online-casinos.html`,
+          label: "Fastest payout casinos",
+        },
+      ]);
+      const external = externalList([
+        { href: "https://www.ecogra.org/", label: "eCOGRA — fair gaming standards" },
+        { href: "https://www.ncpgambling.org/", label: "NCPG — responsible gambling" },
+        {
+          href: `https://${op.domain}/`,
+          label: `${op.name} official website`,
+        },
+      ]);
+      html = html.replace(
+        "</article>",
+        `${related}\n${external}\n</article>`
+      );
+    }
+
+    await fs.writeFile(file, html);
+    console.log("Review enriched:", op.slug);
+  }
+}
+
+// Regenerate core pages from generate-pages with enrichment
+async function regenerateCorePages() {
+  const { spawn } = await import("child_process");
+  await new Promise((resolve, reject) => {
+    const child = spawn("node", ["scripts/generate-pages.mjs"], {
+      cwd: ROOT,
+      stdio: "inherit",
+    });
+    child.on("close", (code) =>
+      code === 0 ? resolve() : reject(new Error("generate-pages failed"))
+    );
+  });
+}
+
+async function enrichIndex() {
+  const meta = PAGE_ENRICHMENT["index.html"];
+  await enrichStaticPage("index.html", meta);
+
+  let html = await fs.readFile(path.join(ROOT, "index.html"), "utf8");
+  if (!html.includes("blog/best-new-online-slots-2026")) {
+    html = html.replace(
+      "<p class=\"lead\">Our editors test slot libraries",
+      '<p class="lead">Our editors test slot libraries, live dealer studios, and withdrawal speeds. Explore <a href="blog/best-new-online-slots-2026.html">new slots for 2026</a>, <a href="us-casinos.html">US casinos</a>, and <a href="reviews/index.html">operator reviews</a>.'
+    );
+    await fs.writeFile(path.join(ROOT, "index.html"), html);
+  }
+  console.log("Index enriched");
+}
+
+async function main() {
+  await regenerateCorePages();
+  await enrichIndex();
+
+  for (const [file, meta] of Object.entries(PAGE_ENRICHMENT)) {
+    if (file === "blog/index.html" || file === "index.html") continue;
+    await enrichStaticPage(file, meta);
+  }
+
+  await enrichBlogIndex();
+  for (const post of posts) {
+    await enrichBlogPost(post);
+  }
+  await enrichReviews();
+
+  const legal = {
+    "about.html": {
+      title: "About Casino of the World",
+      description:
+        "Independent online casino reviews, slot guides, and responsible gambling resources.",
+      canonicalPath: "/about",
+      keywords: "about us, casino reviews, editorial standards",
+    },
+    "contact.html": {
+      title: "Contact Us",
+      description: "Contact Casino of the World for partnerships, corrections, and reader questions.",
+      canonicalPath: "/contact",
+    },
+    "affiliate-disclosure.html": {
+      title: "Affiliate Disclosure",
+      description: "How Casino of the World earns commissions and maintains editorial independence.",
+      canonicalPath: "/affiliate-disclosure",
+    },
+    "privacy.html": {
+      title: "Privacy Policy",
+      description: "Privacy policy for casinooftheworld.com — data collection and contact information.",
+      canonicalPath: "/privacy",
+    },
+    "terms.html": {
+      title: "Terms of Use",
+      description: "Terms of use for casinooftheworld.com — age requirements and liability.",
+      canonicalPath: "/terms",
+    },
+  };
+
+  for (const [file, meta] of Object.entries(legal)) {
+    await enrichStaticPage(file, meta);
+  }
+
+  console.log("Site SEO & linking enrichment complete.");
+}
+
+main().catch((e) => {
+  console.error(e);
+  process.exit(1);
+});

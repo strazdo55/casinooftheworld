@@ -1,0 +1,20 @@
+{
+  "name": "casinooftheworld",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "npx --yes serve . -l 8080 --config serve.json",
+    "build": "node scripts/build-all.mjs",
+    "build:operators": "node scripts/build-operators.mjs",
+    "build:blog": "node scripts/build-blog.mjs",
+    "sync:routes": "node scripts/write-serve-config.mjs",
+    "enrich": "node scripts/enrich-site.mjs",
+    "patch:logo": "node scripts/patch-logo.mjs",
+    "build:images": "node scripts/generate-images.mjs"
+  },
+  "dependencies": {
+    "@google/generative-ai": "^0.24.1",
+    "dotenv": "^16.6.1"
+  }
+}
