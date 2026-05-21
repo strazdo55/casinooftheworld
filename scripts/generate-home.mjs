@@ -9,6 +9,18 @@ import {
   licensingTable,
   wageringCalculatorBlock,
 } from "./lib/page-blocks.mjs";
+import {
+  pillarIntroBlock,
+  quickStatsBar,
+  chooseCasinoStepsBlock,
+  categoryPicksBlock,
+  gamesPillarBlock,
+  bonusesPillarBlock,
+  bankingPillarBlock,
+  regionalHubBlock,
+  safetyPillarBlock,
+  editorialTrustBlock,
+} from "./lib/home-blocks.mjs";
 import { getFaqs } from "./lib/faqs.mjs";
 import { PAGE_ENRICHMENT } from "./lib/links.mjs";
 
@@ -26,7 +38,6 @@ const editorPicks = uniquePosts(
 
 function brandCards() {
   return operators
-    .slice(0, 9)
     .map(
       (op) => `<article class="affiliate-card">
   <img src="/${op.logo.replace(/^\//, "")}" alt="${op.name}">
@@ -83,15 +94,23 @@ const body = `
     <strong>Affiliate Disclosure:</strong> We may earn a commission when you sign up via our links. Ratings are editorial—see <a href="/affiliate-disclosure/">how we make money</a>.
   </aside>
 
-  <p class="lead">Casino of the World helps you choose licensed operators with fair bonus terms, strong game libraries, and reliable cash-outs. We do <strong>not</strong> promote US state-regulated sportsbook-casino hybrids; our comparisons focus on <a href="/europe-casinos/">European and international brands</a> such as LeoVegas, 888casino, Betway, and Casumo.</p>
+  ${pillarIntroBlock()}
+  ${quickStatsBar(operators.length)}
 
   ${howWeRateBlock()}
+  ${chooseCasinoStepsBlock()}
 
   <h2 class="section-title">Top-Rated Casinos — Quick Comparison</h2>
   <p class="muted" style="margin-bottom:1rem">Use filters to narrow by licence, payout speed, region, or crypto-friendly brands. All operators are drawn from our vetted international directory.</p>
   ${compareTable(operators, { filters: true })}
 
+  ${categoryPicksBlock(operators)}
+
   ${wageringCalculatorBlock({ id: "wagering-calculator" })}
+
+  ${bonusesPillarBlock()}
+  ${bankingPillarBlock()}
+  ${gamesPillarBlock()}
 
   <aside class="article-callout">
     <strong>Key takeaway</strong>
@@ -101,8 +120,12 @@ const body = `
   <h2 class="section-title">Licensing &amp; Player Protection</h2>
   <p>Regulation determines which games, payment methods, and dispute processes you get. Below is a simplified map; our <a href="/casinos-by-country/">country guide</a> goes deeper.</p>
   ${licensingTable()}
+  ${regionalHubBlock()}
+  ${editorialTrustBlock()}
+  ${safetyPillarBlock()}
 
-  <h2 class="section-title">Featured Operator Reviews</h2>
+  <h2 class="section-title">All Operator Reviews (${operators.length})</h2>
+  <p class="muted" style="margin-top:0">Every brand in our comparison table has a full review covering licensing, games, bonuses, banking, and responsible-gambling tools.</p>
   <div class="card-grid">${brandCards()}</div>
 
   <section class="content-section" aria-labelledby="editor-picks">
@@ -121,9 +144,15 @@ const body = `
   ${topicLinksBlock([
     { href: "/online-casinos/", label: "Best online casinos compared" },
     { href: "/reviews/", label: "In-depth operator reviews" },
+    { href: "/bonuses/", label: "Casino bonuses & free spins" },
+    { href: "/banking/", label: "Banking & payout methods" },
+    { href: "/games/", label: "Casino games hub" },
+    { href: "/europe-casinos/", label: "Europe & Asia casinos" },
+    { href: "/casinos-by-country/", label: "Casinos by country" },
     { href: "/blog/", label: "Casino blog — news & strategy" },
     { href: "/blog/best-new-online-slots-2026/", label: "Best new slots (2026)" },
     { href: "/blog/best-live-dealer-casinos-2026/", label: "Best live dealer casinos" },
+    { href: "/blog/wagering-requirements-explained/", label: "Wagering requirements explained" },
     { href: "/blog/online-casino-kyc-verification-guide/", label: "KYC verification explained" },
   ])}
 </main>`;
