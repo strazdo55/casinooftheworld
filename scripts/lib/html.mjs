@@ -92,38 +92,7 @@ export function footer() {
 </footer>`;
 }
 
-export function modal() {
-  return `<div class="modal-overlay" id="lead-modal" aria-hidden="true">
-  <div class="modal" role="dialog" aria-labelledby="modal-title">
-    <button class="modal-close" type="button" data-close-modal aria-label="Close">×</button>
-    <div class="modal-art">
-      <img src="/assets/images/hero/modal-megaphone.png" alt="" width="200" onerror="this.parentElement.style.display='none'">
-    </div>
-    <div>
-      <h2 id="modal-title">Claim 250 Free Spins Today!</h2>
-      <p>Get smart casino tips, bankroll strategies, and exclusive bonus alerts.</p>
-      <form id="lead-form" data-demo-form>
-        <div class="form-row">
-          <div>
-            <label for="lead-fname">First Name</label>
-            <input type="text" id="lead-fname" name="fname" required>
-          </div>
-          <div>
-            <label for="lead-email">Email</label>
-            <input type="email" id="lead-email" name="email" required>
-          </div>
-        </div>
-        <label class="modal-check">
-          <input type="checkbox" required>
-          <span>I read and agree to <a href="/terms/">Terms &amp; Conditions</a>.</span>
-        </label>
-        <button type="submit" class="btn btn-lime" style="width:100%">Unlock My Free Spins</button>
-      </form>
-    </div>
-  </div>
-</div>
-<div class="toast" id="toast" role="status"></div>`;
-}
+export { modal, sideRails } from "./promo.mjs";
 
 export function cookieConsent() {
   return `<div class="cookie-consent" id="cookie-consent" aria-label="Cookie consent" aria-live="polite" hidden>
@@ -187,6 +156,7 @@ ${head}
 ${header(activePath)}
 ${body}
 ${footer()}
+${sideRails()}
 ${modal()}
 ${cookieConsent()}
 <script src="/js/main.js"></script>

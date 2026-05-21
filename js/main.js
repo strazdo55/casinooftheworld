@@ -1,5 +1,10 @@
 (function () {
   const COOKIE_CONSENT_KEY = "cotw_cookie_consent";
+  const LEAD_MODAL_KEY = "cotw_lead_modal_dismissed";
+  const LEAD_MODAL_SUBMITTED_KEY = "cotw_lead_modal_submitted";
+  const SIDE_RAILS_KEY = "cotw_side_rails_dismissed";
+  const MODAL_COOLDOWN_MS = 14 * 24 * 60 * 60 * 1000;
+  const MODAL_DELAY_MS = 12000;
 
   function initCookieConsent() {
     const banner = document.getElementById("cookie-consent");
@@ -46,35 +51,6 @@
     });
   }
 
-  const modal = document.getElementById("lead-modal");
-  const openModal = () => {
-    if (modal) {
-      modal.classList.add("open");
-      modal.setAttribute("aria-hidden", "false");
-      document.body.style.overflow = "hidden";
-    }
-  };
-  const closeModal = () => {
-    if (modal) {
-      modal.classList.remove("open");
-      modal.setAttribute("aria-hidden", "true");
-      document.body.style.overflow = "";
-    }
-  };
-
-  document.querySelectorAll("[data-close-modal], .modal-close").forEach((el) => {
-    el.addEventListener("click", closeModal);
-  });
-  modal?.addEventListener("click", (e) => {
-    if (e.target === modal) closeModal();
-  });
-
-  setTimeout(openModal, 8000);
-  document.querySelector("[data-open-modal]")?.addEventListener("click", (e) => {
-    e.preventDefault();
-    openModal();
-  });
-
   const toast = document.getElementById("toast");
   function showToast(msg) {
     if (!toast) return;
@@ -83,6 +59,73 @@
     setTimeout(() => toast.classList.remove("show"), 4000);
   }
 
+  function storageGet(key) {
+    try {
+      return localStorage.getItem(key);
+    } catch {
+      return null;
+    }
+  }
+
+  function storageSet(key, value) {
+    try {
+      localStorage.setItem(key, value);
+    } catch {
+      /* private mode */
+    }
+  }
+
+  function shouldShowLeadModal() {
+    if (storageGet(LEAD_MODAL_SUBMITTED_KEY) === "1") return false;
+    const dismissed = storageGet(LEAD_MODAL_KEY);
+    if (!dismissed) return true;
+    const ts = Number(dismissed);
+    if (!Number.isFinite(ts)) return true;
+    return Date.now() - ts > MODAL_COOLDOWN_MS;
+  }
+
+  function dismissLeadModal(permanent = false) {
+    if (permanent) {
+      storageSet(LEAD_MODAL_SUBMITTED_KEY, "1");
+    }
+    storageSet(LEAD_MODAL_KEY, String(Date.now()));
+  }
+
+  const modal = document.getElementById("lead-modal");
+  const openModal = (opts = {}) => {
+    if (!modal) return;
+    if (!opts.force && !shouldShowLeadModal()) return;
+    modal.classList.add("open");
+    modal.setAttribute("aria-hidden", "false");
+    document.body.style.overflow = "hidden";
+  };
+  const closeModal = (opts = {}) => {
+    if (!modal) return;
+    modal.classList.remove("open");
+    modal.setAttribute("aria-hidden", "true");
+    document.body.style.overflow = "";
+    if (opts.remember !== false) dismissLeadModal(opts.permanent);
+  };
+
+  document.querySelectorAll("[data-close-modal], .modal-close").forEach((el) => {
+    el.addEventListener("click", () => closeModal({ remember: true }));
+  });
+  document.querySelectorAll("[data-dismiss-modal]").forEach((el) => {
+    el.addEventListener("click", () => closeModal({ remember: true }));
+  });
+  modal?.addEventListener("click", (e) => {
+    if (e.target === modal) closeModal({ remember: true });
+  });
+
+  if (shouldShowLeadModal()) {
+    window.setTimeout(openModal, MODAL_DELAY_MS);
+  }
+
+  document.querySelector("[data-open-modal]")?.addEventListener("click", (e) => {
+    e.preventDefault();
+    openModal({ force: true });
+  });
+
   document.querySelectorAll("[data-demo-form]").forEach((form) => {
     form.addEventListener("submit", (e) => {
       e.preventDefault();
@@ -90,11 +133,33 @@
         form.reportValidity();
         return;
       }
-      showToast("Thanks! Your submission was recorded (demo mode).");
+      showToast("Thanks! You're on the list (demo mode).");
       form.reset();
-      closeModal();
+      closeModal({ remember: true, permanent: true });
     });
   });
+
+  function initSideRails() {
+    const left = document.getElementById("side-rail-left");
+    const right = document.getElementById("side-rail-right");
+    if (!left && !right) return;
+
+    if (storageGet(SIDE_RAILS_KEY) === "1") {
+      document.body.classList.add("side-rails-hidden");
+      return;
+    }
+
+    document.body.classList.add("has-side-rails");
+
+    document.querySelectorAll("[data-dismiss-rail]").forEach((btn) => {
+      btn.addEventListener("click", () => {
+        storageSet(SIDE_RAILS_KEY, "1");
+        document.body.classList.add("side-rails-hidden");
+      });
+    });
+  }
+
+  initSideRails();
 
   initCompareFilters();
   initWageringCalculator();
