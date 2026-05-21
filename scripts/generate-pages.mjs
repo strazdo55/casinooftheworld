@@ -16,6 +16,7 @@ import {
   topicLinksBlock,
   licensingTable,
   compareSection,
+  wageringCalculatorBlock,
 } from "./lib/page-blocks.mjs";
 
 const operators = JSON.parse(
@@ -123,6 +124,9 @@ const pages = [
   <tr><td>No deposit</td><td>Max cashout, KYC before withdrawal</td></tr>
   </tbody></table></div>
   <p>Regulators such as the <a href="${AUTHORITY.ukgc.href}" target="_blank" rel="noopener noreferrer">UK Gambling Commission</a> publish strict advertising rules for promotions.</p>
+  ${wageringCalculatorBlock()}
+  <h2 class="section-title">Compare Welcome Offers</h2>
+  ${compareTable(operators, { filters: true })}
   ${cards(operators)}
   ${faqBlock([{ q: "What is a 35x wagering requirement?", a: "You must bet 35× the bonus (or bonus+deposit) before withdrawing winnings. See our <a href=\"/blog/wagering-requirements-explained/\">worked examples</a>." }])}
 </div>${sidebar}</main>`,
@@ -135,7 +139,7 @@ const pages = [
   <p class="lead">Crypto often clears fastest; debit cards are widely accepted for deposits but may not support withdrawals. See our <a href="/blog/fastest-payout-online-casinos/">fastest payout casino comparison</a>.</p>
   ${disclosure()}
   <h2>Typical payout times</h2>
-  ${compareTable(operators)}
+  ${compareTable(operators, { filters: true })}
   <h2>Method overview</h2>
   <ul>
     <li><strong>Visa / Mastercard</strong> — instant deposits at most brands</li>
@@ -175,7 +179,7 @@ const pages = [
   <p class="lead">We focus on <a href="${AUTHORITY.ukgc.href}" target="_blank" rel="noopener noreferrer">UKGC</a>, <a href="${AUTHORITY.mga.href}" target="_blank" rel="noopener noreferrer">MGA</a>, and other recognised regulators—not US state-licensed sites. Compare libraries, bonuses, and payouts before you deposit.</p>
   ${disclosure()}
   <p>Read our <a href="/blog/us-igaming-expansion-2026/">EU &amp; UK regulation update</a>, browse <a href="/casinos-by-country/">casinos by country</a>, and see <a href="/blog/fastest-payout-online-casinos/">fastest payout brands</a> for cash-out benchmarks.</p>
-  ${compareTable(operators)}
+  ${compareTable(operators, { filters: true })}
   ${licensingTable()}
   ${cards(operators)}
 </div>${sidebar}</main>`,

@@ -7,6 +7,7 @@ import {
   faqBlock,
   topicLinksBlock,
   licensingTable,
+  wageringCalculatorBlock,
 } from "./lib/page-blocks.mjs";
 import { PAGE_ENRICHMENT } from "./lib/links.mjs";
 
@@ -24,7 +25,7 @@ const editorPicks = uniquePosts(
 
 function brandCards() {
   return operators
-    .slice(0, 6)
+    .slice(0, 9)
     .map(
       (op) => `<article class="affiliate-card">
   <img src="/${op.logo.replace(/^\//, "")}" alt="${op.name}">
@@ -86,7 +87,10 @@ const body = `
   ${howWeRateBlock()}
 
   <h2 class="section-title">Top-Rated Casinos — Quick Comparison</h2>
-  ${compareTable(operators)}
+  <p class="muted" style="margin-bottom:1rem">Use filters to narrow by licence, payout speed, region, or crypto-friendly brands. All operators are drawn from our vetted international directory.</p>
+  ${compareTable(operators, { filters: true })}
+
+  ${wageringCalculatorBlock({ id: "wagering-calculator" })}
 
   <aside class="article-callout">
     <strong>Key takeaway</strong>

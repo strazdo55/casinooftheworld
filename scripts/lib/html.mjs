@@ -207,36 +207,7 @@ export function disclosure() {
 </aside>`;
 }
 
-export function compareTable(operators) {
-  const rows = operators
-    .map(
-      (op) => `<tr>
-  <td><div class="operator-cell"><img src="/${op.logo.replace(/^\//, "")}" alt="${op.name}" width="48" height="32"><span>${op.name}</span></div></td>
-  <td>${op.bestFor}</td>
-  <td>${op.welcomeBonus}</td>
-  <td>${op.highlights}</td>
-  <td>${op.payout}</td>
-  <td><a href="${op.cta}" class="btn btn-lime" target="_blank" rel="nofollow sponsored noopener">Visit Site</a></td>
-</tr>`
-    )
-    .join("\n");
-
-  return `<div class="table-wrap">
-<table class="compare-table">
-  <thead>
-    <tr>
-      <th>Site</th>
-      <th>Best For</th>
-      <th>Welcome Bonus</th>
-      <th>Highlights</th>
-      <th>Fastest Payout</th>
-      <th></th>
-    </tr>
-  </thead>
-  <tbody>${rows}</tbody>
-</table>
-</div>`;
-}
+export { compareTable } from "./compare-table.mjs";
 
 export function guideCard(post, opts = {}) {
   const img = post.image?.replace(/^\//, "") || "assets/images/hero/home-hero.png";

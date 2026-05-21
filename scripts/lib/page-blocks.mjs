@@ -1,5 +1,6 @@
 import { AUTHORITY } from "./links.mjs";
 import { compareTable, disclosure } from "./html.mjs";
+import { wageringCalculatorBlock } from "./wagering-calculator.mjs";
 
 /** Reusable informative HTML blocks for hub pages */
 
@@ -77,5 +78,7 @@ export function licensingTable() {
 export function compareSection(operators, title = "Compare Licensed Casinos") {
   return `<h2 class="section-title">${title}</h2>
   ${disclosure()}
-  ${compareTable(operators)}`;
+  ${compareTable(operators, { filters: true })}`;
 }
+
+export { wageringCalculatorBlock };

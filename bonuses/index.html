@@ -145,6 +145,234 @@
   <tr><td>No deposit</td><td>Max cashout, KYC before withdrawal</td></tr>
   </tbody></table></div>
   <p>Regulators such as the <a href="https://www.gamblingcommission.gov.uk/" target="_blank" rel="noopener noreferrer">UK Gambling Commission</a> publish strict advertising rules for promotions.</p>
+  <section class="content-section wagering-calc" aria-labelledby="wagering-calc-heading">
+  <h2 id="wagering-calc-heading" class="section-title">Bonus Wagering Calculator</h2>
+  <p class="lead" style="margin-top:0">Estimate how much you must bet before bonus winnings become withdrawable. Figures are illustrative—always confirm playthrough rules on the operator site.</p>
+  <form class="wagering-calc__form" id="wagering-calc-form" novalidate>
+    <div class="wagering-calc__grid">
+      <label>
+        <span>Bonus amount (€)</span>
+        <input type="number" id="wc-bonus" name="bonus" min="0" step="1" value="100" required>
+      </label>
+      <label>
+        <span>Deposit matched (€)</span>
+        <input type="number" id="wc-deposit" name="deposit" min="0" step="1" value="100">
+      </label>
+      <label>
+        <span>Wagering multiplier (e.g. 35)</span>
+        <input type="number" id="wc-multiplier" name="multiplier" min="1" max="200" step="1" value="35" required>
+      </label>
+      <label>
+        <span>Playthrough applies to</span>
+        <select id="wc-base" name="base">
+          <option value="bonus">Bonus only</option>
+          <option value="both">Deposit + bonus</option>
+        </select>
+      </label>
+      <label>
+        <span>Average bet per round (€)</span>
+        <input type="number" id="wc-bet" name="bet" min="0.1" step="0.1" value="1">
+      </label>
+      <label>
+        <span>Slot contribution (%)</span>
+        <input type="number" id="wc-contribution" name="contribution" min="1" max="100" value="100">
+      </label>
+    </div>
+    <button type="submit" class="btn btn-lime">Calculate playthrough</button>
+  </form>
+  <div class="wagering-calc__results" id="wagering-calc-results" hidden>
+    <div class="wagering-calc__stat">
+      <span class="wagering-calc__label">Total wagering required</span>
+      <strong class="wagering-calc__value" id="wc-result-total">—</strong>
+    </div>
+    <div class="wagering-calc__stat">
+      <span class="wagering-calc__label">Effective slot wagering</span>
+      <strong class="wagering-calc__value" id="wc-result-effective">—</strong>
+    </div>
+    <div class="wagering-calc__stat">
+      <span class="wagering-calc__label">Estimated rounds at your bet size</span>
+      <strong class="wagering-calc__value" id="wc-result-rounds">—</strong>
+    </div>
+    <p class="wagering-calc__note" id="wc-result-note"></p>
+  </div>
+  <p class="muted" style="margin-top:1rem;font-size:0.88rem">Tip: Live dealer and table games often count 0–10% toward wagering. Read our <a href="/blog/wagering-requirements-explained/">wagering requirements guide</a>.</p>
+</section>
+  <h2 class="section-title">Compare Welcome Offers</h2>
+  <div class="compare-filters" id="compare-filters" role="search" aria-label="Filter casino comparison">
+  <div class="compare-filters__row">
+    <label class="compare-filter">
+      <span>Licence</span>
+      <select id="filter-licence" data-compare-filter>
+        <option value="all">All licences</option>
+        <option value="mga">MGA</option>
+        <option value="ukgc">UKGC</option>
+        <option value="curacao">Curacao / international</option>
+      </select>
+    </label>
+    <label class="compare-filter">
+      <span>Payout speed</span>
+      <select id="filter-payout" data-compare-filter>
+        <option value="all">Any speed</option>
+        <option value="fast">Fast (under 48h)</option>
+        <option value="standard">Standard (1–5 days)</option>
+      </select>
+    </label>
+    <label class="compare-filter">
+      <span>Market</span>
+      <select id="filter-market" data-compare-filter>
+        <option value="all">All regions</option>
+        <option value="uk">UK</option>
+        <option value="eu">Europe</option>
+        <option value="nordics">Nordics</option>
+        <option value="international">International</option>
+      </select>
+    </label>
+    <label class="compare-filter compare-filter--check">
+      <input type="checkbox" id="filter-crypto" data-compare-filter value="yes">
+      <span>Crypto-friendly</span>
+    </label>
+    <label class="compare-filter compare-filter--check">
+      <input type="checkbox" id="filter-live" data-compare-filter value="yes">
+      <span>Live dealer</span>
+    </label>
+    <button type="button" class="btn btn-outline btn-sm" id="filter-reset">Reset</button>
+  </div>
+  <p class="compare-filters__meta" id="compare-filter-count" aria-live="polite"></p>
+</div>
+<div class="table-wrap">
+<table class="compare-table" id="casino-compare-table">
+  <thead>
+    <tr>
+      <th>Site</th>
+      <th>Best For</th>
+      <th>Welcome Bonus</th>
+      <th>Highlights</th>
+      <th>Payout &amp; Licence</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody><tr class="compare-row" data-licences="mga ukgc" data-payout="fast" data-markets="eu uk nordics" data-crypto="no" data-live="yes">
+  <td><div class="operator-cell"><img src="/assets/images/operators/leovegas.png" alt="LeoVegas" width="48" height="32"><span><a href="/reviews/leovegas/">LeoVegas</a></span></div></td>
+  <td>Mobile live casino & slots (MGA/UKGC)</td>
+  <td>Welcome package + free spins (varies by market)<br><small class="muted">35× wagering typical</small></td>
+  <td>Award-winning app, LeoJackpot, Evolution live tables</td>
+  <td>24–48 hours<br><small class="muted">MGA / UKGC</small></td>
+  <td><a href="https://www.leovegas.com/" class="btn btn-lime" target="_blank" rel="nofollow sponsored noopener">Visit Site</a></td>
+</tr>
+<tr class="compare-row" data-licences="ukgc mga" data-payout="standard" data-markets="uk eu spain" data-crypto="no" data-live="yes">
+  <td><div class="operator-cell"><img src="/assets/images/operators/888casino.png" alt="888casino" width="48" height="32"><span><a href="/reviews/888casino/">888casino</a></span></div></td>
+  <td>Exclusive slots & UK/EU licensing</td>
+  <td>100% match + free spins (region-dependent)<br><small class="muted">30× wagering typical</small></td>
+  <td>888 proprietary games, live casino, long track record</td>
+  <td>2–5 business days<br><small class="muted">UKGC / MGA</small></td>
+  <td><a href="https://www.888casino.com/" class="btn btn-lime" target="_blank" rel="nofollow sponsored noopener">Visit Site</a></td>
+</tr>
+<tr class="compare-row" data-licences="mga ukgc" data-payout="fast" data-markets="uk eu canada" data-crypto="no" data-live="yes">
+  <td><div class="operator-cell"><img src="/assets/images/operators/betway.png" alt="Betway Casino" width="48" height="32"><span><a href="/reviews/betway/">Betway Casino</a></span></div></td>
+  <td>International slots & live dealer</td>
+  <td>Matched deposit + free spins (T&Cs apply)<br><small class="muted">35× wagering typical</small></td>
+  <td>Microgaming & NetEnt catalog, live blackjack streams</td>
+  <td>24–72 hours<br><small class="muted">MGA / UKGC</small></td>
+  <td><a href="https://www.betway.com/casino" class="btn btn-lime" target="_blank" rel="nofollow sponsored noopener">Visit Site</a></td>
+</tr>
+<tr class="compare-row" data-licences="mga ukgc" data-payout="fast" data-markets="eu uk nordics" data-crypto="no" data-live="yes">
+  <td><div class="operator-cell"><img src="/assets/images/operators/casumo.png" alt="Casumo" width="48" height="32"><span><a href="/reviews/casumo/">Casumo</a></span></div></td>
+  <td>Gamified loyalty & fast UX</td>
+  <td>Welcome adventure with bonus spins (market-specific)<br><small class="muted">30× wagering typical</small></td>
+  <td>Adventure rewards, curated slots, MGA-licensed since 2012</td>
+  <td>24–48 hours<br><small class="muted">MGA / UKGC</small></td>
+  <td><a href="https://www.casumo.com/" class="btn btn-lime" target="_blank" rel="nofollow sponsored noopener">Visit Site</a></td>
+</tr>
+<tr class="compare-row" data-licences="mga ukgc" data-payout="standard" data-markets="eu uk nordics" data-crypto="no" data-live="yes">
+  <td><div class="operator-cell"><img src="/assets/images/operators/mrgreen.png" alt="Mr Green" width="48" height="32"><span><a href="/reviews/mrgreen/">Mr Green</a></span></div></td>
+  <td>Premium UX & responsible play tools</td>
+  <td>Deposit match + free spins (varies)<br><small class="muted">35× wagering typical</small></td>
+  <td>Green Gaming tools, live casino, strong Nordic presence</td>
+  <td>1–3 business days<br><small class="muted">MGA / UKGC</small></td>
+  <td><a href="https://www.mrgreen.com/" class="btn btn-lime" target="_blank" rel="nofollow sponsored noopener">Visit Site</a></td>
+</tr>
+<tr class="compare-row" data-licences="mga" data-payout="fast" data-markets="eu nordics international" data-crypto="no" data-live="yes">
+  <td><div class="operator-cell"><img src="/assets/images/operators/betsson.png" alt="Betsson" width="48" height="32"><span><a href="/reviews/betsson/">Betsson</a></span></div></td>
+  <td>Nordic/EU multi-market casino</td>
+  <td>Welcome offer + spins (licence-dependent)<br><small class="muted">35× wagering typical</small></td>
+  <td>Strong live dealer lobby, Nordic focus, MGA licence</td>
+  <td>24–48 hours<br><small class="muted">MGA</small></td>
+  <td><a href="https://www.betsson.com/en/casino" class="btn btn-lime" target="_blank" rel="nofollow sponsored noopener">Visit Site</a></td>
+</tr>
+<tr class="compare-row" data-licences="curacao" data-payout="fast" data-markets="asia eu international" data-crypto="yes" data-live="yes">
+  <td><div class="operator-cell"><img src="/assets/images/operators/22bet.png" alt="22Bet Casino" width="48" height="32"><span><a href="/reviews/22bet/">22Bet Casino</a></span></div></td>
+  <td>Crypto-friendly & Asian/EU reach</td>
+  <td>Multi-currency welcome package (T&Cs apply)<br><small class="muted">40× wagering typical</small></td>
+  <td>Wide game providers, crypto deposits, mobile-first</td>
+  <td>15 min–48 hrs (crypto/e-wallets)<br><small class="muted">Curacao</small></td>
+  <td><a href="https://22bet.com/casino" class="btn btn-lime" target="_blank" rel="nofollow sponsored noopener">Visit Site</a></td>
+</tr>
+<tr class="compare-row" data-licences="mga" data-payout="standard" data-markets="eu international" data-crypto="no" data-live="yes">
+  <td><div class="operator-cell"><img src="/assets/images/operators/n1-casino.png" alt="N1 Casino" width="48" height="32"><span><a href="/reviews/n1-casino/">N1 Casino</a></span></div></td>
+  <td>MGA slots bundle with 150 free spins</td>
+  <td>100% up to $100 + 150 free spins<br><small class="muted">50× wagering typical</small></td>
+  <td>Evolution live casino, tournaments, multi-language EU lobby</td>
+  <td>1–5 days<br><small class="muted">MGA</small></td>
+  <td><a href="https://www.n1casino.com/" class="btn btn-lime" target="_blank" rel="nofollow sponsored noopener">Visit Site</a></td>
+</tr>
+<tr class="compare-row" data-licences="mga ukgc" data-payout="standard" data-markets="uk eu nordics" data-crypto="no" data-live="yes">
+  <td><div class="operator-cell"><img src="/assets/images/operators/playjango.png" alt="PlayJango Casino" width="48" height="32"><span><a href="/reviews/playjango/">PlayJango Casino</a></span></div></td>
+  <td>UKGC/MGA regulated slot & bingo mix</td>
+  <td>100% up to €100 + 25 free spins<br><small class="muted">30× wagering typical</small></td>
+  <td>Live casino tables, bingo, 30× wagering on welcome offer</td>
+  <td>1–5 days<br><small class="muted">MGA / UKGC</small></td>
+  <td><a href="https://www.playjango.com/" class="btn btn-lime" target="_blank" rel="nofollow sponsored noopener">Visit Site</a></td>
+</tr>
+<tr class="compare-row" data-licences="mga ukgc" data-payout="standard" data-markets="uk eu" data-crypto="no" data-live="yes">
+  <td><div class="operator-cell"><img src="/assets/images/operators/monster-casino.png" alt="Monster Casino" width="48" height="32"><span><a href="/reviews/monster-casino/">Monster Casino</a></span></div></td>
+  <td>Large UK/EU welcome with 100 spins</td>
+  <td>100% up to €1,000 + 100 free spins<br><small class="muted">50× wagering typical</small></td>
+  <td>MGA & UKGC licences, live chat 24/7, sports & casino crossover</td>
+  <td>1–10 days<br><small class="muted">MGA / UKGC</small></td>
+  <td><a href="https://www.monstercasino.co.uk/" class="btn btn-lime" target="_blank" rel="nofollow sponsored noopener">Visit Site</a></td>
+</tr>
+<tr class="compare-row" data-licences="curacao" data-payout="fast" data-markets="eu international" data-crypto="yes" data-live="yes">
+  <td><div class="operator-cell"><img src="/assets/images/operators/wazbee.png" alt="Wazbee Casino" width="48" height="32"><span><a href="/reviews/wazbee/">Wazbee Casino</a></span></div></td>
+  <td>Ultra-fast cash-outs & crypto options</td>
+  <td>125% up to €200 + 50 free spins<br><small class="muted">30× wagering typical</small></td>
+  <td>Withdrawals reported under 15 minutes, 30× wagering, broad EU languages</td>
+  <td>Under 24 hours<br><small class="muted">Curacao</small></td>
+  <td><a href="https://wazbee.com/" class="btn btn-lime" target="_blank" rel="nofollow sponsored noopener">Visit Site</a></td>
+</tr>
+<tr class="compare-row" data-licences="curacao" data-payout="fast" data-markets="eu international" data-crypto="yes" data-live="yes">
+  <td><div class="operator-cell"><img src="/assets/images/operators/north-casino.png" alt="North Casino" width="48" height="32"><span><a href="/reviews/north-casino/">North Casino</a></span></div></td>
+  <td>High-limit crypto & fiat hybrid</td>
+  <td>100% up to $1,000 (multi-tier package)<br><small class="muted">60× wagering typical</small></td>
+  <td>Bitcoin & e-wallets, live casino, rewards programme</td>
+  <td>1–2 banking days<br><small class="muted">Curacao</small></td>
+  <td><a href="https://northcasino.com/" class="btn btn-lime" target="_blank" rel="nofollow sponsored noopener">Visit Site</a></td>
+</tr>
+<tr class="compare-row" data-licences="curacao" data-payout="fast" data-markets="eu international" data-crypto="yes" data-live="yes">
+  <td><div class="operator-cell"><img src="/assets/images/operators/velobet.png" alt="Velobet" width="48" height="32"><span><a href="/reviews/velobet/">Velobet</a></span></div></td>
+  <td>Large EU welcome & same-day payouts</td>
+  <td>330% up to €2,000 + 300 free spins<br><small class="muted">30× wagering typical</small></td>
+  <td>0–24h withdrawals, crypto & cards, live dealer + sports</td>
+  <td>0–24 hours<br><small class="muted">Curacao</small></td>
+  <td><a href="https://velobet.com/" class="btn btn-lime" target="_blank" rel="nofollow sponsored noopener">Visit Site</a></td>
+</tr>
+<tr class="compare-row" data-licences="curacao" data-payout="standard" data-markets="eu international" data-crypto="yes" data-live="yes">
+  <td><div class="operator-cell"><img src="/assets/images/operators/fairspin.png" alt="Fairspin Casino" width="48" height="32"><span><a href="/reviews/fairspin/">Fairspin Casino</a></span></div></td>
+  <td>Crypto casino with TFS loyalty token</td>
+  <td>100% up to $100 + 30 free spins<br><small class="muted">60× wagering typical</small></td>
+  <td>Unlimited withdrawal cap in research notes, sports & slots, multi-language</td>
+  <td>Up to 3 days<br><small class="muted">Curacao</small></td>
+  <td><a href="https://fairspin.io/" class="btn btn-lime" target="_blank" rel="nofollow sponsored noopener">Visit Site</a></td>
+</tr>
+<tr class="compare-row" data-licences="curacao" data-payout="standard" data-markets="eu international" data-crypto="yes" data-live="yes">
+  <td><div class="operator-cell"><img src="/assets/images/operators/20bet.png" alt="20Bet Casino" width="48" height="32"><span><a href="/reviews/20bet/">20Bet Casino</a></span></div></td>
+  <td>Casino + sports with MGA list presence</td>
+  <td>100% up to €120 + 120 free spins<br><small class="muted">40× wagering typical</small></td>
+  <td>Crypto accepted, live casino, 40× bonus wagering typical</td>
+  <td>1–3 days<br><small class="muted">Curacao</small></td>
+  <td><a href="https://20bet.com/casino" class="btn btn-lime" target="_blank" rel="nofollow sponsored noopener">Visit Site</a></td>
+</tr></tbody>
+</table>
+</div>
   <div class="card-grid"><article class="affiliate-card">
   <img src="/assets/images/operators/leovegas.png" alt="LeoVegas">
   <span class="badge">Mobile live casino & slots (MGA/UKGC)</span>
@@ -174,7 +402,7 @@
   <span class="badge">Gamified loyalty & fast UX</span>
   <h3>Casumo</h3>
   <p><strong>Bonus:</strong> Welcome adventure with bonus spins (market-specific)</p>
-  <p>Adventure rewards, curated slots, MGA-licensed</p>
+  <p>Adventure rewards, curated slots, MGA-licensed since 2012</p>
   <a href="https://www.casumo.com/" class="btn btn-lime" target="_blank" rel="nofollow sponsored noopener">Claim Offer</a>
   <a href="/reviews/casumo/" style="display:block;margin-top:0.5rem;font-size:0.85rem">Full review →</a>
 </article><article class="affiliate-card">
@@ -182,7 +410,7 @@
   <span class="badge">Premium UX & responsible play tools</span>
   <h3>Mr Green</h3>
   <p><strong>Bonus:</strong> Deposit match + free spins (varies)</p>
-  <p>Green Gaming tools, live casino, sports crossover</p>
+  <p>Green Gaming tools, live casino, strong Nordic presence</p>
   <a href="https://www.mrgreen.com/" class="btn btn-lime" target="_blank" rel="nofollow sponsored noopener">Claim Offer</a>
   <a href="/reviews/mrgreen/" style="display:block;margin-top:0.5rem;font-size:0.85rem">Full review →</a>
 </article><article class="affiliate-card">
@@ -201,6 +429,70 @@
   <p>Wide game providers, crypto deposits, mobile-first</p>
   <a href="https://22bet.com/casino" class="btn btn-lime" target="_blank" rel="nofollow sponsored noopener">Claim Offer</a>
   <a href="/reviews/22bet/" style="display:block;margin-top:0.5rem;font-size:0.85rem">Full review →</a>
+</article><article class="affiliate-card">
+  <img src="/assets/images/operators/n1-casino.png" alt="N1 Casino">
+  <span class="badge">MGA slots bundle with 150 free spins</span>
+  <h3>N1 Casino</h3>
+  <p><strong>Bonus:</strong> 100% up to $100 + 150 free spins</p>
+  <p>Evolution live casino, tournaments, multi-language EU lobby</p>
+  <a href="https://www.n1casino.com/" class="btn btn-lime" target="_blank" rel="nofollow sponsored noopener">Claim Offer</a>
+  <a href="/reviews/n1-casino/" style="display:block;margin-top:0.5rem;font-size:0.85rem">Full review →</a>
+</article><article class="affiliate-card">
+  <img src="/assets/images/operators/playjango.png" alt="PlayJango Casino">
+  <span class="badge">UKGC/MGA regulated slot & bingo mix</span>
+  <h3>PlayJango Casino</h3>
+  <p><strong>Bonus:</strong> 100% up to €100 + 25 free spins</p>
+  <p>Live casino tables, bingo, 30× wagering on welcome offer</p>
+  <a href="https://www.playjango.com/" class="btn btn-lime" target="_blank" rel="nofollow sponsored noopener">Claim Offer</a>
+  <a href="/reviews/playjango/" style="display:block;margin-top:0.5rem;font-size:0.85rem">Full review →</a>
+</article><article class="affiliate-card">
+  <img src="/assets/images/operators/monster-casino.png" alt="Monster Casino">
+  <span class="badge">Large UK/EU welcome with 100 spins</span>
+  <h3>Monster Casino</h3>
+  <p><strong>Bonus:</strong> 100% up to €1,000 + 100 free spins</p>
+  <p>MGA & UKGC licences, live chat 24/7, sports & casino crossover</p>
+  <a href="https://www.monstercasino.co.uk/" class="btn btn-lime" target="_blank" rel="nofollow sponsored noopener">Claim Offer</a>
+  <a href="/reviews/monster-casino/" style="display:block;margin-top:0.5rem;font-size:0.85rem">Full review →</a>
+</article><article class="affiliate-card">
+  <img src="/assets/images/operators/wazbee.png" alt="Wazbee Casino">
+  <span class="badge">Ultra-fast cash-outs & crypto options</span>
+  <h3>Wazbee Casino</h3>
+  <p><strong>Bonus:</strong> 125% up to €200 + 50 free spins</p>
+  <p>Withdrawals reported under 15 minutes, 30× wagering, broad EU languages</p>
+  <a href="https://wazbee.com/" class="btn btn-lime" target="_blank" rel="nofollow sponsored noopener">Claim Offer</a>
+  <a href="/reviews/wazbee/" style="display:block;margin-top:0.5rem;font-size:0.85rem">Full review →</a>
+</article><article class="affiliate-card">
+  <img src="/assets/images/operators/north-casino.png" alt="North Casino">
+  <span class="badge">High-limit crypto & fiat hybrid</span>
+  <h3>North Casino</h3>
+  <p><strong>Bonus:</strong> 100% up to $1,000 (multi-tier package)</p>
+  <p>Bitcoin & e-wallets, live casino, rewards programme</p>
+  <a href="https://northcasino.com/" class="btn btn-lime" target="_blank" rel="nofollow sponsored noopener">Claim Offer</a>
+  <a href="/reviews/north-casino/" style="display:block;margin-top:0.5rem;font-size:0.85rem">Full review →</a>
+</article><article class="affiliate-card">
+  <img src="/assets/images/operators/velobet.png" alt="Velobet">
+  <span class="badge">Large EU welcome & same-day payouts</span>
+  <h3>Velobet</h3>
+  <p><strong>Bonus:</strong> 330% up to €2,000 + 300 free spins</p>
+  <p>0–24h withdrawals, crypto & cards, live dealer + sports</p>
+  <a href="https://velobet.com/" class="btn btn-lime" target="_blank" rel="nofollow sponsored noopener">Claim Offer</a>
+  <a href="/reviews/velobet/" style="display:block;margin-top:0.5rem;font-size:0.85rem">Full review →</a>
+</article><article class="affiliate-card">
+  <img src="/assets/images/operators/fairspin.png" alt="Fairspin Casino">
+  <span class="badge">Crypto casino with TFS loyalty token</span>
+  <h3>Fairspin Casino</h3>
+  <p><strong>Bonus:</strong> 100% up to $100 + 30 free spins</p>
+  <p>Unlimited withdrawal cap in research notes, sports & slots, multi-language</p>
+  <a href="https://fairspin.io/" class="btn btn-lime" target="_blank" rel="nofollow sponsored noopener">Claim Offer</a>
+  <a href="/reviews/fairspin/" style="display:block;margin-top:0.5rem;font-size:0.85rem">Full review →</a>
+</article><article class="affiliate-card">
+  <img src="/assets/images/operators/20bet.png" alt="20Bet Casino">
+  <span class="badge">Casino + sports with MGA list presence</span>
+  <h3>20Bet Casino</h3>
+  <p><strong>Bonus:</strong> 100% up to €120 + 120 free spins</p>
+  <p>Crypto accepted, live casino, 40× bonus wagering typical</p>
+  <a href="https://20bet.com/casino" class="btn btn-lime" target="_blank" rel="nofollow sponsored noopener">Claim Offer</a>
+  <a href="/reviews/20bet/" style="display:block;margin-top:0.5rem;font-size:0.85rem">Full review →</a>
 </article></div>
   <section class="content-section faq-section" aria-labelledby="faq-heading">
   <h2 id="faq-heading" class="section-title">Frequently Asked Questions</h2>

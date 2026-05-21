@@ -12,6 +12,8 @@ import {
 import { reviewBreadcrumbs } from "./lib/schema.mjs";
 import { formatLinksForPrompt, linksForPost } from "./lib/semantic-links.mjs";
 import { AUTHORITY } from "./lib/links.mjs";
+import { loadOperatorResearch } from "./lib/affiliate-research.mjs";
+import { sanitizeResearch } from "./lib/sanitize-sources.mjs";
 
 const operators = JSON.parse(
   await fs.readFile(path.join(ROOT, "data/operators.json"), "utf8")
@@ -107,8 +109,8 @@ Return HTML fragments only (no wrapper). Include:
 - <h2>Responsible gambling tools</h2>
 - Short closing <p> with 18+ disclaimer
 
-Sources:
-${sources.slice(0, 14000) || "Use careful evergreen knowledge about " + op.name}`;
+Editorial research notes (do not name or link to any affiliate directory—write as independent Casino of the World analysis):
+${sanitizeResearch(sources).slice(0, 14000) || "Use careful evergreen knowledge about " + op.name}`;
 }
 
 async function writeReview(op, sources) {
@@ -131,6 +133,8 @@ async function writeReview(op, sources) {
     <tr><td>Welcome bonus</td><td>${op.welcomeBonus}</td></tr>
     <tr><td>Payout speed</td><td>${op.payout}</td></tr>
     <tr><td>Markets</td><td>${(op.markets || []).join(", ")}</td></tr>
+    <tr><td>Licence</td><td>${(op.licences || []).join(", ") || "International"}</td></tr>
+    <tr><td>Typical wagering</td><td>${op.defaultWagering ? op.defaultWagering + "× (confirm on site)" : "Varies"}</td></tr>
   </tbody>
 </table>`;
 

@@ -364,6 +364,127 @@ a:hover {
   background: #f8fafc;
 }
 
+.compare-table tr.is-filtered-out {
+  display: none;
+}
+
+.compare-filters {
+  margin: 0 0 1.25rem;
+  padding: 1rem 1.15rem;
+  background: #f8fafc;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+}
+
+.compare-filters__row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem 1.25rem;
+  align-items: flex-end;
+}
+
+.compare-filter {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--navy);
+}
+
+.compare-filter select {
+  min-width: 10rem;
+  padding: 0.45rem 0.6rem;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  font: inherit;
+  font-weight: 500;
+}
+
+.compare-filter--check {
+  flex-direction: row;
+  align-items: center;
+  gap: 0.5rem;
+  padding-bottom: 0.35rem;
+}
+
+.compare-filters__meta {
+  margin: 0.75rem 0 0;
+  font-size: 0.85rem;
+  color: var(--text-muted);
+}
+
+.muted {
+  color: var(--text-muted);
+}
+
+.wagering-calc__form {
+  margin-top: 1rem;
+}
+
+.wagering-calc__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  gap: 1rem 1.25rem;
+  margin-bottom: 1.25rem;
+}
+
+.wagering-calc__grid label {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--navy);
+}
+
+.wagering-calc__grid input,
+.wagering-calc__grid select {
+  padding: 0.55rem 0.65rem;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  font: inherit;
+}
+
+.wagering-calc__results {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1rem;
+  margin-top: 1.5rem;
+  padding: 1.25rem;
+  background: linear-gradient(135deg, #f0fff4 0%, #ebf8ff 100%);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+}
+
+.wagering-calc__results[hidden] {
+  display: none !important;
+}
+
+.wagering-calc__stat {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.wagering-calc__label {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  font-weight: 600;
+}
+
+.wagering-calc__value {
+  font-size: 1.35rem;
+  color: var(--navy);
+}
+
+.wagering-calc__note {
+  grid-column: 1 / -1;
+  margin: 0;
+  font-size: 0.9rem;
+  color: var(--text);
+}
+
 .operator-cell {
   display: flex;
   align-items: center;
