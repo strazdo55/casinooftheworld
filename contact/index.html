@@ -78,7 +78,7 @@
 <body>
 <header class="site-header">
   <div class="container header-inner">
-    <a href="/" class="logo">
+    <a href="/" class="logo" title="Casino of the World — Home">
       <svg class="logo-mark" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" width="42" height="42" aria-hidden="true" focusable="false">
   <defs>
     <linearGradient id="cotw-gold" x1="0%" y1="0%" x2="100%" y2="100%">
@@ -107,20 +107,19 @@
 </svg>
       <span class="logo-text">Casino of the World</span>
     </a>
-    <button class="menu-toggle" aria-label="Menu" type="button">☰</button>
-    <nav class="nav-main" id="nav-main">
-      <a href="/online-casinos/" class="">Online Casinos</a>
-          <a href="/bonuses/" class="">Casino Bonuses</a>
-          <a href="/games/" class="">Casino Games</a>
-          <a href="/banking/" class="">Banking</a>
-          <a href="/reviews/" class="">Reviews</a>
-          <a href="/europe-casinos/" class="">Europe & Asia</a>
-          <a href="/casinos-by-country/" class="">By Country</a>
-          <a href="/blog/" class="">Casino Blog</a>
-          <a href="/sports-betting/" class="">Sports Betting</a>
-    </nav>
-    <a href="/blog/" class="header-cta">Casino Blog</a>
-    <button class="search-btn" type="button" aria-label="Search">🔍</button>
+    <button class="menu-toggle" aria-label="Open menu" type="button" aria-expanded="false" aria-controls="nav-main">☰</button>
+    <div class="nav-scroll-wrap">
+      <nav class="nav-main" id="nav-main" aria-label="Main">
+        <a href="/online-casinos/" class="" title="Online Casinos">Casinos</a>
+<a href="/bonuses/" class="" title="Casino Bonuses">Bonuses</a>
+<a href="/games/" class="" title="Casino Games">Games</a>
+<a href="/banking/" class="" title="Banking & Payouts">Banking</a>
+<a href="/reviews/" class="" title="Casino Reviews">Reviews</a>
+<a href="/europe-casinos/" class="" title="Europe & Asia Casinos">Europe</a>
+<a href="/casinos-by-country/" class="" title="Casinos by Country">Countries</a>
+<a href="/blog/" class="" title="Casino Blog">Blog</a>
+      </nav>
+    </div>
   </div>
 </header>
 <main class="container form-page">

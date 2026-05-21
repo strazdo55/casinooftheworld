@@ -40,7 +40,10 @@
   const menuToggle = document.querySelector(".menu-toggle");
   const nav = document.getElementById("nav-main");
   if (menuToggle && nav) {
-    menuToggle.addEventListener("click", () => nav.classList.toggle("open"));
+    menuToggle.addEventListener("click", () => {
+      const open = nav.classList.toggle("open");
+      menuToggle.setAttribute("aria-expanded", open ? "true" : "false");
+    });
   }
 
   const modal = document.getElementById("lead-modal");

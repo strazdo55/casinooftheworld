@@ -7,15 +7,14 @@ import { LOGO_SVG } from "./brand.mjs";
 import { blogPostHref, htmlFileToDirIndex } from "./paths.mjs";
 
 const NAV = [
-  { href: "/online-casinos/", label: "Online Casinos", id: "online-casinos" },
-  { href: "/bonuses/", label: "Casino Bonuses", id: "bonuses" },
-  { href: "/games/", label: "Casino Games", id: "games" },
-  { href: "/banking/", label: "Banking", id: "banking" },
-  { href: "/reviews/", label: "Reviews", id: "reviews" },
-  { href: "/europe-casinos/", label: "Europe & Asia", id: "europe-casinos" },
-  { href: "/casinos-by-country/", label: "By Country", id: "casinos-by-country" },
-  { href: "/blog/", label: "Casino Blog", id: "blog" },
-  { href: "/sports-betting/", label: "Sports Betting", id: "sports-betting" },
+  { href: "/online-casinos/", label: "Casinos", id: "online-casinos", title: "Online Casinos" },
+  { href: "/bonuses/", label: "Bonuses", id: "bonuses", title: "Casino Bonuses" },
+  { href: "/games/", label: "Games", id: "games", title: "Casino Games" },
+  { href: "/banking/", label: "Banking", id: "banking", title: "Banking & Payouts" },
+  { href: "/reviews/", label: "Reviews", id: "reviews", title: "Casino Reviews" },
+  { href: "/europe-casinos/", label: "Europe", id: "europe-casinos", title: "Europe & Asia Casinos" },
+  { href: "/casinos-by-country/", label: "Countries", id: "casinos-by-country", title: "Casinos by Country" },
+  { href: "/blog/", label: "Blog", id: "blog", title: "Casino Blog" },
 ];
 
 function navActive(activePath, item) {
@@ -28,21 +27,21 @@ function navActive(activePath, item) {
 export function header(activePath = "") {
   const navLinks = NAV.map(
     (n) =>
-      `<a href="${n.href}" class="${navActive(activePath, n)}">${n.label}</a>`
-  ).join("\n          ");
+      `<a href="${n.href}" class="${navActive(activePath, n)}" title="${n.title || n.label}">${n.label}</a>`
+  ).join("\n");
 
   return `<header class="site-header">
   <div class="container header-inner">
-    <a href="/" class="logo">
+    <a href="/" class="logo" title="Casino of the World — Home">
       ${LOGO_SVG}
       <span class="logo-text">Casino of the World</span>
     </a>
-    <button class="menu-toggle" aria-label="Menu" type="button">☰</button>
-    <nav class="nav-main" id="nav-main">
-      ${navLinks}
-    </nav>
-    <a href="/blog/" class="header-cta">Casino Blog</a>
-    <button class="search-btn" type="button" aria-label="Search">🔍</button>
+    <button class="menu-toggle" aria-label="Open menu" type="button" aria-expanded="false" aria-controls="nav-main">☰</button>
+    <div class="nav-scroll-wrap">
+      <nav class="nav-main" id="nav-main" aria-label="Main">
+        ${navLinks}
+      </nav>
+    </div>
   </div>
 </header>`;
 }
@@ -239,22 +238,63 @@ export function compareTable(operators) {
 </div>`;
 }
 
+export function guideCard(post, opts = {}) {
+  const img = post.image?.replace(/^\//, "") || "assets/images/hero/home-hero.png";
+  const excerpt =
+    opts.truncate && post.excerpt?.length > 120
+      ? `${post.excerpt.slice(0, 117)}…`
+      : post.excerpt || "";
+  return `<article class="guide-card">
+  <a href="${blogPostHref(post.slug)}" class="guide-card__media">
+    <img src="/${img}" alt="${post.title}" loading="lazy" width="400" height="225" onerror="this.src='/assets/images/hero/home-hero.png'">
+  </a>
+  <div class="guide-card__body">
+    <span class="tag">${post.category}</span>
+    <h3><a href="${blogPostHref(post.slug)}">${post.title}</a></h3>
+    ${excerpt ? `<p class="guide-card__excerpt">${excerpt}</p>` : ""}
+    <p class="blog-meta">${post.author} · ${post.dateLabel}</p>
+    <a href="${blogPostHref(post.slug)}" class="btn btn-outline btn-sm">Read guide</a>
+  </div>
+</article>`;
+}
+
+export function guideCardGrid(posts, opts = {}) {
+  const cards = posts.map((p) => guideCard(p, opts)).join("\n");
+  return `<div class="guide-card-grid">${cards}</div>`;
+}
+
+export function uniquePosts(posts, limit = 4) {
+  const seen = new Set();
+  const out = [];
+  for (const p of posts) {
+    if (seen.has(p.slug)) continue;
+    seen.add(p.slug);
+    out.push(p);
+    if (out.length >= limit) break;
+  }
+  return out;
+}
+
 export function blogSidebar(posts) {
-  const items = posts
-    .slice(0, 5)
+  const items = uniquePosts(posts, 5)
     .map(
-      (p) => `<article class="blog-mini">
-  <img src="/${p.image.replace(/^\//, "")}" alt="">
-  <div>
+      (p) => `<article class="sidebar-guide">
+  <a href="${blogPostHref(p.slug)}" class="sidebar-guide__media">
+    <img src="/${p.image.replace(/^\//, "")}" alt="${p.title}" loading="lazy" onerror="this.src='/assets/images/hero/home-hero.png'">
+  </a>
+  <div class="sidebar-guide__body">
+    <span class="tag">${p.category}</span>
     <h3><a href="${blogPostHref(p.slug)}">${p.title}</a></h3>
-    <p class="blog-meta"><a href="/about/">${p.author}</a> · ${p.dateLabel}</p>
+    <p class="blog-meta">${p.author} · ${p.dateLabel}</p>
   </div>
 </article>`
     )
     .join("\n");
 
   return `<aside class="sidebar">
-  <h2>Latest From Our Blog</h2>
+  <h2>Latest Guides</h2>
+  <p class="sidebar-intro">Fresh slot reviews, licensing news, and payout comparisons.</p>
   ${items}
+  <p><a href="/blog/" class="btn btn-outline btn-sm" style="width:100%;text-align:center">View all articles</a></p>
 </aside>`;
 }

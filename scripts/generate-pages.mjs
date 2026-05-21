@@ -55,7 +55,7 @@ function shell(file, body, extra = {}) {
   return pageShell({
     title: meta.title || file,
     description: meta.description || "",
-    activePath: file,
+    activePath: canonical,
     canonicalPath: canonical,
     keywords: meta.keywords || "",
     ogImage: meta.ogImage,

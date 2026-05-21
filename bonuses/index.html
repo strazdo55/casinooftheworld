@@ -79,7 +79,7 @@
 <body>
 <header class="site-header">
   <div class="container header-inner">
-    <a href="/" class="logo">
+    <a href="/" class="logo" title="Casino of the World — Home">
       <svg class="logo-mark" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" width="42" height="42" aria-hidden="true" focusable="false">
   <defs>
     <linearGradient id="cotw-gold" x1="0%" y1="0%" x2="100%" y2="100%">
@@ -108,20 +108,19 @@
 </svg>
       <span class="logo-text">Casino of the World</span>
     </a>
-    <button class="menu-toggle" aria-label="Menu" type="button">☰</button>
-    <nav class="nav-main" id="nav-main">
-      <a href="/online-casinos/" class="">Online Casinos</a>
-          <a href="/bonuses/" class="">Casino Bonuses</a>
-          <a href="/games/" class="">Casino Games</a>
-          <a href="/banking/" class="">Banking</a>
-          <a href="/reviews/" class="">Reviews</a>
-          <a href="/europe-casinos/" class="">Europe & Asia</a>
-          <a href="/casinos-by-country/" class="">By Country</a>
-          <a href="/blog/" class="">Casino Blog</a>
-          <a href="/sports-betting/" class="">Sports Betting</a>
-    </nav>
-    <a href="/blog/" class="header-cta">Casino Blog</a>
-    <button class="search-btn" type="button" aria-label="Search">🔍</button>
+    <button class="menu-toggle" aria-label="Open menu" type="button" aria-expanded="false" aria-controls="nav-main">☰</button>
+    <div class="nav-scroll-wrap">
+      <nav class="nav-main" id="nav-main" aria-label="Main">
+        <a href="/online-casinos/" class="" title="Online Casinos">Casinos</a>
+<a href="/bonuses/" class="active" title="Casino Bonuses">Bonuses</a>
+<a href="/games/" class="" title="Casino Games">Games</a>
+<a href="/banking/" class="" title="Banking & Payouts">Banking</a>
+<a href="/reviews/" class="" title="Casino Reviews">Reviews</a>
+<a href="/europe-casinos/" class="" title="Europe & Asia Casinos">Europe</a>
+<a href="/casinos-by-country/" class="" title="Casinos by Country">Countries</a>
+<a href="/blog/" class="" title="Casino Blog">Blog</a>
+      </nav>
+    </div>
   </div>
 </header>
 <main class="container page-grid"><div>
@@ -202,42 +201,59 @@
 </details>
 </section>
 </div><aside class="sidebar">
-  <h2>Latest From Our Blog</h2>
-  <article class="blog-mini">
-  <img src="/assets/images/blog/best-new-online-slots-2026.png" alt="">
-  <div>
+  <h2>Latest Guides</h2>
+  <p class="sidebar-intro">Fresh slot reviews, licensing news, and payout comparisons.</p>
+  <article class="sidebar-guide">
+  <a href="/blog/best-new-online-slots-2026/" class="sidebar-guide__media">
+    <img src="/assets/images/blog/best-new-online-slots-2026.png" alt="Best New Online Slots to Play in 2026" loading="lazy" onerror="this.src='/assets/images/hero/home-hero.png'">
+  </a>
+  <div class="sidebar-guide__body">
+    <span class="tag">Slots</span>
     <h3><a href="/blog/best-new-online-slots-2026/">Best New Online Slots to Play in 2026</a></h3>
-    <p class="blog-meta"><a href="/about/">Chris Faria</a> · 3 days ago</p>
+    <p class="blog-meta">Chris Faria · 3 days ago</p>
   </div>
 </article>
-<article class="blog-mini">
-  <img src="/assets/images/blog/us-igaming-expansion-2026.png" alt="">
-  <div>
+<article class="sidebar-guide">
+  <a href="/blog/us-igaming-expansion-2026/" class="sidebar-guide__media">
+    <img src="/assets/images/blog/us-igaming-expansion-2026.png" alt="EU & UK Online Casino Regulation: What Changed in 2026" loading="lazy" onerror="this.src='/assets/images/hero/home-hero.png'">
+  </a>
+  <div class="sidebar-guide__body">
+    <span class="tag">Casino News</span>
     <h3><a href="/blog/us-igaming-expansion-2026/">EU & UK Online Casino Regulation: What Changed in 2026</a></h3>
-    <p class="blog-meta"><a href="/about/">Taylor Smith</a> · 1 week ago</p>
+    <p class="blog-meta">Taylor Smith · 1 week ago</p>
   </div>
 </article>
-<article class="blog-mini">
-  <img src="/assets/images/blog/twenty-dollar-casino-method.png" alt="">
-  <div>
+<article class="sidebar-guide">
+  <a href="/blog/twenty-dollar-casino-method/" class="sidebar-guide__media">
+    <img src="/assets/images/blog/twenty-dollar-casino-method.png" alt="What Is the $20 Method at the Casino? Strategy Explained" loading="lazy" onerror="this.src='/assets/images/hero/home-hero.png'">
+  </a>
+  <div class="sidebar-guide__body">
+    <span class="tag">Casino Tips</span>
     <h3><a href="/blog/twenty-dollar-casino-method/">What Is the $20 Method at the Casino? Strategy Explained</a></h3>
-    <p class="blog-meta"><a href="/about/">Taylor Smith</a> · 1 week ago</p>
+    <p class="blog-meta">Taylor Smith · 1 week ago</p>
   </div>
 </article>
-<article class="blog-mini">
-  <img src="/assets/images/blog/fastest-payout-online-casinos.png" alt="">
-  <div>
+<article class="sidebar-guide">
+  <a href="/blog/fastest-payout-online-casinos/" class="sidebar-guide__media">
+    <img src="/assets/images/blog/fastest-payout-online-casinos.png" alt="Fastest Payout Online Casinos Compared (2026)" loading="lazy" onerror="this.src='/assets/images/hero/home-hero.png'">
+  </a>
+  <div class="sidebar-guide__body">
+    <span class="tag">Casino Reviews</span>
     <h3><a href="/blog/fastest-payout-online-casinos/">Fastest Payout Online Casinos Compared (2026)</a></h3>
-    <p class="blog-meta"><a href="/about/">Maria Chen</a> · 2 weeks ago</p>
+    <p class="blog-meta">Maria Chen · 2 weeks ago</p>
   </div>
 </article>
-<article class="blog-mini">
-  <img src="/assets/images/blog/best-live-dealer-casinos-2026.png" alt="">
-  <div>
+<article class="sidebar-guide">
+  <a href="/blog/best-live-dealer-casinos-2026/" class="sidebar-guide__media">
+    <img src="/assets/images/blog/best-live-dealer-casinos-2026.png" alt="Best Live Dealer Online Casinos in 2026" loading="lazy" onerror="this.src='/assets/images/hero/home-hero.png'">
+  </a>
+  <div class="sidebar-guide__body">
+    <span class="tag">Live Casino</span>
     <h3><a href="/blog/best-live-dealer-casinos-2026/">Best Live Dealer Online Casinos in 2026</a></h3>
-    <p class="blog-meta"><a href="/about/">Maria Chen</a> · 2 weeks ago</p>
+    <p class="blog-meta">Maria Chen · 2 weeks ago</p>
   </div>
 </article>
+  <p><a href="/blog/" class="btn btn-outline btn-sm" style="width:100%;text-align:center">View all articles</a></p>
 </aside></main>
 <footer class="site-footer">
   <div class="container">

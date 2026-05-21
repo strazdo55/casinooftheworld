@@ -1,7 +1,7 @@
 import fs from "fs/promises";
 import path from "path";
 import { ROOT } from "./lib/env.mjs";
-import { pageShell, compareTable } from "./lib/html.mjs";
+import { pageShell, compareTable, guideCardGrid, uniquePosts } from "./lib/html.mjs";
 import {
   howWeRateBlock,
   faqBlock,
@@ -17,21 +17,10 @@ const posts = JSON.parse(
   await fs.readFile(path.join(ROOT, "data/blog.json"), "utf8")
 );
 
-const featuredPosts = posts.filter((p) => p.featured).concat(posts).slice(0, 4);
-
-function featuredCards() {
-  return featuredPosts
-    .map(
-      (p) => `<article class="affiliate-card">
-  <img src="/${p.image.replace(/^\//, "")}" alt="">
-  <span class="tag">${p.category}</span>
-  <h3><a href="/blog/${p.slug}/">${p.title}</a></h3>
-  <p>${p.excerpt}</p>
-  <a href="/blog/${p.slug}/" class="btn btn-outline">Read guide</a>
-</article>`
-    )
-    .join("\n");
-}
+const editorPicks = uniquePosts(
+  [...posts.filter((p) => p.featured), ...posts],
+  4
+);
 
 function brandCards() {
   return operators
@@ -109,8 +98,14 @@ const body = `
   <h2 class="section-title">Featured Operator Reviews</h2>
   <div class="card-grid">${brandCards()}</div>
 
-  <h2 class="section-title">Latest Casino Guides</h2>
-  <div class="card-grid">${featuredCards()}</div>
+  <section class="content-section" aria-labelledby="editor-picks">
+  <div class="section-head-row">
+    <h2 id="editor-picks" class="section-title">Editor's Picks — Casino Guides</h2>
+    <a href="/blog/" class="section-head-link">View all articles →</a>
+  </div>
+  <p class="lead" style="margin-top:0">In-depth guides on slots, EU licensing, payouts, and live dealer play—written for international players, not US state sportsbooks.</p>
+  ${guideCardGrid(editorPicks, { truncate: true })}
+  </section>
 
   ${faqBlock([
     {

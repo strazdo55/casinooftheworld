@@ -188,11 +188,20 @@ async function buildBlogIndex() {
 }
 
 async function main() {
-  const only = process.argv[2];
-  const list = only ? posts.filter((p) => p.slug === only) : posts;
+  const args = process.argv.slice(2);
+  const indexOnly = args.includes("--index-only");
+  const only = args.find((a) => a !== "--index-only");
 
   await removeBlogRedirectStubs();
   await buildBlogIndex();
+
+  if (indexOnly) {
+    await writeServeConfig();
+    console.log("Blog index only — done.");
+    return;
+  }
+
+  const list = only ? posts.filter((p) => p.slug === only) : posts;
 
   for (const post of list) {
     const sources = await gatherSources(post);

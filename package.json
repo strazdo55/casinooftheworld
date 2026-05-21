@@ -20,6 +20,7 @@
     "enrich": "node scripts/enrich-site.mjs",
     "gsc:verify-file": "node scripts/write-gsc-verification.mjs",
     "inject:cookie-banner": "node scripts/inject-cookie-banner.mjs",
+    "sync:headers": "node scripts/sync-headers.mjs",
     "rebuild:intl": "node scripts/update-international-blog.mjs && node scripts/generate-blog-enrichment.mjs && npm run build:home && npm run build:pages && npm run build:reviews && npm run build:blog && npm run build:images:blog && npm run inject:cookie-banner && npm run build:sitemap",
     "patch:logo": "node scripts/patch-logo.mjs",
     "build:images": "node scripts/generate-images.mjs",
