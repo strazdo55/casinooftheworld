@@ -9,7 +9,14 @@ import {
   blogSidebar,
 } from "./lib/html.mjs";
 import { PAGE_ENRICHMENT, AUTHORITY } from "./lib/links.mjs";
-import { pageBreadcrumbs, reviewBreadcrumbs } from "./lib/schema.mjs";
+import { pageBreadcrumbs } from "./lib/schema.mjs";
+import {
+  howWeRateBlock,
+  faqBlock,
+  topicLinksBlock,
+  licensingTable,
+  compareSection,
+} from "./lib/page-blocks.mjs";
 
 const operators = JSON.parse(
   await fs.readFile(path.join(ROOT, "data/operators.json"), "utf8")
@@ -82,11 +89,15 @@ const pages = [
     body: `<main class="container page-grid"><div>
   <div class="breadcrumb"><a href="/">Home</a> » Online Casinos</div>
   <h1 class="section-title">Best Online Casinos (2026)</h1>
-  <p class="lead">Licensed operators with strong slot libraries, fair <a href="/bonuses/">bonus terms</a>, and reliable <a href="/banking/">withdrawals</a>. We cross-check game fairness standards published by <a href="${AUTHORITY.ecogra.href}" target="_blank" rel="noopener noreferrer">${AUTHORITY.ecogra.label}</a>.</p>
-  ${disclosure()}
-  ${compareTable(operators)}
-  <p>US players should read our <a href="/us-casinos/">state-by-state casino guide</a> and latest <a href="/blog/us-igaming-expansion-2026/">iGaming expansion update</a>. Slot fans can browse <a href="/blog/best-new-online-slots-2026/">new slots for 2026</a>; live-table players should see <a href="/blog/best-live-dealer-casinos-2026/">best live dealer casinos</a>.</p>
+  <p class="lead">We compare <strong>UKGC, MGA, and internationally licensed</strong> casinos on game depth, bonus fairness, payout speed, and mobile UX—updated May 2026.</p>
+  ${compareSection(operators)}
+  ${howWeRateBlock()}
+  <p>European players should read our <a href="/europe-casinos/">Europe &amp; Asia hub</a> and <a href="/blog/us-igaming-expansion-2026/">EU regulation update</a>. Slot fans: <a href="/blog/best-new-online-slots-2026/">new slots 2026</a>. Live tables: <a href="/blog/best-live-dealer-casinos-2026/">best live dealer casinos</a>.</p>
   ${cards(operators)}
+  ${faqBlock([
+    { q: "What makes a casino “top rated” on this site?", a: "Licence quality, published RTP where available, bonus terms, banking speed, and responsible-gambling tools—not ad spend." },
+    { q: "Do you list US state casinos?", a: "No. We focus on European and international operators. See <a href=\"/casinos-by-country/\">casinos by country</a> for your region." },
+  ])}
 </div>${sidebar}</main>`,
   },
   {
@@ -94,9 +105,9 @@ const pages = [
     body: `<main class="container page-grid"><div>
   <p class="lead" style="background:#ebf8ff;padding:1rem;border-radius:8px"><strong>Primary focus: online casinos.</strong> For slots, live dealer, and casino bonuses visit our <a href="/online-casinos/">casino rankings</a> and <a href="/games/">games hub</a>.</p>
   <h1 class="section-title">Sports Betting (Secondary)</h1>
-  <p class="lead">Some casino brands below also run sportsbooks. We list them for completeness—not as our main editorial focus. Problem gambling help: <a href="${AUTHORITY.ncpg.href}" target="_blank" rel="noopener noreferrer">NCPG</a>.</p>
+  <p class="lead">Some casino brands below also run sportsbooks. We list them for completeness—not as our main editorial focus. Help: <a href="${AUTHORITY.begambleaware.href}" target="_blank" rel="noopener noreferrer">BeGambleAware</a>.</p>
   ${disclosure()}
-  ${cards(operators.filter((o) => ["draftkings", "fanduel", "betmgm"].includes(o.slug)))}
+  ${cards(operators.filter((o) => ["betway", "betsson", "22bet"].includes(o.slug)))}
 </div>${sidebar}</main>`,
   },
   {
@@ -104,10 +115,16 @@ const pages = [
     body: `<main class="container page-grid"><div>
   <div class="breadcrumb"><a href="/">Home</a> » Casino Bonuses</div>
   <h1 class="section-title">Online Casino Bonuses &amp; Free Spins</h1>
-  <p class="lead">Always read wagering requirements and expiry dates before opting in. Compare offers alongside our <a href="/online-casinos/">casino rankings</a> and <a href="/blog/twenty-dollar-casino-method/">bankroll strategy guide</a>.</p>
+  <p class="lead">Always read wagering requirements and expiry dates before opting in. Compare offers alongside our <a href="/online-casinos/">casino rankings</a> and <a href="/blog/wagering-requirements-explained/">wagering requirements guide</a>.</p>
   ${disclosure()}
-  <p>Regulators such as the <a href="${AUTHORITY.ukgc.href}" target="_blank" rel="noopener noreferrer">UK Gambling Commission</a> publish guidance on how promotions must be advertised—useful context when evaluating headline numbers.</p>
+  <div class="table-wrap"><table class="article-table"><thead><tr><th>Bonus type</th><th>What to check</th></tr></thead><tbody>
+  <tr><td>Deposit match</td><td>Playthrough multiplier, max bet, eligible games</td></tr>
+  <tr><td>Free spins</td><td>Per-spin value, winnings cap, expiry</td></tr>
+  <tr><td>No deposit</td><td>Max cashout, KYC before withdrawal</td></tr>
+  </tbody></table></div>
+  <p>Regulators such as the <a href="${AUTHORITY.ukgc.href}" target="_blank" rel="noopener noreferrer">UK Gambling Commission</a> publish strict advertising rules for promotions.</p>
   ${cards(operators)}
+  ${faqBlock([{ q: "What is a 35x wagering requirement?", a: "You must bet 35× the bonus (or bonus+deposit) before withdrawing winnings. See our <a href=\"/blog/wagering-requirements-explained/\">worked examples</a>." }])}
 </div>${sidebar}</main>`,
   },
   {
@@ -122,11 +139,13 @@ const pages = [
   <h2>Method overview</h2>
   <ul>
     <li><strong>Visa / Mastercard</strong> — instant deposits at most brands</li>
-    <li><strong>PayPal / Skrill</strong> — available on select US and international sites</li>
-    <li><strong>Bitcoin / crypto</strong> — popular at <a href="/reviews/bovada/">Bovada</a> and <a href="/reviews/betus/">BetUS</a> for fast cash-outs</li>
+    <li><strong>PayPal / Skrill / Neteller</strong> — common at UK and EU brands</li>
+    <li><strong>Bitcoin / crypto</strong> — fast at <a href="/reviews/22bet/">22Bet</a> and select international sites</li>
     <li><strong>Bank transfer</strong> — higher limits, slower processing</li>
+    <li><strong>Trustly / instant banking</strong> — popular in Nordics and Germany</li>
   </ul>
-  <p>Licensed operators in regulated US states are overseen by bodies such as the <a href="${AUTHORITY.njDge.href}" target="_blank" rel="noopener noreferrer">New Jersey DGE</a> and <a href="${AUTHORITY.miGcb.href}" target="_blank" rel="noopener noreferrer">Michigan Gaming Control Board</a>.</p>
+  <p>EU and UK licensees must segregate player funds. Verify methods on the <a href="${AUTHORITY.mga.href}" target="_blank" rel="noopener noreferrer">MGA</a> or <a href="${AUTHORITY.ukgc.href}" target="_blank" rel="noopener noreferrer">UKGC</a> public registers where applicable.</p>
+  ${faqBlock([{ q: "Why is my withdrawal pending?", a: "KYC checks, bonus wagering not complete, or method mismatch. Read our <a href=\"/blog/online-casino-kyc-verification-guide/\">KYC guide</a>." }])}
 </div>${sidebar}</main>`,
   },
   {
@@ -140,6 +159,12 @@ const pages = [
     <article class="affiliate-card"><h3>Live Dealer</h3><p>Streamed blackjack, roulette, and game shows with real hosts. Studios from providers like <a href="${AUTHORITY.evolution.href}" target="_blank" rel="noopener noreferrer">Evolution</a>.</p><a href="/blog/best-live-dealer-casinos-2026/">Top live casinos →</a></article>
     <article class="affiliate-card"><h3>Table Games</h3><p>Learn basic strategy for blackjack and baccarat.</p><a href="/blog/twenty-dollar-casino-method/">Bankroll tips →</a></article>
   </div>
+  ${howWeRateBlock()}
+  ${topicLinksBlock([
+    { href: "/blog/slot-rtp-volatility-explained/", label: "RTP & volatility explained" },
+    { href: "/blog/blackjack-basic-strategy-online/", label: "Blackjack basic strategy" },
+    { href: "/blog/roulette-variants-online-casino/", label: "Roulette variants compared" },
+  ])}
 </div>${sidebar}</main>`,
   },
   {
@@ -151,6 +176,8 @@ const pages = [
   ${disclosure()}
   <p>Read our <a href="/blog/us-igaming-expansion-2026/">EU &amp; UK regulation update</a>, browse <a href="/casinos-by-country/">casinos by country</a>, and see <a href="/blog/fastest-payout-online-casinos/">fastest payout brands</a> for cash-out benchmarks.</p>
   ${compareTable(operators)}
+  ${licensingTable()}
+  ${cards(operators)}
 </div>${sidebar}</main>`,
   },
   {
@@ -161,12 +188,14 @@ const pages = [
   <p class="lead">Licensing and game catalogs vary by jurisdiction. Verify local laws before playing. UK players should look for <a href="${AUTHORITY.ukgc.href}" target="_blank" rel="noopener noreferrer">UKGC</a> licensing; EU brands often hold <a href="${AUTHORITY.mga.href}" target="_blank" rel="noopener noreferrer">MGA</a> credentials.</p>
   <h2>Popular regions</h2>
   <ul>
-    <li><strong>United States</strong> — <a href="/us-casinos/">US casino guide</a></li>
-    <li><strong>Canada</strong> — provincial rules apply; check operator geo-targeting</li>
     <li><strong>United Kingdom</strong> — UKGC-licensed brands (<a href="/reviews/888casino/">888casino</a>, <a href="/reviews/leovegas/">LeoVegas</a>)</li>
-    <li><strong>Europe</strong> — MGA-licensed operators with multi-language support</li>
+    <li><strong>Malta / EU</strong> — <a href="/europe-casinos/">MGA-licensed casinos</a></li>
+    <li><strong>Canada (Ontario)</strong> — <a href="/blog/ontario-igaming-regulated-sites-2026/">regulated Ontario market</a></li>
+    <li><strong>Nordics</strong> — <a href="/reviews/betsson/">Betsson</a>, <a href="/reviews/casumo/">Casumo</a></li>
+    <li><strong>Asia / International</strong> — <a href="/reviews/22bet/">22Bet</a> (check local law)</li>
   </ul>
-  ${cards(operators.filter((o) => ["888casino", "leovegas"].includes(o.slug)))}
+  ${licensingTable()}
+  ${cards(operators)}
 </div>${sidebar}</main>`,
   },
   {
@@ -232,44 +261,4 @@ for (const p of pages) {
   console.log("Page:", p.file);
 }
 
-for (const op of operators) {
-  const html = pageShell({
-    title: `${op.name} Casino Review`,
-    description: `${op.name} review (2026): ${op.bestFor}. Welcome bonus, ${op.payout} payouts, games, and banking.`,
-    activePath: "/reviews/",
-    canonicalPath: `/reviews/${op.slug}/`,
-    ogImage: op.logo,
-    keywords: `${op.name} review, ${op.name} casino bonus, ${op.name} payout`,
-    breadcrumbs: reviewBreadcrumbs(op.name, op.slug),
-    body: `<main class="container page-grid"><article>
-  <div class="breadcrumb"><a href="/">Home</a> » <a href="/reviews/">Reviews</a> » ${op.name}</div>
-  <h1 class="section-title">${op.name} Review (2026)</h1>
-  ${disclosure()}
-  <p class="lead">${op.name} targets players who want ${op.bestFor.toLowerCase()}. Welcome offer: ${op.welcomeBonus}. Compare alternatives on <a href="/online-casinos/">best online casinos</a> and <a href="/bonuses/">bonus guide</a>.</p>
-  <h2>Pros</h2>
-  <ul><li>${op.highlights}</li><li>Reported payouts: ${op.payout}</li><li>Established brand with active promotions</li></ul>
-  <h2>Welcome bonus</h2>
-  <p>${op.welcomeBonus} — always confirm eligibility, wagering, and expiry on the operator site.</p>
-  <h2>Banking</h2>
-  <p>Withdrawal speeds are typically quoted as <strong>${op.payout}</strong> after KYC verification. Read our <a href="/banking/">banking guide</a> and <a href="/blog/fastest-payout-online-casinos/">payout comparison</a>.</p>
-  <p><a href="${op.cta}" class="btn btn-lime" target="_blank" rel="nofollow sponsored noopener">Visit ${op.name}</a></p>
-</article>${blogSidebar(posts)}</main>`,
-  });
-  await writePage(`reviews/${op.slug}.html`, html);
-}
-
-await writePage(
-  "reviews/index.html",
-  shell(
-    "reviews/index.html",
-    `<main class="container" style="padding:2rem 0">
-  <div class="breadcrumb"><a href="/">Home</a> » Reviews</div>
-  <h1 class="section-title">Operator Reviews</h1>
-  <p class="lead">Deep dives into bonuses, apps, and payout performance. Start with <a href="/online-casinos/">casino rankings</a> or browse by topic on our <a href="/blog/">blog</a>.</p>
-  ${cards(operators)}
-</main>`,
-    { activePath: "/reviews/" }
-  )
-);
-
-console.log("All pages generated.");
+console.log("Hub pages generated. Run: npm run build:reviews for Firecrawl reviews.");

@@ -5,6 +5,11 @@ When you run `npm run build:blog`, each post pulls research from the web via the
 ## Where files live
 
 ```
+.firecrawl/reviews/
+├── {operator-slug}-search.json
+├── {operator-slug}-0.md … {operator-slug}-3.md
+└── {operator-slug}-sources.md
+
 .firecrawl/blog/
 ├── {slug}-search.json      # Raw search results (news + web)
 ├── {slug}-0.md             # Scraped markdown — source URL #1
@@ -35,14 +40,24 @@ rm .firecrawl/blog/fastest-payout-online-casinos-*
 npm run build:blog -- fastest-payout-online-casinos
 ```
 
-## Full international rewrite (all posts)
+## Operator reviews (Firecrawl)
 
 ```bash
-node scripts/update-international-blog.mjs
-node scripts/generate-blog-enrichment.mjs
+cat .firecrawl/reviews/leovegas-sources.md
+npm run build:reviews
+npm run build:reviews -- leovegas   # single operator
+```
+
+## Full site content rebuild
+
+```bash
+npm run build:home
+npm run build:pages
+npm run build:reviews
 npm run build:blog
 npm run build:images:blog
 npm run inject:cookie-banner
+npm run build:sitemap
 ```
 
 Requires `GEMINI_API_KEY` and Firecrawl CLI logged in (`firecrawl login`).

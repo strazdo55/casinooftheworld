@@ -10,7 +10,8 @@
     "cta": "https://www.leovegas.com/",
     "logo": "assets/images/operators/leovegas.png",
     "type": "casino",
-    "markets": ["EU", "UK", "Nordics"]
+    "markets": ["EU", "UK", "Nordics"],
+    "searchQuery": "LeoVegas online casino review 2026 bonus live dealer MGA"
   },
   {
     "slug": "888casino",
@@ -36,7 +37,8 @@
     "cta": "https://www.betway.com/casino",
     "logo": "assets/images/operators/betway.png",
     "type": "casino",
-    "markets": ["UK", "EU", "Canada"]
+    "markets": ["UK", "EU", "Canada"],
+    "searchQuery": "Betway casino review 2026 withdrawal games"
   },
   {
     "slug": "casumo",
@@ -49,7 +51,8 @@
     "cta": "https://www.casumo.com/",
     "logo": "assets/images/operators/casumo.png",
     "type": "casino",
-    "markets": ["EU", "UK", "Nordics"]
+    "markets": ["EU", "UK", "Nordics"],
+    "searchQuery": "Casumo casino review 2026 MGA bonus adventure"
   },
   {
     "slug": "mrgreen",
@@ -62,7 +65,8 @@
     "cta": "https://www.mrgreen.com/",
     "logo": "assets/images/operators/mrgreen.png",
     "type": "casino",
-    "markets": ["EU", "UK", "Nordics"]
+    "markets": ["EU", "UK", "Nordics"],
+    "searchQuery": "Mr Green casino review 2026 responsible gambling live casino"
   },
   {
     "slug": "betsson",
@@ -75,7 +79,8 @@
     "cta": "https://www.betsson.com/en/casino",
     "logo": "assets/images/operators/betsson.png",
     "type": "casino",
-    "markets": ["EU", "Nordics", "LatAm"]
+    "markets": ["EU", "Nordics", "LatAm"],
+    "searchQuery": "Betsson casino review 2026 Nordic licence payout"
   },
   {
     "slug": "22bet",
@@ -88,6 +93,7 @@
     "cta": "https://22bet.com/casino",
     "logo": "assets/images/operators/22bet.png",
     "type": "casino",
-    "markets": ["Asia", "EU", "International"]
+    "markets": ["Asia", "EU", "International"],
+    "searchQuery": "22Bet casino review 2026 crypto withdrawal games"
   }
 ]

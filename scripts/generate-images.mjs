@@ -27,17 +27,17 @@ const IMAGES = [
 ];
 
 const STYLE_PREFIX =
-  "Japanese editorial line-art illustration, thin precise contour lines, minimal flat color fills, stylized character silhouettes, elegant negative space, ukiyo-e inspired composition, muted cream and navy palette with small gold accents, NO photorealism, NO 3D render, NO readable text, NO logos, 16:9 widescreen blog hero.";
+  "Modern editorial line-art illustration, thin precise contour lines, minimal flat color fills, stylized geometric shapes, elegant negative space, contemporary European magazine style, muted cream and deep navy palette with small gold accents, NO Japanese motifs, NO geisha, NO kimono, NO cherry blossoms, NO anime, NO photorealism, NO 3D render, NO readable text, NO logos, 16:9 widescreen blog hero.";
 
 const SLUG_SCENES = {
   "best-new-online-slots-2026":
-    "ornate slot machine with flowing reel symbols and tiny lucky cat figurine beside gold coins",
+    "ornate slot machine with flowing reel symbols and gold coins, art-deco curves",
   "best-live-dealer-casinos-2026":
     "live blackjack table from above, dealer hands and chips drawn with delicate linework",
   "us-igaming-expansion-2026":
     "stylized map of Europe with casino chip and scales of justice, thin border frame",
   "twenty-dollar-casino-method":
-    "small stack of chips and playing cards on tatami-like surface, disciplined minimal scene",
+    "small stack of chips and playing cards on clean table surface, disciplined minimal scene",
   "fastest-payout-online-casinos":
     "stopwatch and wallet with coins trailing like wind lines, sense of swift motion",
   "live-dealer-vs-rng-slots":
@@ -82,6 +82,16 @@ const SLUG_SCENES = {
     "seed hash strings as decorative lines around dice and chip",
   "ai-live-dealer-casino-future":
     "human dealer silhouette merging with circuit-line halo, futuristic but hand-drawn",
+};
+
+const OPERATOR_SCENES = {
+  leovegas: "lion-inspired sun motif abstract, mobile phone and roulette wheel line art",
+  "888casino": "infinity loop shape with cards and chips, classic casino elegance",
+  betway: "stylised stadium arch with cards, international sport-casino crossover lines",
+  casumo: "playful adventure path with casino chip milestones, gamified minimal lines",
+  mrgreen: "green felt curve and top hat silhouette, premium table mood",
+  betsson: "Nordic minimal waves with poker chips, clean Scandinavian line weight",
+  "22bet": "globe meridian lines with crypto coin and chip, international reach",
 };
 
 function blogImagePrompt(post) {

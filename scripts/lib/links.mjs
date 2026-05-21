@@ -11,6 +11,10 @@ export const AUTHORITY = {
     href: "https://www.begambleaware.org/",
     label: "BeGambleAware",
   },
+  gamcare: {
+    href: "https://www.gamcare.org.uk/",
+    label: "GamCare",
+  },
   aga: {
     href: "https://www.americangaming.org/",
     label: "American Gaming Association",
