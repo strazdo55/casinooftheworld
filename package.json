@@ -15,6 +15,7 @@
     "fix:redirects": "node scripts/fix-redirect-stubs.mjs",
     "fix:blog-links": "node scripts/fix-blog-links.mjs",
     "enrich": "node scripts/enrich-site.mjs",
+    "gsc:verify-file": "node scripts/write-gsc-verification.mjs",
     "patch:logo": "node scripts/patch-logo.mjs",
     "build:images": "node scripts/generate-images.mjs",
     "build:images:blog": "node scripts/generate-images.mjs --blog-only --force"

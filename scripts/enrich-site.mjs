@@ -3,6 +3,13 @@ import path from "path";
 import { ROOT } from "./lib/env.mjs";
 import { buildHead, replaceHead } from "./lib/meta.mjs";
 import {
+  buildSchemaGraph,
+  articleBreadcrumbs,
+  pageBreadcrumbs,
+  homeBreadcrumbs,
+  reviewBreadcrumbs,
+} from "./lib/schema.mjs";
+import {
   PAGE_ENRICHMENT,
   pageResources,
   enrichBlogArticle,
@@ -30,6 +37,30 @@ function injectBeforeCloseMain(html, block) {
   return html.slice(0, idx) + block + "\n" + html.slice(idx);
 }
 
+function schemaForPage({
+  pageType = "webpage",
+  title,
+  description,
+  canonicalPath,
+  ogImage,
+  published = "",
+  author = "Casino of the World",
+  breadcrumbs,
+  includeWebSite = false,
+}) {
+  return buildSchemaGraph({
+    pageType,
+    title,
+    description,
+    canonicalPath,
+    ogImage,
+    published,
+    author,
+    breadcrumbs,
+    includeWebSite,
+  });
+}
+
 function patchArticleBody(html, slug) {
   const data = enrichment[slug];
   if (!data) return html;
@@ -49,15 +80,26 @@ async function enrichBlogPost(post) {
   let html = await fs.readFile(file, "utf8");
   const data = enrichment[post.slug] || {};
 
+  const canonicalPath = `/blog/${post.slug}/`;
   const head = buildHead({
     title: post.title,
     description: post.excerpt,
-    canonicalPath: `/blog/${post.slug}/`,
+    canonicalPath,
     ogImage: post.image,
     type: "article",
     keywords: data.keywords || "",
     published: post.date,
     author: post.author,
+    structuredData: schemaForPage({
+      pageType: "article",
+      title: post.title,
+      description: post.excerpt,
+      canonicalPath,
+      ogImage: post.image,
+      published: post.date,
+      author: post.author,
+      breadcrumbs: articleBreadcrumbs(post.title, post.slug),
+    }),
   });
 
   html = replaceHead(html, head);
@@ -89,6 +131,14 @@ async function enrichBlogIndex() {
     depth: 1,
     ogImage: posts[0].image,
     keywords: meta.keywords,
+    structuredData: schemaForPage({
+      title: "Casino Blog — News, Slots & Live Dealer Guides",
+      description:
+        "Expert casino blog: slot reviews, US iGaming news, live dealer guides, bankroll tips, and payout comparisons. Updated for 2026.",
+      canonicalPath: "/blog/",
+      ogImage: posts[0].image,
+      breadcrumbs: pageBreadcrumbs("Blog", "/blog/"),
+    }),
   });
 
   html = replaceHead(html, head);
@@ -110,16 +160,35 @@ async function enrichStaticPage(relativePath, meta) {
   let html = await fs.readFile(file, "utf8");
   const depth = meta.depth || 0;
 
+  const canonicalPath =
+    meta.canonicalPath ||
+    `/${relativePath.replace(/index\.html$/, "").replace(/\.html$/, "")}/`;
+  const crumbLabel =
+    meta.breadcrumbLabel ||
+    meta.title?.replace(/\s*—.*$/, "").replace(/\s*\|.*$/, "").trim();
+  const breadcrumbs =
+    relativePath === "index.html"
+      ? homeBreadcrumbs()
+      : crumbLabel
+        ? pageBreadcrumbs(crumbLabel, canonicalPath)
+        : null;
+
   const head = buildHead({
     title: meta.title,
     description: meta.description,
-    canonicalPath:
-      meta.canonicalPath ||
-      `/${relativePath.replace(/index\.html$/, "").replace(/\.html$/, "")}`,
+    canonicalPath,
     depth,
     ogImage: meta.ogImage || "assets/images/brand/logo.png",
     keywords: meta.keywords || "",
     type: meta.type || "website",
+    structuredData: schemaForPage({
+      title: meta.title,
+      description: meta.description,
+      canonicalPath,
+      ogImage: meta.ogImage || "assets/images/brand/logo.png",
+      breadcrumbs,
+      includeWebSite: canonicalPath === "/" || canonicalPath === "",
+    }),
   });
 
   html = replaceHead(html, head);
@@ -152,13 +221,21 @@ async function enrichReviews() {
     const file = path.join(ROOT, "reviews", op.slug, "index.html");
     let html = await fs.readFile(file, "utf8");
 
+    const canonicalPath = `/reviews/${op.slug}/`;
     const head = buildHead({
       title: `${op.name} Casino Review`,
       description: `${op.name} review (2026): ${op.bestFor}. Welcome bonus, ${op.payout} payouts, games, and banking — independent analysis.`,
-      canonicalPath: `/reviews/${op.slug}`,
+      canonicalPath,
       depth: 1,
       ogImage: op.logo,
       keywords: `${op.name} review, ${op.name} casino bonus, ${op.name} payout, online casino review`,
+      structuredData: schemaForPage({
+        title: `${op.name} Casino Review`,
+        description: `${op.name} review (2026): ${op.bestFor}. Welcome bonus, ${op.payout} payouts, games, and banking — independent analysis.`,
+        canonicalPath,
+        ogImage: op.logo,
+        breadcrumbs: reviewBreadcrumbs(op.name, op.slug),
+      }),
     });
 
     html = replaceHead(html, head);
@@ -269,6 +346,17 @@ async function main() {
   for (const [file, meta] of Object.entries(legal)) {
     await enrichStaticPage(file, meta);
   }
+
+  const { spawn } = await import("child_process");
+  await new Promise((resolve, reject) => {
+    const child = spawn("node", ["scripts/write-gsc-verification.mjs"], {
+      cwd: ROOT,
+      stdio: "inherit",
+    });
+    child.on("close", (code) =>
+      code === 0 ? resolve() : reject(new Error("write-gsc-verification failed"))
+    );
+  });
 
   console.log("Site SEO & linking enrichment complete.");
 }

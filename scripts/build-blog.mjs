@@ -10,6 +10,7 @@ import {
   blogSidebar,
 } from "./lib/html.mjs";
 import { blogPostHref } from "./lib/paths.mjs";
+import { articleBreadcrumbs, pageBreadcrumbs } from "./lib/schema.mjs";
 import {
   removeBlogRedirectStubs,
   writeServeConfig,
@@ -103,6 +104,7 @@ ${sources.slice(0, 12000) || "No live sources; write careful evergreen analysis 
     keywords: data.keywords || "",
     published: post.date,
     author: post.author,
+    breadcrumbs: articleBreadcrumbs(post.title, post.slug),
     body: `
 <main class="container page-grid">
   <article>
@@ -169,6 +171,7 @@ async function buildBlogIndex() {
     canonicalPath: "/blog/",
     keywords: blogMeta.keywords,
     ogImage: featured.image,
+    breadcrumbs: pageBreadcrumbs("Blog", "/blog/"),
     body: `
 <main class="container">
   <div class="breadcrumb"><a href="/">Home</a> » Blog</div>

@@ -15,6 +15,8 @@ npm run dev            # http://localhost:8080
 |---------|-------------|
 | `npm run build:images` | Gemini image generation → `assets/images/` |
 | `npm run build:images:blog` | Regenerate all blog thumbnails from `data/blog.json` |
+| `npm run enrich` | JSON-LD, meta, internal links across all pages |
+| Search Console | See [docs/GOOGLE-SEARCH-CONSOLE.md](docs/GOOGLE-SEARCH-CONSOLE.md) |
 | `npm run build:blog` | Firecrawl news + Gemini articles → `blog/*.html` |
 | `node scripts/fetch-logos.mjs` | Operator logos → `assets/images/operators/` |
 | `node scripts/generate-pages.mjs` | Regenerate affiliate & legal pages |

@@ -14,6 +14,9 @@ export const GEMINI_IMAGE_MODEL =
   process.env.GEMINI_IMAGE_MODEL || "gemini-2.5-flash-image";
 export const SITE_URL =
   process.env.SITE_URL || "https://casinooftheworld.com";
+/** Search Console HTML-tag verification token (meta name=google-site-verification). */
+export const GOOGLE_SITE_VERIFICATION =
+  process.env.GOOGLE_SITE_VERIFICATION || "";
 
 export function requireGemini() {
   if (!GEMINI_API_KEY) {

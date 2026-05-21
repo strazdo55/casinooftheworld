@@ -2,6 +2,7 @@ import fs from "fs/promises";
 import path from "path";
 import { ROOT } from "./env.mjs";
 import { buildHead } from "./meta.mjs";
+import { buildSchemaGraph } from "./schema.mjs";
 import { LOGO_SVG } from "./brand.mjs";
 import { blogPostHref, htmlFileToDirIndex } from "./paths.mjs";
 
@@ -137,17 +138,34 @@ export function pageShell({
   keywords = "",
   published = "",
   author = "Casino of the World",
+  breadcrumbs = null,
+  includeWebSite = false,
 }) {
   const pathKey = canonicalPath || activePath || "/";
+  const canonical = pathKey.startsWith("/") ? pathKey : `/${pathKey.replace(/^\//, "")}`;
+  const pageType = ogType === "article" ? "article" : "webpage";
+  const structuredData = buildSchemaGraph({
+    pageType,
+    title,
+    description,
+    canonicalPath: canonical,
+    ogImage,
+    published,
+    author,
+    breadcrumbs,
+    includeWebSite: includeWebSite || canonical === "/",
+  });
+
   const head = buildHead({
     title,
     description,
-    canonicalPath: pathKey.startsWith("/") ? pathKey : `/${pathKey.replace(/^\//, "")}`,
+    canonicalPath: canonical,
     ogImage,
     type: ogType,
     keywords,
     published,
     author,
+    structuredData,
   });
 
   return `<!DOCTYPE html>

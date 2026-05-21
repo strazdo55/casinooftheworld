@@ -9,6 +9,7 @@ import {
   blogSidebar,
 } from "./lib/html.mjs";
 import { PAGE_ENRICHMENT, AUTHORITY } from "./lib/links.mjs";
+import { pageBreadcrumbs, reviewBreadcrumbs } from "./lib/schema.mjs";
 
 const operators = JSON.parse(
   await fs.readFile(path.join(ROOT, "data/operators.json"), "utf8")
@@ -18,16 +19,42 @@ const posts = JSON.parse(
 );
 const sidebar = blogSidebar(posts, 0);
 
+const PAGE_CRUMB_LABELS = {
+  "online-casinos.html": "Online Casinos",
+  "sports-betting.html": "Sports Betting",
+  "bonuses.html": "Casino Bonuses",
+  "banking.html": "Banking",
+  "games.html": "Casino Games",
+  "us-casinos.html": "US Casinos",
+  "casinos-by-country.html": "Casinos by Country",
+  "contact.html": "Contact",
+  "about.html": "About",
+  "affiliate-disclosure.html": "Affiliate Disclosure",
+  "privacy.html": "Privacy Policy",
+  "terms.html": "Terms of Use",
+  "reviews/index.html": "Reviews",
+};
+
 function shell(file, body, extra = {}) {
   const meta = PAGE_ENRICHMENT[file] || {};
+  const canonical =
+    meta.canonicalPath ||
+    `/${file.replace(/index\.html$/, "").replace(/\.html$/, "")}/`;
+  const crumbLabel = extra.crumbLabel || PAGE_CRUMB_LABELS[file];
+  const breadcrumbs = crumbLabel
+    ? pageBreadcrumbs(crumbLabel, canonical)
+    : null;
+
   return pageShell({
     title: meta.title || file,
     description: meta.description || "",
     activePath: file,
-    canonicalPath: meta.canonicalPath,
+    canonicalPath: canonical,
     keywords: meta.keywords || "",
     ogImage: meta.ogImage,
     depth: meta.depth || 0,
+    breadcrumbs,
+    includeWebSite: file === "index.html",
     body,
     ...extra,
   });
@@ -213,6 +240,7 @@ for (const op of operators) {
     canonicalPath: `/reviews/${op.slug}/`,
     ogImage: op.logo,
     keywords: `${op.name} review, ${op.name} casino bonus, ${op.name} payout`,
+    breadcrumbs: reviewBreadcrumbs(op.name, op.slug),
     body: `<main class="container page-grid"><article>
   <div class="breadcrumb"><a href="/">Home</a> » <a href="/reviews/">Reviews</a> » ${op.name}</div>
   <h1 class="section-title">${op.name} Review (2026)</h1>
