@@ -12,6 +12,8 @@ import {
 import { reviewBreadcrumbs } from "./lib/schema.mjs";
 import { formatLinksForPrompt, linksForPost } from "./lib/semantic-links.mjs";
 import { AUTHORITY } from "./lib/links.mjs";
+import { faqBlock } from "./lib/page-blocks.mjs";
+import { getFaqs, reviewFaqs } from "./lib/faqs.mjs";
 import { loadOperatorResearch } from "./lib/affiliate-research.mjs";
 import { sanitizeResearch } from "./lib/sanitize-sources.mjs";
 
@@ -178,6 +180,10 @@ async function writeReview(op, sources) {
     ${disclosure()}
     ${ratingTable}
     <div class="article-body">${bodyHtml}</div>
+    ${faqBlock(reviewFaqs(op), {
+      title: `${op.name} — FAQ`,
+      intro: "Quick answers about licensing, bonuses, payouts, and who this brand suits best.",
+    })}
     <section class="article-related" aria-labelledby="related-heading">
       <h2 id="related-heading">Related guides</h2>
       <ul class="related-list">${related}</ul>
@@ -226,6 +232,9 @@ async function buildReviewsIndex() {
   <div class="card-grid">${cards}</div>
   <h2 class="section-title">Compare Side-by-Side</h2>
   <p>Need a quick snapshot? Use our <a href="/online-casinos/">casino comparison table</a> or <a href="/banking/">banking guide</a> for payout methods.</p>
+  ${faqBlock(getFaqs("reviews"), {
+    intro: "How we write reviews, handle affiliate links, and keep ratings independent.",
+  })}
 </main>`,
   });
 

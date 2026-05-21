@@ -9,6 +9,7 @@ import {
   licensingTable,
   wageringCalculatorBlock,
 } from "./lib/page-blocks.mjs";
+import { getFaqs } from "./lib/faqs.mjs";
 import { PAGE_ENRICHMENT } from "./lib/links.mjs";
 
 const operators = JSON.parse(
@@ -113,24 +114,9 @@ const body = `
   ${guideCardGrid(editorPicks, { truncate: true })}
   </section>
 
-  ${faqBlock([
-    {
-      q: "Which online casinos pay out the fastest?",
-      a: 'E-wallets and crypto often clear within 24 hours at international brands. See our <a href="/blog/fastest-payout-online-casinos/">fastest payout comparison</a> and <a href="/banking/">banking hub</a>.',
-    },
-    {
-      q: "Are online casino bonuses worth it?",
-      a: 'Only if you understand wagering requirements. Our <a href="/blog/wagering-requirements-explained/">wagering guide</a> and <a href="/bonuses/">bonus hub</a> explain playthrough math.',
-    },
-    {
-      q: "What is the difference between live dealer and RNG slots?",
-      a: 'Live games stream real tables; RNG slots use software randomness. Compare pacing and house edge in our <a href="/blog/live-dealer-vs-rng-slots/">live vs RNG guide</a>.',
-    },
-    {
-      q: "Can I play from any country?",
-      a: 'No—operators geo-block restricted regions. Start with <a href="/casinos-by-country/">casinos by country</a> and confirm local law.',
-    },
-  ])}
+  ${faqBlock(getFaqs("home"), {
+    intro: "Common questions about licensing, bonuses, payouts, and how we review casinos for European and international players.",
+  })}
 
   ${topicLinksBlock([
     { href: "/online-casinos/", label: "Best online casinos compared" },

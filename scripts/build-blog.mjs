@@ -16,6 +16,8 @@ import {
   writeServeConfig,
 } from "./write-serve-config.mjs";
 import { enrichBlogArticle } from "./lib/links.mjs";
+import { faqBlock } from "./lib/page-blocks.mjs";
+import { getFaqs } from "./lib/faqs.mjs";
 import { buildArticlePrompt, enrichBodyWithContext } from "./lib/blog-prompt.mjs";
 
 const posts = JSON.parse(
@@ -181,6 +183,9 @@ async function buildBlogIndex() {
     </div>
   </div>
   <div class="post-grid">${cards}</div>
+  ${faqBlock(getFaqs("blog"), {
+    intro: "How to use our guides, stay current with regulation, and play responsibly.",
+  })}
 </main>`,
   });
 

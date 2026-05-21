@@ -18,6 +18,7 @@ import {
   compareSection,
   wageringCalculatorBlock,
 } from "./lib/page-blocks.mjs";
+import { getFaqs } from "./lib/faqs.mjs";
 
 const operators = JSON.parse(
   await fs.readFile(path.join(ROOT, "data/operators.json"), "utf8")
@@ -95,10 +96,9 @@ const pages = [
   ${howWeRateBlock()}
   <p>European players should read our <a href="/europe-casinos/">Europe &amp; Asia hub</a> and <a href="/blog/us-igaming-expansion-2026/">EU regulation update</a>. Slot fans: <a href="/blog/best-new-online-slots-2026/">new slots 2026</a>. Live tables: <a href="/blog/best-live-dealer-casinos-2026/">best live dealer casinos</a>.</p>
   ${cards(operators)}
-  ${faqBlock([
-    { q: "What makes a casino “top rated” on this site?", a: "Licence quality, published RTP where available, bonus terms, banking speed, and responsible-gambling tools—not ad spend." },
-    { q: "Do you list US state casinos?", a: "No. We focus on European and international operators. See <a href=\"/casinos-by-country/\">casinos by country</a> for your region." },
-  ])}
+  ${faqBlock(getFaqs("online-casinos"), {
+    intro: "Answers about how we compare casinos, what to verify before depositing, and which licences matter for EU and UK players.",
+  })}
 </div>${sidebar}</main>`,
   },
   {
@@ -108,7 +108,10 @@ const pages = [
   <h1 class="section-title">Sports Betting (Secondary)</h1>
   <p class="lead">Some casino brands below also run sportsbooks. We list them for completeness—not as our main editorial focus. Help: <a href="${AUTHORITY.begambleaware.href}" target="_blank" rel="noopener noreferrer">BeGambleAware</a>.</p>
   ${disclosure()}
-  ${cards(operators.filter((o) => ["betway", "betsson", "22bet"].includes(o.slug)))}
+  ${cards(operators.filter((o) => ["betway", "betsson", "22bet", "velobet", "20bet"].includes(o.slug)))}
+  ${faqBlock(getFaqs("sports-betting"), {
+    intro: "Casino-first site—short answers about brands that also offer sports markets.",
+  })}
 </div>${sidebar}</main>`,
   },
   {
@@ -124,11 +127,13 @@ const pages = [
   <tr><td>No deposit</td><td>Max cashout, KYC before withdrawal</td></tr>
   </tbody></table></div>
   <p>Regulators such as the <a href="${AUTHORITY.ukgc.href}" target="_blank" rel="noopener noreferrer">UK Gambling Commission</a> publish strict advertising rules for promotions.</p>
-  ${wageringCalculatorBlock()}
+  ${wageringCalculatorBlock({ id: "wagering-calculator" })}
   <h2 class="section-title">Compare Welcome Offers</h2>
   ${compareTable(operators, { filters: true })}
   ${cards(operators)}
-  ${faqBlock([{ q: "What is a 35x wagering requirement?", a: "You must bet 35× the bonus (or bonus+deposit) before withdrawing winnings. See our <a href=\"/blog/wagering-requirements-explained/\">worked examples</a>." }])}
+  ${faqBlock(getFaqs("bonuses"), {
+    intro: "Understand playthrough rules, free spins, and when a welcome offer is worth claiming.",
+  })}
 </div>${sidebar}</main>`,
   },
   {
@@ -149,7 +154,9 @@ const pages = [
     <li><strong>Trustly / instant banking</strong> — popular in Nordics and Germany</li>
   </ul>
   <p>EU and UK licensees must segregate player funds. Verify methods on the <a href="${AUTHORITY.mga.href}" target="_blank" rel="noopener noreferrer">MGA</a> or <a href="${AUTHORITY.ukgc.href}" target="_blank" rel="noopener noreferrer">UKGC</a> public registers where applicable.</p>
-  ${faqBlock([{ q: "Why is my withdrawal pending?", a: "KYC checks, bonus wagering not complete, or method mismatch. Read our <a href=\"/blog/online-casino-kyc-verification-guide/\">KYC guide</a>." }])}
+  ${faqBlock(getFaqs("banking"), {
+    intro: "Deposits, withdrawals, pending times, and choosing the right payment method.",
+  })}
 </div>${sidebar}</main>`,
   },
   {
@@ -169,6 +176,9 @@ const pages = [
     { href: "/blog/blackjack-basic-strategy-online/", label: "Blackjack basic strategy" },
     { href: "/blog/roulette-variants-online-casino/", label: "Roulette variants compared" },
   ])}
+  ${faqBlock(getFaqs("games"), {
+    intro: "Game types, odds, live dealer, and how to pick titles that match your bankroll.",
+  })}
 </div>${sidebar}</main>`,
   },
   {
@@ -182,6 +192,9 @@ const pages = [
   ${compareTable(operators, { filters: true })}
   ${licensingTable()}
   ${cards(operators)}
+  ${faqBlock(getFaqs("europe-casinos"), {
+    intro: "Licensing, bonuses, and player protection for European and cross-border casino play.",
+  })}
 </div>${sidebar}</main>`,
   },
   {
@@ -200,6 +213,9 @@ const pages = [
   </ul>
   ${licensingTable()}
   ${cards(operators)}
+  ${faqBlock(getFaqs("casinos-by-country"), {
+    intro: "Jurisdiction, geo-blocking, and how to pick a site legal for your location.",
+  })}
 </div>${sidebar}</main>`,
   },
   {
@@ -223,6 +239,7 @@ const pages = [
     <textarea id="message" name="message" rows="6" required></textarea>
     <button type="submit" class="btn btn-lime">Send Message</button>
   </form>
+  ${faqBlock(getFaqs("contact"), { intro: "How to reach our editorial and partnership team." })}
 </main>`,
   },
   {
@@ -232,6 +249,7 @@ const pages = [
   <p>We are an independent affiliate publisher focused on online casinos—slots, live dealer, table games, and casino bonuses. Our rankings weigh game variety, payout speed, bonus fairness, and mobile UX—not paid placement.</p>
   <p>Editorial standards require hands-on testing, transparent <a href="/affiliate-disclosure/">affiliate disclosures</a>, and responsible gambling messaging on every money page. We link to recognized help organizations including <a href="${AUTHORITY.ncpg.href}" target="_blank" rel="noopener noreferrer">NCPG</a> and <a href="${AUTHORITY.begambleaware.href}" target="_blank" rel="noopener noreferrer">BeGambleAware</a>.</p>
   <p>Explore our <a href="/online-casinos/">casino comparisons</a>, <a href="/reviews/">operator reviews</a>, and <a href="/blog/">casino blog</a>.</p>
+  ${faqBlock(getFaqs("about"), { intro: "Our mission, testing approach, and editorial independence." })}
 </main>`,
   },
   {
@@ -240,6 +258,7 @@ const pages = [
   <h1 class="section-title">Affiliate Disclosure</h1>
   <p>Casino of the World participates in affiliate programs. When you click outbound links and register or deposit, we may earn compensation. This does not increase your cost.</p>
   <p>Ratings are based on our review criteria published in <a href="/reviews/">operator reviews</a>. Commercial relationships do not guarantee placement or score. See <a href="/privacy/">Privacy Policy</a> and <a href="/terms/">Terms of Use</a>.</p>
+  ${faqBlock(getFaqs("affiliate-disclosure"), { intro: "How affiliate links work and how we stay editorially independent." })}
 </main>`,
   },
   {
@@ -248,6 +267,7 @@ const pages = [
   <h1 class="section-title">Privacy Policy</h1>
   <p>We collect minimal analytics data to improve the site. Newsletter forms on this demo site do not transmit data to a server until you configure an endpoint.</p>
   <p>Contact: privacy@casinooftheworld.com (placeholder). Return to <a href="/">homepage</a> or read our <a href="/affiliate-disclosure/">affiliate disclosure</a>.</p>
+  ${faqBlock(getFaqs("privacy"), { title: "Privacy FAQ", intro: "Summary of data practices on casinooftheworld.com." })}
 </main>`,
   },
   {
@@ -256,6 +276,7 @@ const pages = [
   <h1 class="section-title">Terms of Use</h1>
   <p>Content is for informational purposes only. You must be 18+ (or legal age in your jurisdiction) to use gambling services linked from this site.</p>
   <p>We are not responsible for third-party operator terms, bonus changes, or account disputes. If gambling stops being fun, contact <a href="${AUTHORITY.ncpg.href}" target="_blank" rel="noopener noreferrer">NCPG</a> for confidential help.</p>
+  ${faqBlock(getFaqs("terms"), { title: "Terms FAQ", intro: "Key points about using this website and linked operators." })}
 </main>`,
   },
 ];

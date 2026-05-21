@@ -36,7 +36,9 @@ export function howWeRateBlock() {
 </section>`;
 }
 
-export function faqBlock(items) {
+export function faqBlock(items, opts = {}) {
+  if (!items?.length) return "";
+  const title = opts.title || "Frequently Asked Questions";
   const lis = items
     .map(
       (f) => `<details class="faq-item">
@@ -46,7 +48,8 @@ export function faqBlock(items) {
     )
     .join("\n");
   return `<section class="content-section faq-section" aria-labelledby="faq-heading">
-  <h2 id="faq-heading" class="section-title">Frequently Asked Questions</h2>
+  <h2 id="faq-heading" class="section-title">${title}</h2>
+  ${opts.intro ? `<p class="faq-section__intro">${opts.intro}</p>` : ""}
   ${lis}
 </section>`;
 }
