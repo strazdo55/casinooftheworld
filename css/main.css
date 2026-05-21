@@ -1017,15 +1017,6 @@ a:hover {
   margin-inline: calc(50% - 50vw);
 }
 
-.site-header {
-  width: 100%;
-}
-
-.site-header .container {
-  width: min(100% - 2rem, 100%);
-  max-width: none;
-}
-
 .side-rail {
   display: none;
 }
