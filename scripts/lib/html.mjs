@@ -126,6 +126,15 @@ export function modal() {
 <div class="toast" id="toast" role="status"></div>`;
 }
 
+export function cookieConsent() {
+  return `<div class="cookie-consent" id="cookie-consent" role="dialog" aria-label="Cookie consent" aria-live="polite">
+  <div class="cookie-consent__inner container">
+    <p class="cookie-consent__text">We use cookies to improve your experience and analyze site traffic. By clicking Accept, you agree to our use of cookies. Read our <a href="/privacy/">Privacy Policy</a>.</p>
+    <button type="button" class="btn btn-lime cookie-consent__accept" data-cookie-accept>Accept</button>
+  </div>
+</div>`;
+}
+
 export function pageShell({
   title,
   description,
@@ -178,6 +187,7 @@ ${header(activePath)}
 ${body}
 ${footer()}
 ${modal()}
+${cookieConsent()}
 <script src="/js/main.js"></script>
 </body>
 </html>`;

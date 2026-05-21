@@ -1216,6 +1216,64 @@ a:hover {
   }
 }
 
+/* Cookie consent */
+.cookie-consent {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 9000;
+  padding: 1rem 0 max(1rem, env(safe-area-inset-bottom));
+  background: var(--navy-bar);
+  color: #e2e8f0;
+  border-top: 1px solid rgba(255, 255, 255, 0.12);
+  box-shadow: 0 -8px 24px rgba(0, 0, 0, 0.25);
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.cookie-consent.is-hidden {
+  transform: translateY(100%);
+  opacity: 0;
+  pointer-events: none;
+}
+
+.cookie-consent__inner {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.cookie-consent__text {
+  margin: 0;
+  flex: 1 1 16rem;
+  font-size: 0.9rem;
+  line-height: 1.5;
+  color: #cbd5e0;
+}
+
+.cookie-consent__text a {
+  color: var(--lime);
+  text-decoration: underline;
+}
+
+.cookie-consent__accept {
+  flex-shrink: 0;
+  white-space: nowrap;
+}
+
+@media (max-width: 640px) {
+  .cookie-consent__inner {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .cookie-consent__accept {
+    width: 100%;
+  }
+}
+
 @media (max-width: 400px) {
   .logo-text {
     font-size: 0.85rem;

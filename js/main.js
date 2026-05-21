@@ -75,6 +75,20 @@
     rows.forEach((r) => tbody.appendChild(r));
   }
 
+  const COOKIE_CONSENT_KEY = "cotw_cookie_consent";
+  const cookieBanner = document.getElementById("cookie-consent");
+  if (cookieBanner) {
+    if (localStorage.getItem(COOKIE_CONSENT_KEY) === "accepted") {
+      cookieBanner.remove();
+    } else {
+      cookieBanner.querySelector("[data-cookie-accept]")?.addEventListener("click", () => {
+        localStorage.setItem(COOKIE_CONSENT_KEY, "accepted");
+        cookieBanner.classList.add("is-hidden");
+        setTimeout(() => cookieBanner.remove(), 350);
+      });
+    }
+  }
+
   const postGrid = document.querySelector(".post-grid");
   if (postGrid) {
     document.querySelectorAll(".cat-btn").forEach((btn) => {
