@@ -36,22 +36,53 @@
       "url": "https://casinooftheworld.com",
       "logo": {
         "@type": "ImageObject",
-        "url": "https://casinooftheworld.com/assets/images/brand/logo.png"
+        "@id": "https://casinooftheworld.com/#organization/logo",
+        "url": "https://casinooftheworld.com/assets/images/brand/logo.svg"
       }
     },
     {
-      "@type": "WebPage",
-      "@id": "https://casinooftheworld.com/affiliate-disclosure/#webpage",
-      "url": "https://casinooftheworld.com/affiliate-disclosure/",
-      "name": "Affiliate Disclosure",
-      "description": "How Casino of the World earns commissions and maintains editorial independence.",
-      "isPartOf": {
-        "@id": "https://casinooftheworld.com/#website"
-      },
-      "about": {
+      "@type": "WebSite",
+      "@id": "https://casinooftheworld.com/#website",
+      "url": "https://casinooftheworld.com",
+      "name": "Casino of the World",
+      "description": "Independent online casino reviews, slot guides, live dealer comparisons, and bonus analysis.",
+      "publisher": {
         "@id": "https://casinooftheworld.com/#organization"
       },
       "inLanguage": "en-US"
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://casinooftheworld.com/affiliate-disclosure/#faq",
+      "isPartOf": {
+        "@id": "https://casinooftheworld.com/#website"
+      },
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "What is an affiliate link on this site?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Outbound “Visit site” buttons may use tracking codes. If you register or deposit, we may earn a commission from the operator at no extra charge to you."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Does affiliate income affect your ratings?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No. Commercial relationships do not buy placement or star scores. Reviews explain why a brand is listed and note weaknesses as well as strengths."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How do I know which links are affiliate links?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Money CTAs to operators use rel=\"nofollow sponsored\" and this disclosure page is linked from comparison tables and reviews. Internal links to our blog and hubs are non-commercial navigation."
+          }
+        }
+      ]
     },
     {
       "@type": "BreadcrumbList",
@@ -70,6 +101,33 @@
           "item": "https://casinooftheworld.com/affiliate-disclosure/"
         }
       ]
+    },
+    {
+      "@type": "WebPage",
+      "@id": "https://casinooftheworld.com/affiliate-disclosure/#webpage",
+      "url": "https://casinooftheworld.com/affiliate-disclosure/",
+      "name": "Affiliate Disclosure",
+      "description": "How Casino of the World earns commissions and maintains editorial independence.",
+      "isPartOf": {
+        "@id": "https://casinooftheworld.com/#website"
+      },
+      "about": {
+        "@id": "https://casinooftheworld.com/#organization"
+      },
+      "publisher": {
+        "@id": "https://casinooftheworld.com/#organization"
+      },
+      "inLanguage": "en-US",
+      "breadcrumb": {
+        "@id": "https://casinooftheworld.com/affiliate-disclosure/#breadcrumb"
+      },
+      "primaryImageOfPage": {
+        "@type": "ImageObject",
+        "url": "https://casinooftheworld.com/assets/images/brand/logo.png"
+      },
+      "mainEntity": {
+        "@id": "https://casinooftheworld.com/affiliate-disclosure/#faq"
+      }
     }
   ]
 }

@@ -40,22 +40,97 @@
       "url": "https://casinooftheworld.com",
       "logo": {
         "@type": "ImageObject",
-        "url": "https://casinooftheworld.com/assets/images/brand/logo.png"
+        "@id": "https://casinooftheworld.com/#organization/logo",
+        "url": "https://casinooftheworld.com/assets/images/brand/logo.svg"
       }
     },
     {
-      "@type": "WebPage",
-      "@id": "https://casinooftheworld.com/reviews/casumo/#webpage",
-      "url": "https://casinooftheworld.com/reviews/casumo/",
-      "name": "Casumo Casino Review",
-      "description": "Casumo review (2026): Gamified loyalty & fast UX. Bonuses, games, 24–48 hours payouts, licensing, and banking for UK/EU/international players.",
-      "isPartOf": {
-        "@id": "https://casinooftheworld.com/#website"
-      },
-      "about": {
+      "@type": "WebSite",
+      "@id": "https://casinooftheworld.com/#website",
+      "url": "https://casinooftheworld.com",
+      "name": "Casino of the World",
+      "description": "Independent online casino reviews, slot guides, live dealer comparisons, and bonus analysis.",
+      "publisher": {
         "@id": "https://casinooftheworld.com/#organization"
       },
       "inLanguage": "en-US"
+    },
+    {
+      "@type": "Review",
+      "@id": "https://casinooftheworld.com/reviews/casumo/#review",
+      "name": "Casumo Casino Review",
+      "reviewBody": "Casumo review (2026): Gamified loyalty &amp; fast UX. Bonuses, games, 24–48 hours payouts, licensing, and banking for UK/EU/international players.",
+      "image": [
+        "https://casinooftheworld.com/assets/images/operators/casumo.png"
+      ],
+      "author": {
+        "@type": "Person",
+        "name": "Casino of the World"
+      },
+      "publisher": {
+        "@id": "https://casinooftheworld.com/#organization"
+      },
+      "itemReviewed": {
+        "@type": "Organization",
+        "name": "Casumo",
+        "url": "https://www.casumo.com/"
+      },
+      "mainEntityOfPage": {
+        "@id": "https://casinooftheworld.com/reviews/casumo/#webpage"
+      },
+      "isPartOf": {
+        "@id": "https://casinooftheworld.com/#website"
+      },
+      "inLanguage": "en-US"
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://casinooftheworld.com/reviews/casumo/#faq",
+      "isPartOf": {
+        "@id": "https://casinooftheworld.com/#website"
+      },
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Is Casumo licensed and legit?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Casumo holds MGA & UKGC licensing according to our research. Always verify the licence number on the regulator’s public register and confirm the site accepts players from your country before depositing."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What is the welcome bonus at Casumo?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Current listing: Welcome adventure with bonus spins (market-specific). Typical wagering is 30×—confirm game weighting, max bet, and expiry in live T&amp;Cs. Use our wagering calculator to model playthrough."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How fast does Casumo pay out?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Our review cites 24–48 hours after approval. First withdrawals may take longer while KYC completes. See banking guide for method-specific tips."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Who is Casumo best for?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Gamified loyalty & fast UX. Highlights include Adventure rewards, curated slots, MGA-licensed since 2012. Compare alternatives on online casinos ."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Does Casumo have live dealer games?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes—live casino is listed among this brand’s features. Table availability depends on your region and provider contracts (Evolution, Pragmatic Live, etc.)."
+          }
+        }
+      ]
     },
     {
       "@type": "BreadcrumbList",
@@ -78,6 +153,38 @@
           "position": 3,
           "name": "Casumo",
           "item": "https://casinooftheworld.com/reviews/casumo/"
+        }
+      ]
+    },
+    {
+      "@type": "WebPage",
+      "@id": "https://casinooftheworld.com/reviews/casumo/#webpage",
+      "url": "https://casinooftheworld.com/reviews/casumo/",
+      "name": "Casumo Casino Review",
+      "description": "Casumo review (2026): Gamified loyalty &amp; fast UX. Bonuses, games, 24–48 hours payouts, licensing, and banking for UK/EU/international players.",
+      "isPartOf": {
+        "@id": "https://casinooftheworld.com/#website"
+      },
+      "about": {
+        "@id": "https://casinooftheworld.com/#organization"
+      },
+      "publisher": {
+        "@id": "https://casinooftheworld.com/#organization"
+      },
+      "inLanguage": "en-US",
+      "breadcrumb": {
+        "@id": "https://casinooftheworld.com/reviews/casumo/#breadcrumb"
+      },
+      "primaryImageOfPage": {
+        "@type": "ImageObject",
+        "url": "https://casinooftheworld.com/assets/images/operators/casumo.png"
+      },
+      "mainEntity": {
+        "@id": "https://casinooftheworld.com/reviews/casumo/#review"
+      },
+      "hasPart": [
+        {
+          "@id": "https://casinooftheworld.com/reviews/casumo/#faq"
         }
       ]
     }

@@ -54,6 +54,7 @@ function shell(file, body, extra = {}) {
     ? pageBreadcrumbs(crumbLabel, canonical)
     : null;
 
+  const faqKey = extra.faqKey || file.replace(/\.html$/, "");
   return pageShell({
     title: meta.title || file,
     description: meta.description || "",
@@ -63,7 +64,7 @@ function shell(file, body, extra = {}) {
     ogImage: meta.ogImage,
     depth: meta.depth || 0,
     breadcrumbs,
-    includeWebSite: file === "index.html",
+    faqs: getFaqs(faqKey),
     body,
     ...extra,
   });

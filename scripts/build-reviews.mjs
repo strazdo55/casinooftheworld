@@ -160,9 +160,15 @@ async function writeReview(op, sources) {
     description: `${op.name} review (2026): ${op.bestFor}. Bonuses, games, ${op.payout} payouts, licensing, and banking for UK/EU/international players.`,
     activePath: "/reviews/",
     canonicalPath: `/reviews/${op.slug}/`,
+    pageType: "review",
     ogImage: op.logo,
     keywords: `${op.name} review, ${op.name} casino bonus, ${op.name} withdrawal, ${op.name} licence`,
     breadcrumbs: reviewBreadcrumbs(op.name, op.slug),
+    faqs: reviewFaqs(op),
+    review: {
+      name: op.name,
+      url: op.cta?.startsWith("http") ? op.cta : `https://${op.domain}/`,
+    },
     body: `<main class="container page-grid">
   <article>
     <div class="breadcrumb"><a href="/">Home</a> » <a href="/reviews/">Reviews</a> » ${op.name}</div>
@@ -222,6 +228,11 @@ async function buildReviewsIndex() {
     keywords:
       "online casino reviews, LeoVegas review, 888casino review, Betway casino, MGA casino reviews 2026",
     breadcrumbs: [{ name: "Home", path: "/" }, { name: "Reviews", path: "/reviews/" }],
+    faqs: getFaqs("reviews"),
+    itemList: operators.map((o) => ({
+      name: `${o.name} Review`,
+      path: `/reviews/${o.slug}/`,
+    })),
     body: `<main class="container">
   <div class="breadcrumb"><a href="/">Home</a> » Reviews</div>
   <h1 class="section-title">Online Casino Reviews</h1>

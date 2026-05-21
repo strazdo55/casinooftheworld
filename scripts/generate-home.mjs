@@ -165,7 +165,7 @@ const html = pageShell({
   canonicalPath: "/",
   keywords: meta.keywords,
   ogImage: meta.ogImage,
-  includeWebSite: true,
+  faqs: getFaqs("home"),
   preloadHero: true,
   body,
 });

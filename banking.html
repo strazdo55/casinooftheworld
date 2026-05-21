@@ -37,22 +37,77 @@
       "url": "https://casinooftheworld.com",
       "logo": {
         "@type": "ImageObject",
-        "url": "https://casinooftheworld.com/assets/images/brand/logo.png"
+        "@id": "https://casinooftheworld.com/#organization/logo",
+        "url": "https://casinooftheworld.com/assets/images/brand/logo.svg"
       }
     },
     {
-      "@type": "WebPage",
-      "@id": "https://casinooftheworld.com/banking/#webpage",
-      "url": "https://casinooftheworld.com/banking/",
-      "name": "Casino Banking & Payouts",
-      "description": "Deposit and withdrawal methods at online casinos: cards, e-wallets, crypto, and typical payout times.",
-      "isPartOf": {
-        "@id": "https://casinooftheworld.com/#website"
-      },
-      "about": {
+      "@type": "WebSite",
+      "@id": "https://casinooftheworld.com/#website",
+      "url": "https://casinooftheworld.com",
+      "name": "Casino of the World",
+      "description": "Independent online casino reviews, slot guides, live dealer comparisons, and bonus analysis.",
+      "publisher": {
         "@id": "https://casinooftheworld.com/#organization"
       },
       "inLanguage": "en-US"
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://casinooftheworld.com/banking/#faq",
+      "isPartOf": {
+        "@id": "https://casinooftheworld.com/#website"
+      },
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Why is my casino withdrawal still pending?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Common causes: incomplete KYC, active bonus wagering, first-time cash-out review, weekends/holidays for bank wires, or using a withdrawal method different from your deposit route. Submit documents promptly via the secure upload portal. Our KYC guide lists typical timelines."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Which payment method is fastest for casino payouts?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "E-wallets (Skrill, Neteller, PayPal where supported), instant banking (Trustly), and cryptocurrency often clear within hours once approved. Debit card withdrawals may take three to five business days. Bank transfers handle large sums but are slowest—see brands in our table filtered by “fast” payout tier."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can I deposit with a card but withdraw to crypto?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Many operators require closed-loop processing—withdrawals must return to the same method used for deposit, at least for the deposited amount. Anti-money-laundering rules drive this. Check the cashier’s available withdrawal rails before you fund the account."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Are there fees on casino deposits or withdrawals?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Most licensed casinos do not charge deposit fees, but your bank or e-wallet provider might. Withdrawals are usually free above a minimum threshold; repeated small cash-outs may incur charges. Crypto networks add miner fees—factor gas costs into bankroll planning."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What are typical withdrawal limits?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Daily, weekly, and monthly caps vary by VIP tier and licence. Our reviewed brands range from a few thousand euros per week on newer sites to higher limits on established MGA operators. VIP hosts can sometimes raise caps after account history review."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Is cryptocurrency gambling legal in my country?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Legality depends on local law, not the payment rail. Some international casinos accept Bitcoin or USDT even when cards are blocked. You remain responsible for tax reporting and compliance—verify regulation in your jurisdiction via our country hub ."
+          }
+        }
+      ]
     },
     {
       "@type": "BreadcrumbList",
@@ -67,10 +122,37 @@
         {
           "@type": "ListItem",
           "position": 2,
-          "name": "Casino Banking & Payouts",
+          "name": "Banking",
           "item": "https://casinooftheworld.com/banking/"
         }
       ]
+    },
+    {
+      "@type": "WebPage",
+      "@id": "https://casinooftheworld.com/banking/#webpage",
+      "url": "https://casinooftheworld.com/banking/",
+      "name": "Casino Banking &amp; Payouts",
+      "description": "Deposit and withdrawal methods at online casinos: cards, e-wallets, crypto, and typical payout times.",
+      "isPartOf": {
+        "@id": "https://casinooftheworld.com/#website"
+      },
+      "about": {
+        "@id": "https://casinooftheworld.com/#organization"
+      },
+      "publisher": {
+        "@id": "https://casinooftheworld.com/#organization"
+      },
+      "inLanguage": "en-US",
+      "breadcrumb": {
+        "@id": "https://casinooftheworld.com/banking/#breadcrumb"
+      },
+      "primaryImageOfPage": {
+        "@type": "ImageObject",
+        "url": "https://casinooftheworld.com/assets/images/brand/logo.png"
+      },
+      "mainEntity": {
+        "@id": "https://casinooftheworld.com/banking/#faq"
+      }
     }
   ]
 }

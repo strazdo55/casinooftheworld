@@ -90,12 +90,14 @@ async function writeArticle(post, sources) {
     description: post.excerpt,
     activePath: "/blog/",
     canonicalPath: `/blog/${post.slug}/`,
+    pageType: "article",
     ogImage: post.image,
     ogType: "article",
     keywords: data.keywords || "",
     published: post.date,
     author: post.author,
     breadcrumbs: articleBreadcrumbs(post.title, post.slug),
+    faqs: getFaqs("blog"),
     body: `
 <main class="container page-grid">
   <article>
@@ -163,6 +165,8 @@ async function buildBlogIndex() {
     keywords: blogMeta.keywords,
     ogImage: featured.image,
     breadcrumbs: pageBreadcrumbs("Blog", "/blog/"),
+    faqs: getFaqs("blog"),
+    itemList: posts.map((p) => ({ name: p.title, path: `/blog/${p.slug}/` })),
     body: `
 <main class="container">
   <div class="breadcrumb"><a href="/">Home</a> » Blog</div>

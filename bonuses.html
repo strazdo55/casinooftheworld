@@ -37,22 +37,77 @@
       "url": "https://casinooftheworld.com",
       "logo": {
         "@type": "ImageObject",
-        "url": "https://casinooftheworld.com/assets/images/brand/logo.png"
+        "@id": "https://casinooftheworld.com/#organization/logo",
+        "url": "https://casinooftheworld.com/assets/images/brand/logo.svg"
       }
     },
     {
-      "@type": "WebPage",
-      "@id": "https://casinooftheworld.com/bonuses/#webpage",
-      "url": "https://casinooftheworld.com/bonuses/",
-      "name": "Casino Bonuses & Free Spins",
-      "description": "Welcome bonuses, free spins, and promo codes for top gambling sites — wagering rules explained.",
-      "isPartOf": {
-        "@id": "https://casinooftheworld.com/#website"
-      },
-      "about": {
+      "@type": "WebSite",
+      "@id": "https://casinooftheworld.com/#website",
+      "url": "https://casinooftheworld.com",
+      "name": "Casino of the World",
+      "description": "Independent online casino reviews, slot guides, live dealer comparisons, and bonus analysis.",
+      "publisher": {
         "@id": "https://casinooftheworld.com/#organization"
       },
       "inLanguage": "en-US"
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://casinooftheworld.com/bonuses/#faq",
+      "isPartOf": {
+        "@id": "https://casinooftheworld.com/#website"
+      },
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "What does a 35× wagering requirement mean in practice?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "If you receive a €100 bonus with 35× wagering on the bonus only, you must place €3,500 in qualifying bets before bonus-derived winnings become withdrawable. If wagering applies to deposit plus bonus, the total rises sharply. Model your scenario with the wagering calculator on this page or read worked examples ."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Why do free spins winnings have separate wagering rules?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Many casinos cap free-spin winnings (e.g., €100) and apply a distinct multiplier (25×–50×) only to those winnings. Spins may also be locked to specific slots with minimum spin values. Check game eligibility, expiry (often 24–72 hours), and max bet while the bonus is active."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What is a no-deposit bonus and what are the catches?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No-deposit offers let you try games without funding the account, but they almost always require KYC before withdrawal, impose low max cashout caps, and carry high wagering. They are useful for testing UX—not for expecting large, easy withdrawals. See no-deposit bonus trends ."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can I cancel a bonus if I change my mind?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Most sites let support remove an active bonus, but doing so usually forfeits bonus balance and associated winnings. Some platforms auto-apply promos on deposit—read the cashier tick boxes carefully. Never request withdrawal while wagering is incomplete unless you accept forfeiture rules."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Do table games and live dealer count toward wagering?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Often 0–10%, meaning you'd need ten times more betting volume on those games compared with slots. Blackjack and roulette may be excluded entirely. Always open the promotion terms PDF or help centre entry linked from the bonus banner."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Are cashback and reload bonuses better than welcome offers?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "For regular players, weekly cashback with 1× wagering can outperform a one-time welcome package with 40× playthrough. Compare long-term value if you plan more than a single session—check each operator’s promotions tab and our reviews for recurring offers."
+          }
+        }
+      ]
     },
     {
       "@type": "BreadcrumbList",
@@ -67,10 +122,37 @@
         {
           "@type": "ListItem",
           "position": 2,
-          "name": "Casino Bonuses & Free Spins",
+          "name": "Bonuses",
           "item": "https://casinooftheworld.com/bonuses/"
         }
       ]
+    },
+    {
+      "@type": "WebPage",
+      "@id": "https://casinooftheworld.com/bonuses/#webpage",
+      "url": "https://casinooftheworld.com/bonuses/",
+      "name": "Casino Bonuses &amp; Free Spins",
+      "description": "Welcome bonuses, free spins, and promo codes for top gambling sites — wagering rules explained.",
+      "isPartOf": {
+        "@id": "https://casinooftheworld.com/#website"
+      },
+      "about": {
+        "@id": "https://casinooftheworld.com/#organization"
+      },
+      "publisher": {
+        "@id": "https://casinooftheworld.com/#organization"
+      },
+      "inLanguage": "en-US",
+      "breadcrumb": {
+        "@id": "https://casinooftheworld.com/bonuses/#breadcrumb"
+      },
+      "primaryImageOfPage": {
+        "@type": "ImageObject",
+        "url": "https://casinooftheworld.com/assets/images/brand/logo.png"
+      },
+      "mainEntity": {
+        "@id": "https://casinooftheworld.com/bonuses/#faq"
+      }
     }
   ]
 }

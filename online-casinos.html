@@ -37,22 +37,77 @@
       "url": "https://casinooftheworld.com",
       "logo": {
         "@type": "ImageObject",
-        "url": "https://casinooftheworld.com/assets/images/brand/logo.png"
+        "@id": "https://casinooftheworld.com/#organization/logo",
+        "url": "https://casinooftheworld.com/assets/images/brand/logo.svg"
       }
     },
     {
-      "@type": "WebPage",
-      "@id": "https://casinooftheworld.com/online-casinos/#webpage",
-      "url": "https://casinooftheworld.com/online-casinos/",
-      "name": "Best Online Casinos",
-      "description": "Top-rated online casinos for 2026 with bonuses, games, and payout speeds compared.",
-      "isPartOf": {
-        "@id": "https://casinooftheworld.com/#website"
-      },
-      "about": {
+      "@type": "WebSite",
+      "@id": "https://casinooftheworld.com/#website",
+      "url": "https://casinooftheworld.com",
+      "name": "Casino of the World",
+      "description": "Independent online casino reviews, slot guides, live dealer comparisons, and bonus analysis.",
+      "publisher": {
         "@id": "https://casinooftheworld.com/#organization"
       },
       "inLanguage": "en-US"
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://casinooftheworld.com/online-casinos/#faq",
+      "isPartOf": {
+        "@id": "https://casinooftheworld.com/#website"
+      },
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "How do you rank the best online casinos on this page?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "We score licence credibility, game depth (slots, live dealer, table games), bonus fairness (wagering, caps, expiry), banking speed, mobile experience, and responsible-gambling tools. Placement is not bought—see how we work and individual reviews for operator-specific notes."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What should I check before making a first deposit?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Confirm the site accepts players from your country, holds a licence you trust, lists your preferred payment method for both deposit and withdrawal, and publishes clear bonus terms. Complete KYC early if you plan to cash out quickly—our KYC guide walks through typical document requests."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Are MGA casinos safer than Curacao casinos?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "MGA and UKGC regimes generally require stronger fund segregation, reporting, and ADR access. Curacao-licensed brands can still be legitimate and often support crypto, but dispute paths differ. Use the licence filter on our comparison table and read each brand’s review before depositing."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Which casinos have the biggest game libraries?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Aggregators like 22Bet and Betway list thousands of slots from multiple studios. For curated, mobile-first lobbies try Casumo or LeoVegas . Live dealer depth depends on Evolution, Pragmatic Live, or similar providers named in each review."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can I trust online casino RTP and fairness claims?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Licensed operators must use tested RNGs; RTP is usually shown in game help files or provider sheets. Third-party testers such as eCOGRA audit some platforms. We explain volatility and RTP in our slots guide —always treat published percentages as long-term statistical targets, not session guarantees."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Do you update casino rankings when bonuses change?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes—we refresh comparison data and reviews regularly (see the “updated” date on each page). Welcome offers change weekly; always read live terms on the operator site before claiming a promotion."
+          }
+        }
+      ]
     },
     {
       "@type": "BreadcrumbList",
@@ -67,10 +122,37 @@
         {
           "@type": "ListItem",
           "position": 2,
-          "name": "Best Online Casinos",
+          "name": "Online Casinos",
           "item": "https://casinooftheworld.com/online-casinos/"
         }
       ]
+    },
+    {
+      "@type": "WebPage",
+      "@id": "https://casinooftheworld.com/online-casinos/#webpage",
+      "url": "https://casinooftheworld.com/online-casinos/",
+      "name": "Best Online Casinos",
+      "description": "Top-rated online casinos for 2026 with bonuses, games, and payout speeds compared.",
+      "isPartOf": {
+        "@id": "https://casinooftheworld.com/#website"
+      },
+      "about": {
+        "@id": "https://casinooftheworld.com/#organization"
+      },
+      "publisher": {
+        "@id": "https://casinooftheworld.com/#organization"
+      },
+      "inLanguage": "en-US",
+      "breadcrumb": {
+        "@id": "https://casinooftheworld.com/online-casinos/#breadcrumb"
+      },
+      "primaryImageOfPage": {
+        "@type": "ImageObject",
+        "url": "https://casinooftheworld.com/assets/images/brand/logo.png"
+      },
+      "mainEntity": {
+        "@id": "https://casinooftheworld.com/online-casinos/#faq"
+      }
     }
   ]
 }

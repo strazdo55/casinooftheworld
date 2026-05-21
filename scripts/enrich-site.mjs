@@ -37,28 +37,8 @@ function injectBeforeCloseMain(html, block) {
   return html.slice(0, idx) + block + "\n" + html.slice(idx);
 }
 
-function schemaForPage({
-  pageType = "webpage",
-  title,
-  description,
-  canonicalPath,
-  ogImage,
-  published = "",
-  author = "Casino of the World",
-  breadcrumbs,
-  includeWebSite = false,
-}) {
-  return buildSchemaGraph({
-    pageType,
-    title,
-    description,
-    canonicalPath,
-    ogImage,
-    published,
-    author,
-    breadcrumbs,
-    includeWebSite,
-  });
+function schemaForPage(opts) {
+  return buildSchemaGraph(opts);
 }
 
 function patchArticleBody(html, slug) {

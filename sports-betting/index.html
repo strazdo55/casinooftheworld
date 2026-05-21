@@ -40,22 +40,53 @@
       "url": "https://casinooftheworld.com",
       "logo": {
         "@type": "ImageObject",
-        "url": "https://casinooftheworld.com/assets/images/brand/logo.png"
+        "@id": "https://casinooftheworld.com/#organization/logo",
+        "url": "https://casinooftheworld.com/assets/images/brand/logo.svg"
       }
     },
     {
-      "@type": "WebPage",
-      "@id": "https://casinooftheworld.com/sports-betting/#webpage",
-      "url": "https://casinooftheworld.com/sports-betting/",
-      "name": "Sports Betting (Secondary)",
-      "description": "International sportsbooks with casino products — secondary listing; our primary focus is online casinos.",
-      "isPartOf": {
-        "@id": "https://casinooftheworld.com/#website"
-      },
-      "about": {
+      "@type": "WebSite",
+      "@id": "https://casinooftheworld.com/#website",
+      "url": "https://casinooftheworld.com",
+      "name": "Casino of the World",
+      "description": "Independent online casino reviews, slot guides, live dealer comparisons, and bonus analysis.",
+      "publisher": {
         "@id": "https://casinooftheworld.com/#organization"
       },
       "inLanguage": "en-US"
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://casinooftheworld.com/sports-betting/#faq",
+      "isPartOf": {
+        "@id": "https://casinooftheworld.com/#website"
+      },
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Why is sports betting secondary on Casino of the World?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Our editorial mission is casino-first: slots, live dealer, bonuses, and payouts. Some listed brands also run sportsbooks—we note that for completeness but do not rank them as primary sports tipsters."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can I use the same account for casino and sports?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "On combo brands (e.g., Betway, Betsson, 22Bet, Velobet), one wallet often covers both verticals. Bonus wagering may exclude sports bets or apply different contribution—read promotion terms before mixing products."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Do casino welcome bonuses work on sports bets?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Usually no—casino matches and free spins rarely count toward sports markets. Sports-specific welcomes carry their own rollover rules. Never assume cross-product eligibility without checking T&amp;Cs."
+          }
+        }
+      ]
     },
     {
       "@type": "BreadcrumbList",
@@ -74,6 +105,33 @@
           "item": "https://casinooftheworld.com/sports-betting/"
         }
       ]
+    },
+    {
+      "@type": "WebPage",
+      "@id": "https://casinooftheworld.com/sports-betting/#webpage",
+      "url": "https://casinooftheworld.com/sports-betting/",
+      "name": "Sports Betting (Secondary)",
+      "description": "International sportsbooks with casino products — secondary listing; our primary focus is online casinos.",
+      "isPartOf": {
+        "@id": "https://casinooftheworld.com/#website"
+      },
+      "about": {
+        "@id": "https://casinooftheworld.com/#organization"
+      },
+      "publisher": {
+        "@id": "https://casinooftheworld.com/#organization"
+      },
+      "inLanguage": "en-US",
+      "breadcrumb": {
+        "@id": "https://casinooftheworld.com/sports-betting/#breadcrumb"
+      },
+      "primaryImageOfPage": {
+        "@type": "ImageObject",
+        "url": "https://casinooftheworld.com/assets/images/brand/logo.png"
+      },
+      "mainEntity": {
+        "@id": "https://casinooftheworld.com/sports-betting/#faq"
+      }
     }
   ]
 }

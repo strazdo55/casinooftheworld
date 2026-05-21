@@ -120,12 +120,16 @@ export function pageShell({
   published = "",
   author = "Casino of the World",
   breadcrumbs = null,
-  includeWebSite = false,
+  faqs = null,
+  review = null,
+  itemList = null,
+  pageType: pageTypeOpt = null,
   preloadHero = false,
 }) {
   const pathKey = canonicalPath || activePath || "/";
   const canonical = pathKey.startsWith("/") ? pathKey : `/${pathKey.replace(/^\//, "")}`;
-  const pageType = ogType === "article" ? "article" : "webpage";
+  const pageType =
+    pageTypeOpt || (ogType === "article" ? "article" : review ? "review" : "webpage");
   const structuredData = buildSchemaGraph({
     pageType,
     title,
@@ -135,7 +139,9 @@ export function pageShell({
     published,
     author,
     breadcrumbs,
-    includeWebSite: includeWebSite || canonical === "/",
+    faqs: faqs || [],
+    review,
+    itemList: itemList || [],
   });
 
   const head = buildHead({

@@ -37,22 +37,69 @@
       "url": "https://casinooftheworld.com",
       "logo": {
         "@type": "ImageObject",
-        "url": "https://casinooftheworld.com/assets/images/brand/logo.png"
+        "@id": "https://casinooftheworld.com/#organization/logo",
+        "url": "https://casinooftheworld.com/assets/images/brand/logo.svg"
       }
     },
     {
-      "@type": "WebPage",
-      "@id": "https://casinooftheworld.com/casinos-by-country/#webpage",
-      "url": "https://casinooftheworld.com/casinos-by-country/",
-      "name": "Online Casinos by Country",
-      "description": "Find licensed online casinos in the UK, Canada, EU, and other regions — jurisdiction explained.",
-      "isPartOf": {
-        "@id": "https://casinooftheworld.com/#website"
-      },
-      "about": {
+      "@type": "WebSite",
+      "@id": "https://casinooftheworld.com/#website",
+      "url": "https://casinooftheworld.com",
+      "name": "Casino of the World",
+      "description": "Independent online casino reviews, slot guides, live dealer comparisons, and bonus analysis.",
+      "publisher": {
         "@id": "https://casinooftheworld.com/#organization"
       },
       "inLanguage": "en-US"
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://casinooftheworld.com/casinos-by-country/#faq",
+      "isPartOf": {
+        "@id": "https://casinooftheworld.com/#website"
+      },
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "How do I find a legal online casino in my country?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Start with your national regulator’s public register of licensed operators. Our regional notes below highlight common licences—UK (UKGC), Malta/EU cross-border (MGA), Ontario (AGCO), and international options where locally regulated sites are unavailable."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can I use a VPN to access casinos that block my country?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "We do not recommend it. VPN use often violates terms of service and can void winnings. Operators verify address during KYC. Play only where the brand explicitly accepts your jurisdiction."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Do UK players need UKGC-licensed casinos only?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "For full UK consumer protections—including ADR and GAMSTOP integration—yes. Brands like 888casino , LeoVegas , and PlayJango hold UKGC credentials alongside other licences."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What about Canada and Ontario specifically?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Ontario operates a ring-fenced market under AGCO/iGO—only locally approved sites may legally target ON players. Other provinces vary. Read Ontario regulated sites for the current landscape."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Are international crypto casinos legal in Asia or Latin America?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Rules differ sharply by country—some ban online gambling entirely, others tolerate offshore licences. 22Bet and similar brands market internationally, but you must confirm local law. We provide information, not legal advice."
+          }
+        }
+      ]
     },
     {
       "@type": "BreadcrumbList",
@@ -67,10 +114,37 @@
         {
           "@type": "ListItem",
           "position": 2,
-          "name": "Online Casinos by Country",
+          "name": "Casinos by Country",
           "item": "https://casinooftheworld.com/casinos-by-country/"
         }
       ]
+    },
+    {
+      "@type": "WebPage",
+      "@id": "https://casinooftheworld.com/casinos-by-country/#webpage",
+      "url": "https://casinooftheworld.com/casinos-by-country/",
+      "name": "Online Casinos by Country",
+      "description": "Find licensed online casinos in the UK, Canada, EU, and other regions — jurisdiction explained.",
+      "isPartOf": {
+        "@id": "https://casinooftheworld.com/#website"
+      },
+      "about": {
+        "@id": "https://casinooftheworld.com/#organization"
+      },
+      "publisher": {
+        "@id": "https://casinooftheworld.com/#organization"
+      },
+      "inLanguage": "en-US",
+      "breadcrumb": {
+        "@id": "https://casinooftheworld.com/casinos-by-country/#breadcrumb"
+      },
+      "primaryImageOfPage": {
+        "@type": "ImageObject",
+        "url": "https://casinooftheworld.com/assets/images/brand/logo.png"
+      },
+      "mainEntity": {
+        "@id": "https://casinooftheworld.com/casinos-by-country/#faq"
+      }
     }
   ]
 }
