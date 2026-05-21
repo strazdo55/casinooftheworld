@@ -17,11 +17,9 @@ async function fix(file) {
   let html = await fs.readFile(file, "utf8");
   const before = html;
 
-  if (rel.startsWith("blog/")) {
-    html = html.replace(/href="\/blog\//g, 'href="');
-    html = html.replace(/href="\/blog\/index\.html"/g, 'href="index.html"');
-  } else {
-    html = html.replace(/href="\/blog\//g, 'href="blog/');
+  /* Legacy script — do not strip /blog/ prefix (breaks clean URLs). */
+  if (!rel.startsWith("blog/")) {
+    html = html.replace(/href="\/blog\//g, 'href="/blog/');
   }
 
   html = html.replace(/href="\/index\.html"/g, 'href="index.html"');

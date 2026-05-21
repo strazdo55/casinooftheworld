@@ -46,9 +46,8 @@ async function main() {
   }
 
   for (const { from, to } of moved) {
-    const clean = htmlHrefToClean(from);
     const stub = path.join(ROOT, from);
-    await fs.writeFile(stub, redirectStubHtml(clean));
+    await fs.writeFile(stub, redirectStubHtml());
     console.log("Moved:", from, "→", to, "+ redirect stub");
   }
 

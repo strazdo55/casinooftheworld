@@ -7,13 +7,14 @@
   <script>
     (function () {
       var path = location.pathname.replace(/\/$/, "");
-      var base = location.pathname.replace(/\/[^/]*$/, "").replace(/\/$/, "");
-      var root = base.endsWith("/blog") ? base.replace(/\/blog$/, "") : base;
       var m = path.match(/\/([a-z0-9-]+)$/);
-      if (m && m[1] !== "index" && m[1] !== "blog") {
-        location.replace((root ? root + "/" : "") + "blog/" + m[1] + ".html");
-        return;
-      }
+      if (!m || m[1] === "index" || m[1] === "blog") return;
+      var slug = m[1];
+      var parts = location.pathname.split("/").filter(Boolean);
+      var ghIdx = parts.indexOf("casinooftheworld");
+      var prefix =
+        ghIdx >= 0 ? "/" + parts.slice(0, ghIdx + 1).join("/") : "";
+      location.replace(prefix + "/blog/" + slug + "/" + location.search + location.hash);
     })();
   </script>
   <link rel="stylesheet" href="/css/main.css">

@@ -2,10 +2,25 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta http-equiv="refresh" content="0;url=/reviews/draftkings/">
-  <link rel="canonical" href="https://casinooftheworld.com/reviews/draftkings/">
-  <script>location.replace("/reviews/draftkings/");</script>
   <title>Redirecting…</title>
+  <script>
+    (function () {
+      var p = location.pathname;
+      if (!p.endsWith(".html")) return;
+      var target = p.slice(0, -5) + "/" + location.search + location.hash;
+      location.replace(target);
+    })();
+  </script>
 </head>
-<body><p><a href="/reviews/draftkings/">Continue</a></p></body>
+<body>
+  <p>Redirecting… <a href="#" id="continue">Continue</a></p>
+  <script>
+    (function () {
+      var p = location.pathname;
+      if (!p.endsWith(".html")) return;
+      document.getElementById("continue").href =
+        p.slice(0, -5) + "/" + location.search + location.hash;
+    })();
+  </script>
+</body>
 </html>

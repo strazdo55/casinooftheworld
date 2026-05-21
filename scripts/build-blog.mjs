@@ -9,6 +9,7 @@ import {
   disclosure,
   blogSidebar,
 } from "./lib/html.mjs";
+import { blogPostHref } from "./lib/paths.mjs";
 import {
   removeBlogRedirectStubs,
   writeServeConfig,
@@ -128,10 +129,10 @@ async function buildBlogIndex() {
   const cards = posts
     .map(
       (p) => `<article class="post-card" data-category="${p.category.toLowerCase().replace(/\s+/g, "-")}">
-  <a href="/blog/${p.slug}/"><img src="/${p.image}" alt="" onerror="this.src='/assets/images/hero/home-hero.png'"></a>
+  <a href="${blogPostHref(p.slug)}"><img src="/${p.image}" alt="" onerror="this.src='/assets/images/hero/home-hero.png'"></a>
   <div class="body">
     <span class="tag">${p.category}</span>
-    <h3><a href="/blog/${p.slug}/">${p.title}</a></h3>
+    <h3><a href="${blogPostHref(p.slug)}">${p.title}</a></h3>
     <p class="blog-meta">${p.author} · ${p.dateLabel}</p>
     <p>${p.excerpt}</p>
   </div>
@@ -168,10 +169,10 @@ async function buildBlogIndex() {
   <h1 class="section-title">Casino of the World Blog</h1>
   <p class="lead">Online casino news, slot reviews, live dealer guides, and bankroll tips—updated by our editorial team.</p>
   <section class="blog-hero-featured">
-    <a href="/blog/${featured.slug}/"><img src="/${featured.image}" alt="${featured.title}" onerror="this.src='/assets/images/hero/home-hero.png'"></a>
+    <a href="${blogPostHref(featured.slug)}"><img src="/${featured.image}" alt="${featured.title}" onerror="this.src='/assets/images/hero/home-hero.png'"></a>
     <div>
       <span class="tag">${featured.category}</span>
-      <h2 style="font-size:1.75rem;margin:0.5rem 0"><a href="/blog/${featured.slug}/">${featured.title}</a></h2>
+      <h2 style="font-size:1.75rem;margin:0.5rem 0"><a href="${blogPostHref(featured.slug)}">${featured.title}</a></h2>
       <p>${featured.excerpt}</p>
       <p class="blog-meta"><a href="#">${featured.author}</a> · ${featured.dateLabel}</p>
     </div>

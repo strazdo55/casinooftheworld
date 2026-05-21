@@ -10,6 +10,8 @@
     "build:blog": "node scripts/build-blog.mjs",
     "sync:routes": "node scripts/write-serve-config.mjs",
     "migrate:clean-urls": "node scripts/migrate-clean-urls.mjs",
+    "fix:redirects": "node scripts/fix-redirect-stubs.mjs",
+    "fix:blog-links": "node scripts/fix-blog-links.mjs",
     "enrich": "node scripts/enrich-site.mjs",
     "patch:logo": "node scripts/patch-logo.mjs",
     "build:images": "node scripts/generate-images.mjs"

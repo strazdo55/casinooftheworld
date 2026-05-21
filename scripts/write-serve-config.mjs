@@ -1,6 +1,7 @@
 import fs from "fs/promises";
 import path from "path";
 import { ROOT } from "./lib/env.mjs";
+import { BLOG_SLUGS, rootBlogRedirectHtml } from "./lib/paths.mjs";
 
 const posts = JSON.parse(
   await fs.readFile(path.join(ROOT, "data/blog.json"), "utf8")
@@ -35,5 +36,15 @@ export async function writeServeConfig() {
   console.log("serve.json updated");
 }
 
+async function writeRootBlogRedirects() {
+  for (const slug of BLOG_SLUGS) {
+    const dir = path.join(ROOT, slug);
+    await fs.mkdir(dir, { recursive: true });
+    await fs.writeFile(path.join(dir, "index.html"), rootBlogRedirectHtml(slug));
+  }
+  console.log("Root blog short-url redirects updated");
+}
+
 await removeBlogRedirectStubs();
 await writeServeConfig();
+await writeRootBlogRedirects();

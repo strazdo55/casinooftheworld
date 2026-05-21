@@ -3,7 +3,7 @@ import path from "path";
 import { ROOT } from "./env.mjs";
 import { buildHead } from "./meta.mjs";
 import { LOGO_SVG } from "./brand.mjs";
-import { htmlFileToDirIndex } from "./paths.mjs";
+import { blogPostHref, htmlFileToDirIndex } from "./paths.mjs";
 
 const NAV = [
   { href: "/online-casinos/", label: "Online Casinos", id: "online-casinos" },
@@ -216,7 +216,7 @@ export function blogSidebar(posts) {
       (p) => `<article class="blog-mini">
   <img src="/${p.image.replace(/^\//, "")}" alt="">
   <div>
-    <h3><a href="/blog/${p.slug}/">${p.title}</a></h3>
+    <h3><a href="${blogPostHref(p.slug)}">${p.title}</a></h3>
     <p class="blog-meta"><a href="/about/">${p.author}</a> · ${p.dateLabel}</p>
   </div>
 </article>`
