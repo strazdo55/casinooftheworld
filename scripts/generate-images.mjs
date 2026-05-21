@@ -26,47 +26,72 @@ const IMAGES = [
   },
 ];
 
-/** Hand-tuned prompts override auto-generated ones for these slugs. */
-const BLOG_PROMPT_OVERRIDES = {
-  "best-new-online-slots-2026":
-    "Vibrant online slot machine reels with gems and gold coins, casino bokeh lights, modern 3D style, no readable text, 16:9",
-  "best-live-dealer-casinos-2026":
-    "Live dealer casino studio: blackjack table with professional dealer silhouette, chips, elegant lighting, 16:9",
-  "us-igaming-expansion-2026":
-    "Editorial illustration: US map with casino chips and legal gavel, modern infographic style, blue and gold, 16:9",
-  "twenty-dollar-casino-method":
-    "Casino table with twenty dollar bill, poker chips, playing cards ace and king, bokeh lights, editorial photo style, 16:9",
-  "fastest-payout-online-casinos":
-    "Digital wallet and stopwatch with casino chips, fast payment concept, clean modern 3D render, 16:9",
-  "live-dealer-vs-rng-slots":
-    "Split concept: live dealer studio on left, digital slot machine on right, modern comparison graphic, 16:9",
-};
+const STYLE_PREFIX =
+  "Japanese editorial line-art illustration, thin precise contour lines, minimal flat color fills, stylized character silhouettes, elegant negative space, ukiyo-e inspired composition, muted cream and navy palette with small gold accents, NO photorealism, NO 3D render, NO readable text, NO logos, 16:9 widescreen blog hero.";
 
-const CATEGORY_VISUALS = {
-  Slots: "colorful slot machine reels, gems, gold coins, bokeh lights",
-  "Casino News": "editorial news mood, subtle US map or courthouse, chips",
-  "Casino Tips": "poker chips, playing cards, strategy table close-up",
-  "Casino Reviews": "premium casino lobby, comparison layout, chips and cards",
-  "Live Casino": "live dealer studio, blackjack or roulette table, elegant lighting",
-  "Casino Guides": "educational infographic feel, cards, chips, clean layout",
-  "Casino Bonuses": "gift box, bonus chips, promotional sparkle, no readable text",
-  Banking: "digital wallet, credit card silhouette, secure payment concept",
-  "US Casinos": "US map outline with casino chips, state-themed editorial style",
+const SLUG_SCENES = {
+  "best-new-online-slots-2026":
+    "ornate slot machine with flowing reel symbols and tiny lucky cat figurine beside gold coins",
+  "best-live-dealer-casinos-2026":
+    "live blackjack table from above, dealer hands and chips drawn with delicate linework",
+  "us-igaming-expansion-2026":
+    "stylized map of Europe with casino chip and scales of justice, thin border frame",
+  "twenty-dollar-casino-method":
+    "small stack of chips and playing cards on tatami-like surface, disciplined minimal scene",
+  "fastest-payout-online-casinos":
+    "stopwatch and wallet with coins trailing like wind lines, sense of swift motion",
+  "live-dealer-vs-rng-slots":
+    "split panel: human dealer silhouette left, geometric digital slot right, balanced composition",
+  "online-casino-kyc-verification-guide":
+    "document scroll, ID card outline, and magnifying glass with thin lines",
+  "no-deposit-bonus-codes-2026":
+    "gift ribbon around casino chip, spark line accents, festive but minimal",
+  "bitcoin-casino-withdrawals-guide":
+    "abstract coin orbit around smartphone outline, crypto flow lines",
+  "new-york-online-casino-legalization-2026":
+    "UK landmark silhouette with licence seal and chip, regulatory mood",
+  "ontario-igaming-regulated-sites-2026":
+    "maple leaf motif with regulated stamp and mobile phone outline",
+  "slot-rtp-volatility-explained":
+    "probability curve line graph merged with slot reel symbols",
+  "blackjack-basic-strategy-online":
+    "player hands and dealer card, strategy chart grid faint in background lines",
+  "roulette-variants-online-casino":
+    "European single-zero wheel vs double-zero wheels, comparative linework",
+  "casino-responsible-gambling-tools":
+    "shield icon with hourglass and limit slider, calm protective tone",
+  "paypal-online-casinos-us":
+    "wallet and payment arrows connecting to chip stack, European city hint",
+  "mobile-casino-apps-vs-browser":
+    "two phones side by side, one app icon grid one browser window, thin UI lines",
+  "casino-loyalty-vip-programs":
+    "tiered podium with stars and chip crown, loyalty ladder metaphor",
+  "megaways-slots-how-they-work":
+    "cascading reel grid with many small symbols, dynamic vertical lines",
+  "crash-games-online-casinos":
+    "rising multiplier curve with rocket-chip hybrid icon, tension in line weight",
+  "pennsylvania-online-slots-2026":
+    "Brandenburg gate hint with slot reels, German market editorial",
+  "michigan-online-casino-market-2026":
+    "windmill silhouette with tulips and casino chip, Dutch market tone",
+  "new-jersey-online-casino-bonuses":
+    "Maltese cross subtle shape with bonus chip stacks, Mediterranean hint",
+  "wagering-requirements-explained":
+    "calculator and checklist scroll with chip, educational diagram style",
+  "provably-fair-crypto-casino-games":
+    "seed hash strings as decorative lines around dice and chip",
+  "ai-live-dealer-casino-future":
+    "human dealer silhouette merging with circuit-line halo, futuristic but hand-drawn",
 };
 
 function blogImagePrompt(post) {
-  if (BLOG_PROMPT_OVERRIDES[post.slug]) {
-    return BLOG_PROMPT_OVERRIDES[post.slug];
-  }
-  const visual =
-    CATEGORY_VISUALS[post.category] ||
-    "modern online casino atmosphere, chips and cards";
+  const scene =
+    SLUG_SCENES[post.slug] ||
+    `topic "${post.title}" — ${post.category} mood, chips and cards as focal motif`;
   return [
-    `Blog hero thumbnail image for: "${post.title}".`,
-    `Visual theme (${post.category}): ${visual}.`,
-    `Context: ${post.excerpt}`,
-    "Dark navy and gold palette, cinematic lighting, professional affiliate site style.",
-    "No readable text, no watermarks, no real brand logos, 16:9 widescreen.",
+    STYLE_PREFIX,
+    `Unique scene for this article only: ${scene}.`,
+    `Article context: ${post.excerpt}`,
   ].join(" ");
 }
 

@@ -25,7 +25,7 @@ const PAGE_CRUMB_LABELS = {
   "bonuses.html": "Casino Bonuses",
   "banking.html": "Banking",
   "games.html": "Casino Games",
-  "us-casinos.html": "US Casinos",
+  "europe-casinos.html": "Europe & Asia",
   "casinos-by-country.html": "Casinos by Country",
   "contact.html": "Contact",
   "about.html": "About",
@@ -143,14 +143,14 @@ const pages = [
 </div>${sidebar}</main>`,
   },
   {
-    file: "us-casinos.html",
+    file: "europe-casinos.html",
     body: `<main class="container page-grid"><div>
-  <div class="breadcrumb"><a href="/">Home</a> » US Casinos</div>
-  <h1 class="section-title">US Online Casinos</h1>
-  <p class="lead">Availability depends on your state. Only play where operators are licensed. Industry data from the <a href="${AUTHORITY.aga.href}" target="_blank" rel="noopener noreferrer">American Gaming Association</a> tracks market growth.</p>
+  <div class="breadcrumb"><a href="/">Home</a> » Europe &amp; Asia</div>
+  <h1 class="section-title">European &amp; International Online Casinos (2026)</h1>
+  <p class="lead">We focus on <a href="${AUTHORITY.ukgc.href}" target="_blank" rel="noopener noreferrer">UKGC</a>, <a href="${AUTHORITY.mga.href}" target="_blank" rel="noopener noreferrer">MGA</a>, and other recognised regulators—not US state-licensed sites. Compare libraries, bonuses, and payouts before you deposit.</p>
   ${disclosure()}
-  <p>As of 2026, regulated iGaming continues to expand. See our <a href="/blog/us-igaming-expansion-2026/">US iGaming expansion report</a> for legislative updates and <a href="/casinos-by-country/">international alternatives</a>.</p>
-  ${compareTable(operators.filter((o) => ["betmgm", "draftkings", "fanduel", "bovada", "betus"].includes(o.slug)))}
+  <p>Read our <a href="/blog/us-igaming-expansion-2026/">EU &amp; UK regulation update</a>, browse <a href="/casinos-by-country/">casinos by country</a>, and see <a href="/blog/fastest-payout-online-casinos/">fastest payout brands</a> for cash-out benchmarks.</p>
+  ${compareTable(operators)}
 </div>${sidebar}</main>`,
   },
   {

@@ -12,7 +12,7 @@ const NAV = [
   { href: "/games/", label: "Casino Games", id: "games" },
   { href: "/banking/", label: "Banking", id: "banking" },
   { href: "/reviews/", label: "Reviews", id: "reviews" },
-  { href: "/us-casinos/", label: "US Casinos", id: "us-casinos" },
+  { href: "/europe-casinos/", label: "Europe & Asia", id: "europe-casinos" },
   { href: "/casinos-by-country/", label: "By Country", id: "casinos-by-country" },
   { href: "/blog/", label: "Casino Blog", id: "blog" },
   { href: "/sports-betting/", label: "Sports Betting", id: "sports-betting" },
@@ -51,14 +51,14 @@ export function footer() {
   return `<footer class="site-footer">
   <div class="container">
     <div class="rg-notice">
-      <strong>18+ | Play Responsibly.</strong> Gambling involves risk. If you or someone you know has a gambling problem, call <strong>1-800-GAMBLER</strong> or visit <a href="https://www.ncpgambling.org/" target="_blank" rel="noopener">NCPG</a>.
+      <strong>18+ | Play Responsibly.</strong> Gambling involves risk. Help: <a href="https://www.begambleaware.org/" target="_blank" rel="noopener">BeGambleAware</a>, <a href="https://www.gamcare.org.uk/" target="_blank" rel="noopener">GamCare</a>, or your local support service.
     </div>
     <div class="footer-grid">
       <div>
         <h4>Casinos</h4>
         <ul>
           <li><a href="/online-casinos/">Online Casinos</a></li>
-          <li><a href="/us-casinos/">US Casinos</a></li>
+          <li><a href="/europe-casinos/">Europe &amp; Asia</a></li>
           <li><a href="/bonuses/">Casino Bonuses</a></li>
         </ul>
       </div>
@@ -127,10 +127,12 @@ export function modal() {
 }
 
 export function cookieConsent() {
-  return `<div class="cookie-consent" id="cookie-consent" role="dialog" aria-label="Cookie consent" aria-live="polite">
+  return `<div class="cookie-consent" id="cookie-consent" aria-label="Cookie consent" aria-live="polite" hidden>
   <div class="cookie-consent__inner container">
     <p class="cookie-consent__text">We use cookies to improve your experience and analyze site traffic. By clicking Accept, you agree to our use of cookies. Read our <a href="/privacy/">Privacy Policy</a>.</p>
-    <button type="button" class="btn btn-lime cookie-consent__accept" data-cookie-accept>Accept</button>
+    <div class="cookie-consent__actions">
+      <button type="button" class="btn btn-lime" id="cookie-accept-btn">Accept</button>
+    </div>
   </div>
 </div>`;
 }

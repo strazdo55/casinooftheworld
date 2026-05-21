@@ -92,9 +92,9 @@ export const PAGE_ENRICHMENT = {
       { href: "online-casinos.html", label: "Compare top online casinos" },
       { href: "bonuses.html", label: "Casino bonuses & free spins" },
       { href: "blog/best-new-online-slots-2026.html", label: "Best new slots for 2026" },
-      { href: "us-casinos.html", label: "US regulated casino guide" },
+      { href: "europe-casinos.html", label: "European licensed casino guide" },
     ],
-    external: [AUTHORITY.aga, AUTHORITY.ecogra, AUTHORITY.ncpg],
+    external: [AUTHORITY.ukgc, AUTHORITY.mga, AUTHORITY.ecogra, AUTHORITY.begambleaware],
   },
   "online-casinos.html": {
     title: "Best Online Casinos",
@@ -104,14 +104,14 @@ export const PAGE_ENRICHMENT = {
     keywords:
       "best online casinos 2026, real money casino sites, licensed online casinos, casino reviews",
     intro:
-      '<p class="page-resources-intro">We independently compare game libraries, bonus terms, and cash-out speeds. For state-specific rules see <a href="us-casinos.html">US casinos</a>, international options on <a href="casinos-by-country.html">casinos by country</a>, and deep dives in our <a href="reviews/index.html">operator reviews</a>.</p>',
+      '<p class="page-resources-intro">We independently compare game libraries, bonus terms, and cash-out speeds. See <a href="europe-casinos.html">European licensed casinos</a>, <a href="casinos-by-country.html">casinos by country</a>, and <a href="reviews/index.html">operator reviews</a>.</p>',
     related: [
       { href: "bonuses.html", label: "Welcome bonuses & free spins" },
       { href: "banking.html", label: "Deposit & withdrawal methods" },
       { href: "blog/fastest-payout-online-casinos.html", label: "Fastest payout casinos compared" },
       { href: "games.html", label: "Slots, live dealer & table games" },
     ],
-    external: [AUTHORITY.ecogra, AUTHORITY.aga, AUTHORITY.ukgc, AUTHORITY.ncpg],
+    external: [AUTHORITY.ecogra, AUTHORITY.ukgc, AUTHORITY.mga, AUTHORITY.begambleaware],
   },
   "bonuses.html": {
     title: "Casino Bonuses & Free Spins",
@@ -141,17 +141,10 @@ export const PAGE_ENRICHMENT = {
     related: [
       { href: "blog/fastest-payout-online-casinos.html", label: "Fastest payout casinos (2026)" },
       { href: "online-casinos.html", label: "Top casinos compared" },
-      { href: "us-casinos.html", label: "US banking by state" },
-      { href: "reviews/bovada.html", label: "Bovada — crypto cashouts" },
+      { href: "europe-casinos.html", label: "EU & UK banking options" },
+      { href: "reviews/22bet.html", label: "22Bet — crypto cashouts" },
     ],
-    external: [
-      {
-        href: "https://www.consumerfinance.gov/consumer-tools/",
-        label: "Consumer Financial Protection Bureau (CFPB)",
-      },
-      AUTHORITY.ncpg,
-      AUTHORITY.mga,
-    ],
+    external: [AUTHORITY.mga, AUTHORITY.ukgc, AUTHORITY.begambleaware],
   },
   "games.html": {
     title: "Casino Games — Slots, Live Dealer & Tables",
@@ -170,22 +163,22 @@ export const PAGE_ENRICHMENT = {
     ],
     external: [AUTHORITY.evolution, AUTHORITY.ecogra, AUTHORITY.unlv],
   },
-  "us-casinos.html": {
-    title: "US Online Casinos by State",
+  "europe-casinos/index.html": {
+    title: "European & International Online Casinos",
     description:
-      "State-by-state guide to legal US online casinos, slots, and live dealer games in 2026.",
-    canonicalPath: "/us-casinos",
+      "UKGC, MGA, and international online casinos compared — slots, live dealer, bonuses, and payouts for 2026.",
+    canonicalPath: "/europe-casinos",
     keywords:
-      "US online casinos, legal iGaming states, NJ online casino, MI online casino, PA casino",
+      "European online casinos, UKGC casino sites, MGA licensed casinos, international iGaming 2026",
     intro:
-      '<p class="page-resources-intro">Legality depends on your state. Read our <a href="blog/us-igaming-expansion-2026.html">2026 US iGaming expansion update</a> and verify licensing on official regulator sites before depositing.</p>',
+      '<p class="page-resources-intro">We do not promote US state-regulated operators. Start with our <a href="blog/us-igaming-expansion-2026.html">EU &amp; UK regulation update</a> and verify your local licence before depositing.</p>',
     related: [
-      { href: "blog/us-igaming-expansion-2026.html", label: "US iGaming expansion (2026)" },
-      { href: "online-casinos.html", label: "National casino comparisons" },
-      { href: "reviews/betmgm.html", label: "BetMGM review" },
-      { href: "reviews/draftkings.html", label: "DraftKings Casino review" },
+      { href: "blog/us-igaming-expansion-2026.html", label: "EU & UK regulation (2026)" },
+      { href: "online-casinos.html", label: "Global casino comparisons" },
+      { href: "reviews/leovegas.html", label: "LeoVegas review" },
+      { href: "reviews/888casino.html", label: "888casino review" },
     ],
-    external: [AUTHORITY.njDge, AUTHORITY.miGcb, AUTHORITY.paGcb, AUTHORITY.aga, AUTHORITY.ncpg],
+    external: [AUTHORITY.ukgc, AUTHORITY.mga, AUTHORITY.begambleaware, AUTHORITY.ecogra],
   },
   "casinos-by-country.html": {
     title: "Online Casinos by Country",
@@ -195,9 +188,9 @@ export const PAGE_ENRICHMENT = {
     keywords:
       "online casinos by country, UKGC casinos, MGA casinos, Canada online casino, EU gambling",
     intro:
-      '<p class="page-resources-intro">US players should start with our <a href="us-casinos.html">United States guide</a>. International readers should confirm local licensing before signing up.</p>',
+      '<p class="page-resources-intro">Confirm local licensing before signing up. European readers should see our <a href="europe-casinos.html">EU &amp; UK casino guide</a>.</p>',
     related: [
-      { href: "us-casinos.html", label: "US online casinos" },
+      { href: "europe-casinos.html", label: "European online casinos" },
       { href: "reviews/888casino.html", label: "888casino (UK/EU)" },
       { href: "reviews/leovegas.html", label: "LeoVegas (international)" },
       { href: "online-casinos.html", label: "Global casino rankings" },
@@ -205,20 +198,20 @@ export const PAGE_ENRICHMENT = {
     external: [AUTHORITY.ukgc, AUTHORITY.mga, AUTHORITY.begambleaware, AUTHORITY.ecogra],
   },
   "sports-betting.html": {
-    title: "Sports Betting Sites",
+    title: "Sports Betting (Secondary)",
     description:
-      "US sportsbooks with casino products — secondary listing; our primary focus is online casinos.",
+      "International sportsbooks with casino products — secondary listing; our primary focus is online casinos.",
     canonicalPath: "/sports-betting",
     keywords:
-      "sports betting sites, sportsbook bonuses, US sportsbooks, casino and sportsbook",
+      "sports betting casino, international sportsbook, EU sportsbook casino",
     intro:
-      '<p class="page-resources-intro"><strong>Our primary focus is online casinos.</strong> For slots and live dealer content visit <a href="online-casinos.html">casino rankings</a> and <a href="games.html">games hub</a>.</p>',
+      '<p class="page-resources-intro"><strong>Our primary focus is online casinos.</strong> For slots and live dealer content visit <a href="online-casinos.html">casino rankings</a> and <a href="europe-casinos.html">European casinos</a>.</p>',
     related: [
       { href: "online-casinos.html", label: "Online casinos (primary)" },
-      { href: "reviews/draftkings.html", label: "DraftKings" },
-      { href: "reviews/fanduel.html", label: "FanDuel" },
+      { href: "reviews/betway.html", label: "Betway" },
+      { href: "reviews/betsson.html", label: "Betsson" },
     ],
-    external: [AUTHORITY.aga, AUTHORITY.ncpg],
+    external: [AUTHORITY.ukgc, AUTHORITY.begambleaware],
   },
   "reviews/index.html": {
     title: "Casino Reviews",
@@ -237,7 +230,7 @@ export const PAGE_ENRICHMENT = {
   "blog/index.html": {
     title: "Casino Blog — News, Slots & Live Dealer Guides",
     description:
-      "Expert casino blog: slot reviews, US iGaming news, live dealer guides, and bankroll tips for 2026.",
+      "Expert casino blog: slot reviews, UK & EU licensing news, live dealer guides, and bankroll tips for 2026.",
     canonicalPath: "/blog/",
     depth: 1,
     ogImage: "assets/images/blog/best-new-online-slots-2026.png",
@@ -248,7 +241,7 @@ export const PAGE_ENRICHMENT = {
       { href: "../games.html", label: "Casino games hub" },
       { href: "best-new-online-slots-2026.html", label: "Featured: best new slots 2026" },
     ],
-    external: [AUTHORITY.aga, AUTHORITY.ncpg],
+    external: [AUTHORITY.ukgc, AUTHORITY.begambleaware],
   },
 };
 

@@ -155,8 +155,23 @@ async function enrichBlogIndex() {
   console.log("Blog index enriched");
 }
 
+async function resolvePageFile(relativePath) {
+  const direct = path.join(ROOT, relativePath);
+  try {
+    await fs.access(direct);
+    return direct;
+  } catch {
+    const nested = path.join(
+      ROOT,
+      relativePath.replace(/\.html$/i, "/index.html")
+    );
+    await fs.access(nested);
+    return nested;
+  }
+}
+
 async function enrichStaticPage(relativePath, meta) {
-  const file = path.join(ROOT, relativePath);
+  const file = await resolvePageFile(relativePath);
   let html = await fs.readFile(file, "utf8");
   const depth = meta.depth || 0;
 
@@ -303,7 +318,8 @@ async function main() {
   await enrichIndex();
 
   for (const [file, meta] of Object.entries(PAGE_ENRICHMENT)) {
-    if (file === "blog/index.html" || file === "index.html") continue;
+    if (file === "blog/index.html" || file === "index.html" || file === "us-casinos.html")
+      continue;
     await enrichStaticPage(file, meta);
   }
 

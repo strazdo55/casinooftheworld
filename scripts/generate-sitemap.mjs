@@ -12,7 +12,7 @@ const STATIC_PATHS = [
   "/bonuses/",
   "/banking/",
   "/games/",
-  "/us-casinos/",
+  "/europe-casinos/",
   "/casinos-by-country/",
   "/sports-betting/",
   "/reviews/",

@@ -16,20 +16,30 @@ async function walk(dir, files = []) {
   return files;
 }
 
+function stripOldBanner(html) {
+  return html.replace(
+    /<div class="cookie-consent"[\s\S]*?<\/div>\s*(?=<footer|<script)/,
+    ""
+  );
+}
+
 async function main() {
   let updated = 0;
   for (const file of await walk(ROOT)) {
+    if (!file.includes("site-footer") && !(await fs.readFile(file, "utf8")).includes("site-footer"))
+      continue;
     let html = await fs.readFile(file, "utf8");
-    if (!html.includes("site-footer") || html.includes(MARKER)) continue;
+    html = stripOldBanner(html);
+    if (html.includes(MARKER)) continue;
+    if (!html.includes("<script src=\"/js/main.js\">")) continue;
     html = html.replace(
-      /<footer class="site-footer">/,
-      `${SNIPPET}\n<footer class="site-footer">`
+      /<script src="\/js\/main\.js"><\/script>/,
+      `${SNIPPET}\n<script src="/js/main.js"></script>`
     );
     await fs.writeFile(file, html);
     updated++;
-    console.log("Cookie banner:", path.relative(ROOT, file));
   }
-  console.log(`Done. Updated ${updated} HTML file(s).`);
+  console.log(`Cookie banner placed before script on ${updated} page(s).`);
 }
 
 main().catch((e) => {

@@ -16,6 +16,7 @@ import {
   writeServeConfig,
 } from "./write-serve-config.mjs";
 import { enrichBlogArticle } from "./lib/links.mjs";
+import { buildArticlePrompt, enrichBodyWithContext } from "./lib/blog-prompt.mjs";
 
 const posts = JSON.parse(
   await fs.readFile(path.join(ROOT, "data/blog.json"), "utf8")
@@ -66,21 +67,7 @@ async function gatherSources(post) {
 }
 
 async function writeArticle(post, sources) {
-  const prompt = `You are an editor for Casino of the World, an English-language ONLINE CASINO affiliate blog (slots, live dealer, table games, casino bonuses)—NOT sports betting. Do not focus on sportsbooks, odds, or parlays unless briefly tangential.
-
-Write an original 900-1100 word article based ONLY on the factual themes in the sources below. Do not invent quotes or statistics. If sources are thin, use careful evergreen casino industry knowledge.
-
-Title: ${post.title}
-Category: ${post.category}
-Today's context: May 2026
-
-Return HTML fragments ONLY (no <html> wrapper): use <p>, <h2>, <h3>, <ul>, <li>. Include:
-- 4-6 sections with <h2>
-- One short disclaimer paragraph about responsible gambling at the end
-- No markdown fences
-
-Sources:
-${sources.slice(0, 12000) || "No live sources; write careful evergreen analysis for: " + post.title}`;
+  const prompt = buildArticlePrompt(post, sources);
 
   let bodyHtml;
   try {
@@ -91,6 +78,7 @@ ${sources.slice(0, 12000) || "No live sources; write careful evergreen analysis 
     bodyHtml = `<p>${post.excerpt}</p><h2>Overview</h2><p>Our editorial team is updating this guide with the latest market developments. Check back soon for full analysis.</p>`;
   }
 
+  bodyHtml = enrichBodyWithContext(bodyHtml, post);
   const data = enrichment[post.slug] || {};
   const bodyContent = enrichBlogArticle(bodyHtml, data, 1);
 
@@ -159,7 +147,7 @@ async function buildBlogIndex() {
   const blogMeta = {
     title: "Casino Blog — News, Slots & Live Dealer Guides",
     description:
-      "Expert casino blog: slot reviews, US iGaming news, live dealer guides, and bankroll tips for 2026.",
+      "Expert casino blog: slot reviews, UK & EU licensing news, live dealer guides, and bankroll tips for 2026.",
     keywords:
       "casino blog, online gambling news, slot guides, live dealer tips, casino strategy",
   };
@@ -176,7 +164,7 @@ async function buildBlogIndex() {
 <main class="container">
   <div class="breadcrumb"><a href="/">Home</a> » Blog</div>
   <h1 class="section-title">Casino of the World Blog</h1>
-  <p class="lead">Online casino news, slot reviews, live dealer guides, and bankroll tips—updated by our editorial team.</p>
+  <p class="lead">International casino news, slot reviews, live dealer guides, and bankroll tips for UK, EU, and regulated markets—updated by our editorial team.</p>
   <section class="blog-hero-featured">
     <a href="${blogPostHref(featured.slug)}"><img src="/${featured.image}" alt="${featured.title}" onerror="this.src='/assets/images/hero/home-hero.png'"></a>
     <div>

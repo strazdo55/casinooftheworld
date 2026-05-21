@@ -17,6 +17,7 @@
     "enrich": "node scripts/enrich-site.mjs",
     "gsc:verify-file": "node scripts/write-gsc-verification.mjs",
     "inject:cookie-banner": "node scripts/inject-cookie-banner.mjs",
+    "rebuild:intl": "node scripts/update-international-blog.mjs && node scripts/generate-blog-enrichment.mjs && node scripts/generate-pages.mjs && npm run build:blog && npm run build:images:blog && npm run inject:cookie-banner && npm run build:sitemap",
     "patch:logo": "node scripts/patch-logo.mjs",
     "build:images": "node scripts/generate-images.mjs",
     "build:images:blog": "node scripts/generate-images.mjs --blog-only --force"

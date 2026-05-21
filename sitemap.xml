@@ -26,7 +26,7 @@
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://casinooftheworld.com/us-casinos/</loc>
+    <loc>https://casinooftheworld.com/europe-casinos/</loc>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -206,6 +206,11 @@
     <priority>0.7</priority>
   </url>
   <url>
+    <loc>https://casinooftheworld.com/reviews/22bet/</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
     <loc>https://casinooftheworld.com/reviews/888casino/</loc>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
@@ -216,12 +221,27 @@
     <priority>0.6</priority>
   </url>
   <url>
+    <loc>https://casinooftheworld.com/reviews/betsson/</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
     <loc>https://casinooftheworld.com/reviews/betus/</loc>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
+    <loc>https://casinooftheworld.com/reviews/betway/</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
     <loc>https://casinooftheworld.com/reviews/bovada/</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://casinooftheworld.com/reviews/casumo/</loc>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
@@ -237,6 +257,11 @@
   </url>
   <url>
     <loc>https://casinooftheworld.com/reviews/leovegas/</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://casinooftheworld.com/reviews/mrgreen/</loc>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>

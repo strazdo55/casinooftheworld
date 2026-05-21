@@ -1,4 +1,42 @@
 (function () {
+  const COOKIE_CONSENT_KEY = "cotw_cookie_consent";
+
+  function initCookieConsent() {
+    const banner = document.getElementById("cookie-consent");
+    if (!banner) return;
+
+    try {
+      if (localStorage.getItem(COOKIE_CONSENT_KEY) === "accepted") {
+        banner.remove();
+        return;
+      }
+    } catch {
+      /* private mode */
+    }
+
+    banner.hidden = false;
+
+    function acceptCookies() {
+      try {
+        localStorage.setItem(COOKIE_CONSENT_KEY, "accepted");
+      } catch {
+        /* private mode */
+      }
+      banner.classList.add("is-hidden");
+      window.setTimeout(() => banner.remove(), 400);
+    }
+
+    document.getElementById("cookie-accept-btn")?.addEventListener("click", acceptCookies);
+    banner.addEventListener("click", (e) => {
+      if (e.target.id === "cookie-accept-btn" || e.target.closest("#cookie-accept-btn")) {
+        e.preventDefault();
+        acceptCookies();
+      }
+    });
+  }
+
+  initCookieConsent();
+
   const menuToggle = document.querySelector(".menu-toggle");
   const nav = document.getElementById("nav-main");
   if (menuToggle && nav) {
@@ -73,20 +111,6 @@
     table.dataset.sortCol = col;
     table.dataset.sortDir = asc ? "asc" : "desc";
     rows.forEach((r) => tbody.appendChild(r));
-  }
-
-  const COOKIE_CONSENT_KEY = "cotw_cookie_consent";
-  const cookieBanner = document.getElementById("cookie-consent");
-  if (cookieBanner) {
-    if (localStorage.getItem(COOKIE_CONSENT_KEY) === "accepted") {
-      cookieBanner.remove();
-    } else {
-      cookieBanner.querySelector("[data-cookie-accept]")?.addEventListener("click", () => {
-        localStorage.setItem(COOKIE_CONSENT_KEY, "accepted");
-        cookieBanner.classList.add("is-hidden");
-        setTimeout(() => cookieBanner.remove(), 350);
-      });
-    }
   }
 
   const postGrid = document.querySelector(".post-grid");
