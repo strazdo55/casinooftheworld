@@ -30,7 +30,6 @@ export function buildHead({
   published = "",
   author = "Casino of the World",
 }) {
-  const prefix = depth > 0 ? "../".repeat(depth) : "";
   const canonical = `${SITE_URL}${canonicalPath.startsWith("/") ? canonicalPath : `/${canonicalPath}`}`;
   const image = `${SITE_URL}/${ogImage.replace(/^\//, "")}`;
   const fullTitle = `${title} | Casino of the World`;
@@ -67,9 +66,9 @@ export function buildHead({
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="${prefix}css/main.css">
-  <link rel="icon" href="${prefix}assets/images/brand/favicon.svg" type="image/svg+xml">
-  <link rel="apple-touch-icon" href="${prefix}assets/images/brand/logo.svg">`;
+  <link rel="stylesheet" href="/css/main.css">
+  <link rel="icon" href="/assets/images/brand/favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="/assets/images/brand/logo.svg">`;
 }
 
 export function replaceHead(html, headInner) {

@@ -1,5 +1,7 @@
 /** Curated internal + external links for core site pages */
 
+import { htmlHrefToClean } from "./paths.mjs";
+
 export const AUTHORITY = {
   ncpg: {
     href: "https://www.ncpgambling.org/",
@@ -60,7 +62,7 @@ ${lis}
 
 export function relatedList(items) {
   const lis = items
-    .map((l) => `    <li><a href="${l.href}">${l.label}</a></li>`)
+    .map((l) => `    <li><a href="${htmlHrefToClean(l.href)}">${l.label}</a></li>`)
     .join("\n");
   return `<section class="article-related" aria-labelledby="related-heading">
   <h2 id="related-heading">Related guides on Casino of the World</h2>

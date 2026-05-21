@@ -6,20 +6,19 @@ const posts = JSON.parse(
   await fs.readFile(path.join(ROOT, "data/blog.json"), "utf8")
 );
 
-/** Remove legacy redirect stubs that shadow real articles under /blog/:slug */
+/** Remove legacy root-level redirect stubs (old /slug → blog layout) */
 export async function removeBlogRedirectStubs() {
   for (const post of posts) {
-    await fs.rm(path.join(ROOT, "blog", post.slug), { recursive: true, force: true });
     await fs.rm(path.join(ROOT, `${post.slug}.html`), { force: true });
   }
 }
 
 export async function writeServeConfig() {
   const rewrites = [
-    { source: "/blog/:slug", destination: "/blog/:slug.html" },
+    { source: "/blog/:slug", destination: "/blog/:slug/index.html" },
     ...posts.map((p) => ({
       source: `/${p.slug}`,
-      destination: `/blog/${p.slug}.html`,
+      destination: `/blog/${p.slug}/index.html`,
     })),
   ];
 

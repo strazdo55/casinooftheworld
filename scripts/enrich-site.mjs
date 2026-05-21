@@ -45,15 +45,14 @@ function patchArticleBody(html, slug) {
 }
 
 async function enrichBlogPost(post) {
-  const file = path.join(ROOT, "blog", `${post.slug}.html`);
+  const file = path.join(ROOT, "blog", post.slug, "index.html");
   let html = await fs.readFile(file, "utf8");
   const data = enrichment[post.slug] || {};
 
   const head = buildHead({
     title: post.title,
     description: post.excerpt,
-    canonicalPath: `/blog/${post.slug}`,
-    depth: 1,
+    canonicalPath: `/blog/${post.slug}/`,
     ogImage: post.image,
     type: "article",
     keywords: data.keywords || "",
@@ -66,11 +65,11 @@ async function enrichBlogPost(post) {
 
   html = html.replace(
     /<p class="article-meta">Author: <a href="#">/g,
-    `<p class="article-meta">Author: <a href="../about.html">`
+    `<p class="article-meta">Author: <a href="/about/">`
   );
   html = html.replace(
     /<p class="blog-meta"><a href="#">/g,
-    `<p class="blog-meta"><a href="../about.html">`
+    `<p class="blog-meta"><a href="/about/">`
   );
 
   await fs.writeFile(file, html);
@@ -150,7 +149,7 @@ async function enrichStaticPage(relativePath, meta) {
 
 async function enrichReviews() {
   for (const op of operators) {
-    const file = path.join(ROOT, "reviews", `${op.slug}.html`);
+    const file = path.join(ROOT, "reviews", op.slug, "index.html");
     let html = await fs.readFile(file, "utf8");
 
     const head = buildHead({
@@ -215,7 +214,7 @@ async function enrichIndex() {
   if (!html.includes("blog/best-new-online-slots-2026")) {
     html = html.replace(
       "<p class=\"lead\">Our editors test slot libraries",
-      '<p class="lead">Our editors test slot libraries, live dealer studios, and withdrawal speeds. Explore <a href="blog/best-new-online-slots-2026.html">new slots for 2026</a>, <a href="us-casinos.html">US casinos</a>, and <a href="reviews/index.html">operator reviews</a>.'
+      '<p class="lead">Our editors test slot libraries, live dealer studios, and withdrawal speeds. Explore <a href="/blog/best-new-online-slots-2026/">new slots for 2026</a>, <a href="/us-casinos/">US casinos</a>, and <a href="/reviews/">operator reviews</a>.'
     );
     await fs.writeFile(path.join(ROOT, "index.html"), html);
   }

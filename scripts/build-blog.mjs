@@ -95,9 +95,8 @@ ${sources.slice(0, 12000) || "No live sources; write careful evergreen analysis 
   const articlePage = pageShell({
     title: post.title,
     description: post.excerpt,
-    activePath: "blog/index.html",
-    canonicalPath: `/blog/${post.slug}`,
-    depth: 1,
+    activePath: "/blog/",
+    canonicalPath: `/blog/${post.slug}/`,
     ogImage: post.image,
     ogType: "article",
     keywords: data.keywords || "",
@@ -106,17 +105,17 @@ ${sources.slice(0, 12000) || "No live sources; write careful evergreen analysis 
     body: `
 <main class="container page-grid">
   <article>
-    <div class="breadcrumb"><a href="../index.html">Home</a> » <a href="index.html">Blog</a> » ${post.title}</div>
+    <div class="breadcrumb"><a href="/">Home</a> » <a href="/blog/">Blog</a> » ${post.title}</div>
     <span class="tag">${post.category}</span>
     <header class="article-header">
       <h1>${post.title}</h1>
-      <p class="article-meta">Author: <a href="../about.html">${post.author}</a> · Published: ${post.date} · Last updated: ${post.date}</p>
+      <p class="article-meta">Author: <a href="/about/">${post.author}</a> · Published: ${post.date} · Last updated: ${post.date}</p>
     </header>
-    <img class="article-featured" src="../${post.image}" alt="${post.title}" onerror="this.src='../assets/images/hero/home-hero.png'">
-    ${disclosure().replace(/href="affiliate/g, 'href="../affiliate')}
+    <img class="article-featured" src="/${post.image}" alt="${post.title}" onerror="this.src='/assets/images/hero/home-hero.png'">
+    ${disclosure()}
     <div class="article-body">${bodyContent}</div>
   </article>
-  ${blogSidebar(posts.filter((p) => p.slug !== post.slug).concat(posts).slice(0, 5), 1)}
+  ${blogSidebar(posts.filter((p) => p.slug !== post.slug).concat(posts).slice(0, 5))}
 </main>`,
   });
 
@@ -129,10 +128,10 @@ async function buildBlogIndex() {
   const cards = posts
     .map(
       (p) => `<article class="post-card" data-category="${p.category.toLowerCase().replace(/\s+/g, "-")}">
-  <a href="${p.slug}.html"><img src="../${p.image}" alt="" onerror="this.src='../assets/images/hero/home-hero.png'"></a>
+  <a href="/blog/${p.slug}/"><img src="/${p.image}" alt="" onerror="this.src='/assets/images/hero/home-hero.png'"></a>
   <div class="body">
     <span class="tag">${p.category}</span>
-    <h3><a href="${p.slug}.html">${p.title}</a></h3>
+    <h3><a href="/blog/${p.slug}/">${p.title}</a></h3>
     <p class="blog-meta">${p.author} · ${p.dateLabel}</p>
     <p>${p.excerpt}</p>
   </div>
@@ -159,21 +158,20 @@ async function buildBlogIndex() {
   const html = pageShell({
     title: blogMeta.title,
     description: blogMeta.description,
-    activePath: "blog/index.html",
+    activePath: "/blog/",
     canonicalPath: "/blog/",
     keywords: blogMeta.keywords,
     ogImage: featured.image,
-    depth: 1,
     body: `
 <main class="container">
-  <div class="breadcrumb"><a href="../index.html">Home</a> » Blog</div>
+  <div class="breadcrumb"><a href="/">Home</a> » Blog</div>
   <h1 class="section-title">Casino of the World Blog</h1>
   <p class="lead">Online casino news, slot reviews, live dealer guides, and bankroll tips—updated by our editorial team.</p>
   <section class="blog-hero-featured">
-    <a href="${featured.slug}.html"><img src="../${featured.image}" alt="${featured.title}" onerror="this.src='../assets/images/hero/home-hero.png'"></a>
+    <a href="/blog/${featured.slug}/"><img src="/${featured.image}" alt="${featured.title}" onerror="this.src='/assets/images/hero/home-hero.png'"></a>
     <div>
       <span class="tag">${featured.category}</span>
-      <h2 style="font-size:1.75rem;margin:0.5rem 0"><a href="${featured.slug}.html">${featured.title}</a></h2>
+      <h2 style="font-size:1.75rem;margin:0.5rem 0"><a href="/blog/${featured.slug}/">${featured.title}</a></h2>
       <p>${featured.excerpt}</p>
       <p class="blog-meta"><a href="#">${featured.author}</a> · ${featured.dateLabel}</p>
     </div>

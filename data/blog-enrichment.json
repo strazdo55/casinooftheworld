@@ -1,99 +1,246 @@
 {
   "best-new-online-slots-2026": {
     "keywords": "new online slots 2026, best slot games, high volatility slots, mobile slots, casino free spins",
-    "context": "<p class=\"article-context\">New to online slots? Start with our <a href=\"../games.html\">casino games hub</a>, compare <a href=\"../online-casinos.html\">top-rated casinos</a>, and read how <a href=\"live-dealer-vs-rng-slots.html\">RNG slots differ from live dealer games</a>.</p>",
+    "context": "<p class=\"article-context\">New to online slots? Start with our <a href=\"/games/\">casino games hub</a>, compare <a href=\"/online-casinos/\">top-rated casinos</a>, and read how <a href=\"/live-dealer-vs-rng-slots/\">RNG slots differ from live dealer games</a>.</p>",
     "related": [
-      { "href": "../games.html", "label": "Casino games hub — slots, live dealer & table games" },
-      { "href": "../bonuses.html", "label": "Casino bonuses & free spins offers" },
-      { "href": "live-dealer-vs-rng-slots.html", "label": "Live dealer vs RNG slots comparison" },
-      { "href": "../online-casinos.html", "label": "Best online casinos for slots (2026)" },
-      { "href": "../reviews/betmgm.html", "label": "BetMGM review — large US slot library" }
+      {
+        "href": "/games/",
+        "label": "Casino games hub — slots, live dealer & table games"
+      },
+      {
+        "href": "/bonuses/",
+        "label": "Casino bonuses & free spins offers"
+      },
+      {
+        "href": "/live-dealer-vs-rng-slots/",
+        "label": "Live dealer vs RNG slots comparison"
+      },
+      {
+        "href": "/online-casinos/",
+        "label": "Best online casinos for slots (2026)"
+      },
+      {
+        "href": "/reviews/betmgm/",
+        "label": "BetMGM review — large US slot library"
+      }
     ],
     "external": [
-      { "href": "https://www.ecogra.org/", "label": "eCOGRA — independent testing & player protection" },
-      { "href": "https://www.americangaming.org/research/state-gaming-map/", "label": "American Gaming Association — US gaming market data" },
-      { "href": "https://www.ncpgambling.org/", "label": "National Council on Problem Gambling (NCPG)" }
+      {
+        "href": "https://www.ecogra.org/",
+        "label": "eCOGRA — independent testing & player protection"
+      },
+      {
+        "href": "https://www.americangaming.org/research/state-gaming-map/",
+        "label": "American Gaming Association — US gaming market data"
+      },
+      {
+        "href": "https://www.ncpgambling.org/",
+        "label": "National Council on Problem Gambling (NCPG)"
+      }
     ]
   },
   "us-igaming-expansion-2026": {
     "keywords": "US online casino legalization 2026, iGaming states, regulated online casinos, state gaming laws",
-    "context": "<p class=\"article-context\">Playing in the US? See our <a href=\"../us-casinos.html\">US online casinos guide</a>, <a href=\"../casinos-by-country.html\">casinos by country</a>, and <a href=\"../reviews/index.html\">licensed operator reviews</a>.</p>",
+    "context": "<p class=\"article-context\">Playing in the US? See our <a href=\"/us-casinos/\">US online casinos guide</a>, <a href=\"/casinos-by-country/\">casinos by country</a>, and <a href=\"/reviews/\">licensed operator reviews</a>.</p>",
     "related": [
-      { "href": "../us-casinos.html", "label": "US online casinos — state availability & brands" },
-      { "href": "../online-casinos.html", "label": "Best online casinos compared" },
-      { "href": "fastest-payout-online-casinos.html", "label": "Fastest payout online casinos" },
-      { "href": "../reviews/draftkings.html", "label": "DraftKings Casino review" },
-      { "href": "../reviews/fanduel.html", "label": "FanDuel Casino review" }
+      {
+        "href": "/us-casinos/",
+        "label": "US online casinos — state availability & brands"
+      },
+      {
+        "href": "/online-casinos/",
+        "label": "Best online casinos compared"
+      },
+      {
+        "href": "/fastest-payout-online-casinos/",
+        "label": "Fastest payout online casinos"
+      },
+      {
+        "href": "/reviews/draftkings/",
+        "label": "DraftKings Casino review"
+      },
+      {
+        "href": "/reviews/fanduel/",
+        "label": "FanDuel Casino review"
+      }
     ],
     "external": [
-      { "href": "https://www.americangaming.org/", "label": "American Gaming Association" },
-      { "href": "https://www.nj.gov/oag/ge/", "label": "New Jersey Division of Gaming Enforcement" },
-      { "href": "https://www.michigan.gov/mgcb", "label": "Michigan Gaming Control Board" },
-      { "href": "https://www.ncpgambling.org/", "label": "NCPG — responsible gambling resources" }
+      {
+        "href": "https://www.americangaming.org/",
+        "label": "American Gaming Association"
+      },
+      {
+        "href": "https://www.nj.gov/oag/ge/",
+        "label": "New Jersey Division of Gaming Enforcement"
+      },
+      {
+        "href": "https://www.michigan.gov/mgcb",
+        "label": "Michigan Gaming Control Board"
+      },
+      {
+        "href": "https://www.ncpgambling.org/",
+        "label": "NCPG — responsible gambling resources"
+      }
     ]
   },
   "twenty-dollar-casino-method": {
     "keywords": "20 dollar casino method, bankroll management, slot strategy, low budget casino tips",
-    "context": "<p class=\"article-context\">Manage your budget responsibly and pair this approach with our <a href=\"../bonuses.html\">casino bonus guide</a> and <a href=\"../banking.html\">banking &amp; withdrawal tips</a>.</p>",
+    "context": "<p class=\"article-context\">Manage your budget responsibly and pair this approach with our <a href=\"/bonuses/\">casino bonus guide</a> and <a href=\"/banking/\">banking &amp; withdrawal tips</a>.</p>",
     "related": [
-      { "href": "../bonuses.html", "label": "Casino bonuses — wagering rules explained" },
-      { "href": "../banking.html", "label": "Banking methods & payout speeds" },
-      { "href": "best-new-online-slots-2026.html", "label": "Best new online slots to try in 2026" },
-      { "href": "live-dealer-vs-rng-slots.html", "label": "RNG vs live dealer — pacing & house edge" },
-      { "href": "../games.html", "label": "Casino games overview" }
+      {
+        "href": "/bonuses/",
+        "label": "Casino bonuses — wagering rules explained"
+      },
+      {
+        "href": "/banking/",
+        "label": "Banking methods & payout speeds"
+      },
+      {
+        "href": "/best-new-online-slots-2026/",
+        "label": "Best new online slots to try in 2026"
+      },
+      {
+        "href": "/live-dealer-vs-rng-slots/",
+        "label": "RNG vs live dealer — pacing & house edge"
+      },
+      {
+        "href": "/games/",
+        "label": "Casino games overview"
+      }
     ],
     "external": [
-      { "href": "https://www.ncpgambling.org/help-treatment/", "label": "NCPG — help & treatment resources" },
-      { "href": "https://www.begambleaware.org/", "label": "BeGambleAware — safer gambling tools" },
-      { "href": "https://www.responsiblegambling.org/", "label": "Responsible Gambling Council" }
+      {
+        "href": "https://www.ncpgambling.org/help-treatment/",
+        "label": "NCPG — help & treatment resources"
+      },
+      {
+        "href": "https://www.begambleaware.org/",
+        "label": "BeGambleAware — safer gambling tools"
+      },
+      {
+        "href": "https://www.responsiblegambling.org/",
+        "label": "Responsible Gambling Council"
+      }
     ]
   },
   "fastest-payout-online-casinos": {
     "keywords": "fastest payout online casino, quick withdrawals, crypto casino payouts, e-wallet cashout",
-    "context": "<p class=\"article-context\">Compare withdrawal methods in our <a href=\"../banking.html\">casino banking guide</a> and full <a href=\"../online-casinos.html\">operator rankings</a>.</p>",
+    "context": "<p class=\"article-context\">Compare withdrawal methods in our <a href=\"/banking/\">casino banking guide</a> and full <a href=\"/online-casinos/\">operator rankings</a>.</p>",
     "related": [
-      { "href": "../banking.html", "label": "Casino banking & payout methods" },
-      { "href": "../online-casinos.html", "label": "Best online casinos (2026)" },
-      { "href": "../reviews/bovada.html", "label": "Bovada review — crypto-friendly cashouts" },
-      { "href": "../reviews/betus.html", "label": "BetUS review — payout timelines" },
-      { "href": "us-igaming-expansion-2026.html", "label": "US iGaming expansion update" }
+      {
+        "href": "/banking/",
+        "label": "Casino banking & payout methods"
+      },
+      {
+        "href": "/online-casinos/",
+        "label": "Best online casinos (2026)"
+      },
+      {
+        "href": "/reviews/bovada/",
+        "label": "Bovada review — crypto-friendly cashouts"
+      },
+      {
+        "href": "/reviews/betus/",
+        "label": "BetUS review — payout timelines"
+      },
+      {
+        "href": "/us-igaming-expansion-2026/",
+        "label": "US iGaming expansion update"
+      }
     ],
     "external": [
-      { "href": "https://www.consumerfinance.gov/consumer-tools/", "label": "CFPB — consumer financial tools" },
-      { "href": "https://www.fatf-gafi.org/", "label": "FATF — anti-money laundering standards" },
-      { "href": "https://www.ncpgambling.org/", "label": "NCPG" }
+      {
+        "href": "https://www.consumerfinance.gov/consumer-tools/",
+        "label": "CFPB — consumer financial tools"
+      },
+      {
+        "href": "https://www.fatf-gafi.org/",
+        "label": "FATF — anti-money laundering standards"
+      },
+      {
+        "href": "https://www.ncpgambling.org/",
+        "label": "NCPG"
+      }
     ]
   },
   "best-live-dealer-casinos-2026": {
     "keywords": "best live dealer casino 2026, live blackjack online, Evolution Gaming, live roulette",
-    "context": "<p class=\"article-context\">Explore <a href=\"../games.html\">live dealer games</a>, compare <a href=\"../online-casinos.html\">top casinos</a>, and see <a href=\"live-dealer-vs-rng-slots.html\">how live tables compare to RNG slots</a>.</p>",
+    "context": "<p class=\"article-context\">Explore <a href=\"/games/\">live dealer games</a>, compare <a href=\"/online-casinos/\">top casinos</a>, and see <a href=\"/live-dealer-vs-rng-slots/\">how live tables compare to RNG slots</a>.</p>",
     "related": [
-      { "href": "../games.html", "label": "Casino games — live dealer section" },
-      { "href": "live-dealer-vs-rng-slots.html", "label": "Live dealer vs RNG slots" },
-      { "href": "../reviews/leovegas.html", "label": "LeoVegas review — mobile live casino" },
-      { "href": "../reviews/888casino.html", "label": "888casino review — live studio tables" },
-      { "href": "../bonuses.html", "label": "Live casino welcome bonuses" }
+      {
+        "href": "/games/",
+        "label": "Casino games — live dealer section"
+      },
+      {
+        "href": "/live-dealer-vs-rng-slots/",
+        "label": "Live dealer vs RNG slots"
+      },
+      {
+        "href": "/reviews/leovegas/",
+        "label": "LeoVegas review — mobile live casino"
+      },
+      {
+        "href": "/reviews/888casino/",
+        "label": "888casino review — live studio tables"
+      },
+      {
+        "href": "/bonuses/",
+        "label": "Live casino welcome bonuses"
+      }
     ],
     "external": [
-      { "href": "https://www.evolution.com/", "label": "Evolution — live casino studio provider" },
-      { "href": "https://www.gamblingcommission.gov.uk/", "label": "UK Gambling Commission (licensing reference)" },
-      { "href": "https://www.ecogra.org/", "label": "eCOGRA" }
+      {
+        "href": "https://www.evolution.com/",
+        "label": "Evolution — live casino studio provider"
+      },
+      {
+        "href": "https://www.gamblingcommission.gov.uk/",
+        "label": "UK Gambling Commission (licensing reference)"
+      },
+      {
+        "href": "https://www.ecogra.org/",
+        "label": "eCOGRA"
+      }
     ]
   },
   "live-dealer-vs-rng-slots": {
     "keywords": "live dealer vs slots, RNG casino games, house edge, online blackjack vs slots",
-    "context": "<p class=\"article-context\">Ready to play? Browse <a href=\"best-live-dealer-casinos-2026.html\">best live dealer casinos</a>, <a href=\"best-new-online-slots-2026.html\">new slots for 2026</a>, and our <a href=\"../games.html\">games hub</a>.</p>",
+    "context": "<p class=\"article-context\">Ready to play? Browse <a href=\"/best-live-dealer-casinos-2026/\">best live dealer casinos</a>, <a href=\"/best-new-online-slots-2026/\">new slots for 2026</a>, and our <a href=\"/games/\">games hub</a>.</p>",
     "related": [
-      { "href": "best-live-dealer-casinos-2026.html", "label": "Best live dealer online casinos (2026)" },
-      { "href": "best-new-online-slots-2026.html", "label": "Best new online slots (2026)" },
-      { "href": "../games.html", "label": "Casino games hub" },
-      { "href": "../online-casinos.html", "label": "Top online casinos compared" },
-      { "href": "twenty-dollar-casino-method.html", "label": "$20 bankroll method explained" }
+      {
+        "href": "/best-live-dealer-casinos-2026/",
+        "label": "Best live dealer online casinos (2026)"
+      },
+      {
+        "href": "/best-new-online-slots-2026/",
+        "label": "Best new online slots (2026)"
+      },
+      {
+        "href": "/games/",
+        "label": "Casino games hub"
+      },
+      {
+        "href": "/online-casinos/",
+        "label": "Top online casinos compared"
+      },
+      {
+        "href": "/twenty-dollar-casino-method/",
+        "label": "$20 bankroll method explained"
+      }
     ],
     "external": [
-      { "href": "https://www.unlv.edu/igi", "label": "UNLV International Gaming Institute — research" },
-      { "href": "https://www.ecogra.org/srs/house-edge", "label": "eCOGRA — game fairness & RTP resources" },
-      { "href": "https://www.ncpgambling.org/", "label": "NCPG" }
+      {
+        "href": "https://www.unlv.edu/igi",
+        "label": "UNLV International Gaming Institute — research"
+      },
+      {
+        "href": "https://www.ecogra.org/srs/house-edge",
+        "label": "eCOGRA — game fairness & RTP resources"
+      },
+      {
+        "href": "https://www.ncpgambling.org/",
+        "label": "NCPG"
+      }
     ]
   }
 }

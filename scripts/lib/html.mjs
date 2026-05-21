@@ -3,28 +3,36 @@ import path from "path";
 import { ROOT } from "./env.mjs";
 import { buildHead } from "./meta.mjs";
 import { LOGO_SVG } from "./brand.mjs";
+import { htmlFileToDirIndex } from "./paths.mjs";
 
 const NAV = [
-  { href: "online-casinos.html", label: "Online Casinos" },
-  { href: "bonuses.html", label: "Casino Bonuses" },
-  { href: "games.html", label: "Casino Games" },
-  { href: "banking.html", label: "Banking" },
-  { href: "reviews/index.html", label: "Reviews" },
-  { href: "us-casinos.html", label: "US Casinos" },
-  { href: "casinos-by-country.html", label: "By Country" },
-  { href: "blog/index.html", label: "Casino Blog" },
-  { href: "sports-betting.html", label: "Sports Betting" },
+  { href: "/online-casinos/", label: "Online Casinos", id: "online-casinos" },
+  { href: "/bonuses/", label: "Casino Bonuses", id: "bonuses" },
+  { href: "/games/", label: "Casino Games", id: "games" },
+  { href: "/banking/", label: "Banking", id: "banking" },
+  { href: "/reviews/", label: "Reviews", id: "reviews" },
+  { href: "/us-casinos/", label: "US Casinos", id: "us-casinos" },
+  { href: "/casinos-by-country/", label: "By Country", id: "casinos-by-country" },
+  { href: "/blog/", label: "Casino Blog", id: "blog" },
+  { href: "/sports-betting/", label: "Sports Betting", id: "sports-betting" },
 ];
+
+function navActive(activePath, item) {
+  if (!activePath) return "";
+  const a = activePath.replace(/^\//, "").replace(/\/$/, "");
+  const b = item.id || item.href.replace(/^\//, "").replace(/\/$/, "");
+  return a === b || a.startsWith(`${b}/`) ? "active" : "";
+}
 
 export function header(activePath = "") {
   const navLinks = NAV.map(
     (n) =>
-      `<a href="${n.href}" class="${activePath === n.href ? "active" : ""}">${n.label}</a>`
+      `<a href="${n.href}" class="${navActive(activePath, n)}">${n.label}</a>`
   ).join("\n          ");
 
   return `<header class="site-header">
   <div class="container header-inner">
-    <a href="index.html" class="logo">
+    <a href="/" class="logo">
       ${LOGO_SVG}
       <span class="logo-text">Casino of the World</span>
     </a>
@@ -32,7 +40,7 @@ export function header(activePath = "") {
     <nav class="nav-main" id="nav-main">
       ${navLinks}
     </nav>
-    <a href="blog/index.html" class="header-cta">Casino Blog</a>
+    <a href="/blog/" class="header-cta">Casino Blog</a>
     <button class="search-btn" type="button" aria-label="Search">🔍</button>
   </div>
 </header>`;
@@ -48,32 +56,32 @@ export function footer() {
       <div>
         <h4>Casinos</h4>
         <ul>
-          <li><a href="online-casinos.html">Online Casinos</a></li>
-          <li><a href="us-casinos.html">US Casinos</a></li>
-          <li><a href="bonuses.html">Casino Bonuses</a></li>
+          <li><a href="/online-casinos/">Online Casinos</a></li>
+          <li><a href="/us-casinos/">US Casinos</a></li>
+          <li><a href="/bonuses/">Casino Bonuses</a></li>
         </ul>
       </div>
       <div>
         <h4>Sports</h4>
         <ul>
-          <li><a href="sports-betting.html">Sports Betting</a></li>
-          <li><a href="games.html">Casino Games</a></li>
+          <li><a href="/sports-betting/">Sports Betting</a></li>
+          <li><a href="/games/">Casino Games</a></li>
         </ul>
       </div>
       <div>
         <h4>Resources</h4>
         <ul>
-          <li><a href="blog/index.html">Blog</a></li>
-          <li><a href="contact.html">Contact</a></li>
-          <li><a href="about.html">About Us</a></li>
+          <li><a href="/blog/">Blog</a></li>
+          <li><a href="/contact/">Contact</a></li>
+          <li><a href="/about/">About Us</a></li>
         </ul>
       </div>
       <div>
         <h4>Legal</h4>
         <ul>
-          <li><a href="affiliate-disclosure.html">Affiliate Disclosure</a></li>
-          <li><a href="privacy.html">Privacy Policy</a></li>
-          <li><a href="terms.html">Terms of Use</a></li>
+          <li><a href="/affiliate-disclosure/">Affiliate Disclosure</a></li>
+          <li><a href="/privacy/">Privacy Policy</a></li>
+          <li><a href="/terms/">Terms of Use</a></li>
         </ul>
       </div>
     </div>
@@ -89,7 +97,7 @@ export function modal() {
   <div class="modal" role="dialog" aria-labelledby="modal-title">
     <button class="modal-close" type="button" data-close-modal aria-label="Close">×</button>
     <div class="modal-art">
-      <img src="assets/images/hero/modal-megaphone.png" alt="" width="200" onerror="this.parentElement.style.display='none'">
+      <img src="/assets/images/hero/modal-megaphone.png" alt="" width="200" onerror="this.parentElement.style.display='none'">
     </div>
     <div>
       <h2 id="modal-title">Claim 250 Free Spins Today!</h2>
@@ -107,7 +115,7 @@ export function modal() {
         </div>
         <label class="modal-check">
           <input type="checkbox" required>
-          <span>I read and agree to <a href="terms.html">Terms &amp; Conditions</a>.</span>
+          <span>I read and agree to <a href="/terms/">Terms &amp; Conditions</a>.</span>
         </label>
         <button type="submit" class="btn btn-lime" style="width:100%">Unlock My Free Spins</button>
       </form>
@@ -130,27 +138,11 @@ export function pageShell({
   published = "",
   author = "Casino of the World",
 }) {
-  const prefix = depth > 0 ? "../".repeat(depth) : "";
-  const adjust = (html) =>
-    html
-      .replace(/href="(?!https|#|mailto)([^"]+)"/g, (_, p) => {
-        if (p.startsWith("assets/")) return `href="${prefix}${p}"`;
-        if (!p.includes("/") || p.endsWith(".html"))
-          return `href="${prefix}${p}"`;
-        return `href="${prefix}${p}"`;
-      })
-      .replace(/src="assets\//g, `src="${prefix}assets/`);
-
-  const h = adjust(header(activePath ? prefix + activePath : ""));
-  const f = adjust(footer());
-  const m = adjust(modal());
-
-  const pathKey = canonicalPath || (depth ? activePath : activePath || "index.html");
+  const pathKey = canonicalPath || activePath || "/";
   const head = buildHead({
     title,
     description,
     canonicalPath: pathKey.startsWith("/") ? pathKey : `/${pathKey.replace(/^\//, "")}`,
-    depth,
     ogImage,
     type: ogType,
     keywords,
@@ -164,33 +156,33 @@ export function pageShell({
 ${head}
 </head>
 <body>
-${h}
+${header(activePath)}
 ${body}
-${f}
-${m}
-<script src="${prefix}js/main.js"></script>
+${footer()}
+${modal()}
+<script src="/js/main.js"></script>
 </body>
 </html>`;
 }
 
 export async function writePage(relativePath, html) {
-  const full = path.join(ROOT, relativePath);
+  const target = htmlFileToDirIndex(relativePath);
+  const full = path.join(ROOT, target);
   await fs.mkdir(path.dirname(full), { recursive: true });
   await fs.writeFile(full, html);
 }
 
 export function disclosure() {
   return `<aside class="disclosure">
-  <strong>Affiliate Disclosure:</strong> Some links on Casino of the World are affiliate links. If you sign up or deposit through them, we may earn a commission at no extra cost to you. We only recommend operators we have reviewed. <a href="affiliate-disclosure.html">Learn more</a>.
+  <strong>Affiliate Disclosure:</strong> Some links on Casino of the World are affiliate links. If you sign up or deposit through them, we may earn a commission at no extra cost to you. We only recommend operators we have reviewed. <a href="/affiliate-disclosure/">Learn more</a>.
 </aside>`;
 }
 
-export function compareTable(operators, depth = 0) {
-  const prefix = depth > 0 ? "../".repeat(depth) : "";
+export function compareTable(operators) {
   const rows = operators
     .map(
       (op) => `<tr>
-  <td><div class="operator-cell"><img src="${prefix}${op.logo}" alt="${op.name}" width="48" height="32"><span>${op.name}</span></div></td>
+  <td><div class="operator-cell"><img src="/${op.logo.replace(/^\//, "")}" alt="${op.name}" width="48" height="32"><span>${op.name}</span></div></td>
   <td>${op.bestFor}</td>
   <td>${op.welcomeBonus}</td>
   <td>${op.highlights}</td>
@@ -217,16 +209,15 @@ export function compareTable(operators, depth = 0) {
 </div>`;
 }
 
-export function blogSidebar(posts, depth = 0) {
-  const prefix = depth > 0 ? "../".repeat(depth) : "";
+export function blogSidebar(posts) {
   const items = posts
     .slice(0, 5)
     .map(
       (p) => `<article class="blog-mini">
-  <img src="${prefix}${p.image}" alt="">
+  <img src="/${p.image.replace(/^\//, "")}" alt="">
   <div>
-    <h3><a href="${prefix}blog/${p.slug}.html">${p.title}</a></h3>
-    <p class="blog-meta"><a href="#">${p.author}</a> · ${p.dateLabel}</p>
+    <h3><a href="/blog/${p.slug}/">${p.title}</a></h3>
+    <p class="blog-meta"><a href="/about/">${p.author}</a> · ${p.dateLabel}</p>
   </div>
 </article>`
     )
