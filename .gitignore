@@ -1,4 +1,6 @@
 .env
+.env.example
+.env.*
 .firecrawl/
 node_modules/
 .DS_Store
