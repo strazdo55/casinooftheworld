@@ -30,11 +30,12 @@ npm run dev            # http://localhost:8080
 
 ## GitHub Pages
 
-**Live site:** [https://strazdo55.github.io/casinooftheworld/](https://strazdo55.github.io/casinooftheworld/)
+| URL | Status |
+|-----|--------|
+| [strazdo55.github.io/casinooftheworld](https://strazdo55.github.io/casinooftheworld/) | Live |
+| [casinooftheworld.com](https://casinooftheworld.com/) | Needs Namecheap DNS → see [docs/DNS-SETUP.md](docs/DNS-SETUP.md) |
 
-Deploys automatically on push to `main` via GitHub Actions (`.github/workflows/deploy-pages.yml`).
-
-For a custom domain (`casinooftheworld.com`), point DNS A records to GitHub Pages and add a `CNAME` file with your domain in the repo root.
+Deploys on push to `main` via GitHub Actions. Custom domain is **verified on GitHub**; point DNS A records to GitHub (not Namecheap parking/forward).
 
 ## Responsible gambling
 
