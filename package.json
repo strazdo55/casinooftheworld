@@ -16,7 +16,8 @@
     "fix:blog-links": "node scripts/fix-blog-links.mjs",
     "enrich": "node scripts/enrich-site.mjs",
     "patch:logo": "node scripts/patch-logo.mjs",
-    "build:images": "node scripts/generate-images.mjs"
+    "build:images": "node scripts/generate-images.mjs",
+    "build:images:blog": "node scripts/generate-images.mjs --blog-only --force"
   },
   "dependencies": {
     "@google/generative-ai": "^0.24.1",
